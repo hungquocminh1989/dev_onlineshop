@@ -15,9 +15,9 @@ function acwork_db($target)
 	 * 規定値は''です
 	*/
 	$param[''] = array(
-		'dsn' => 'pgsql:dbname=simple_framework;host=localhost',
-		'username' => 'postgres',
-		'password' => '123456',
+		'dsn' => 'mysql:dbname=u952687329_dev;host=mysql.hostinger.vn',
+		'username' => 'u952687329_dev',
+		'password' => 'pass5510453',
 		'driver_options' => array(PDO::ATTR_PERSISTENT => false)
 		);
 		
