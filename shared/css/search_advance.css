@@ -1,0 +1,89 @@
+@charset "utf-8";
+/* Add Start NBKD-66 hungtn VNIT 2014/12/15 */
+.advance_search a#advance_search_click{
+	color: blue !important;   /*Edit NBKD-66 by Phong VNIT 20141219*/
+	text-decoration: underline;
+}
+#search_advance_form {
+	text-align: left;
+	/*overflow-y: scroll;*/ 
+}
+#search_advance_form form{
+	background-color: #eee;
+	width: 700px;
+	border: 1px solid #999;
+	padding: 10px;
+	padding-left: 20px;
+	float: left;
+}
+#search_advance_form form .formhead  {
+	margin-bottom: 40px;
+}
+#search_advance_form form .formhead h3{
+	float: left;
+	font-weight: bold;
+}
+#search_advance_form form .formhead .btn_controll{
+	float: right;
+}
+#search_advance_form form .formhead .btn_controll input{
+	line-height: 20px;
+    width: 6em;
+	padding: 4px 5px;
+}
+
+#search_advance_form form .formcontrol{
+	float: left;
+	width: 100%;
+	margin-bottom: 15px;
+}
+/*Add start NBKD-66 by Phong VNIT 20141223*/
+.lang{	
+	width: 100px !important;  /*Edit start NBKD-1015 by Phong VNIT 20150127*/
+}
+.red{
+	color:#ff0000 !important;	
+}
+/*Add start NBKD-66 by Phong VNIT 20141223*/
+#search_advance_form form .formcontrol .box {
+	float: left;
+	width: 15%;
+	margin-left: 20px;
+}
+#search_advance_form form .formcontrol .box1 {
+	width: 35%;
+}
+#search_advance_form form .formcontrol .box2 {
+	width: 20%;
+}
+
+/*Add Start - NBKD-928-SearchAdvance - MinhVNIT - 2015/05/08*/
+#search_advance_form form .formcontrol .box3 {
+	width: 15%;
+}
+/*Add End - NBKD-928-SearchAdvance - MinhVNIT - 2015/05/08*/
+
+#search_advance_form form .formcontrol .box input {
+	width: 100%;
+	border: 1px solid #999;
+	padding: 4px;
+}
+#search_advance_form form .formcontrol .box select {
+	width: 100%;
+	border: 1px solid #999;
+	padding: 2px;
+}
+.list_checkbox {
+	padding-left: 20px;
+}
+.list_checkbox label {
+	margin-right: 15px;
+	white-space: nowrap;
+}
+#lang_advanced{width: 100px !important} /* Edit NBKD-1015 hungtn  VNIT 2015/01/27  */
+/* Add Start NBKD-1015 hungtn  VNIT 2015/01/27  */
+#search_advance_form form .formcontrol #m_lang_id {
+	width: 100px;
+}
+/* Add End NBKD-1015 hungtn  VNIT 2015/01/27  */
+/* Add End NBKD-66 hungtn VNIT 2014/12/15 */

@@ -1,0 +1,24 @@
+@charset "utf-8";
+// Add - miyazaki U_SYS - 2014/12/16
+/*======================　予約画面用　======================*/
+
+.baitai_wrap table tr {}
+table#detail tr:nth-child(even) {
+	background-color: #ffffff !important;
+}
+table#detail tr:nth-child(odd) {
+	background-color: #ffecf2 !important;
+}
+
+/*Add start - miyazaki U_SYS - 2015/01/05*/
+table.comment_list tr:nth-child(even),
+table.history_list tr:nth-child(even),
+table.approval_list tr:nth-child(even) {
+	background-color: #ffffff !important;
+}
+table.comment_list tr:nth-child(odd),
+table.history_list tr:nth-child(odd),
+table.approval_list tr:nth-child(odd) {
+	background-color: #ffecf2 !important;
+}
+/*Add end - miyazaki U_SYS - 2015/01/05*/

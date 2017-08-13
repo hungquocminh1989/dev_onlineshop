@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*======================　履歴一覧　======================*/
+.approval_list {
+	width: 98%;
+	min-width: 700px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.approval_list tr td {
+	border: 1px solid #CCCCCC;
+}
+.approval_list tr th {
+	border: 1px solid #888888;
+	background: #EEEEEE;
+        text-align: center;
+}
+.approval_list tr td,
+.approval_list tr th{
+	vertical-align: middle;
+	padding: 2px;
+}
+.approval_list tr td b{
+	color: #BF0A01;
+}
+.approval_list tr td a{
+	text-decoration: underline;
+}

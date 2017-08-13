@@ -1,0 +1,28 @@
+@charset "utf-8";
+/*======================　コメント一覧　======================*/
+.comment_list {
+	width: 98%;
+	min-width: 700px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+.comment_list tr td {
+	border: 1px solid #CCCCCC;
+}
+.comment_list tr th {
+	border: 1px solid #888888;
+	background: #EEEEEE;
+        text-align: center;
+}
+.comment_list tr td,
+.comment_list tr th{
+	vertical-align: top;
+	padding: 5px;
+}
+.comment_list tr td b{
+	color: #BF0A01;
+}
+.comment_list tr td a{
+	text-decoration: underline;
+}

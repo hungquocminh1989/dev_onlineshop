@@ -1,0 +1,61 @@
+@charset "utf-8";
+.media_tree_wrap .categories li a{
+	padding-left: 3px;
+}
+/*.media_tree_wrap .categories{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}*/
+.media_tree_wrap .categories,
+.media_tree_wrap .categories ul{
+	padding-left: 14px;
+	font-size: 12px;
+}
+.media_tree_wrap .categories li {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	line-height: 1.4;
+}
+.media_tree_wrap .categories.open,
+.media_tree_wrap .categories ul.open{
+	background: url(../img/icon_close.gif) no-repeat 0px 1px;
+}
+.media_tree_wrap .categories.close,
+.media_tree_wrap .categories ul.close{
+	background: url(../img/icon_open.gif) no-repeat 0px 1px;
+}
+.media_tree_wrap .categories.close li ul,
+.media_tree_wrap .categories ul.close li{
+	display: none;
+}
+.media_tree_wrap .categories ul.close li:first-child{
+	display: block;
+}
+.media_tree_wrap .categories .series li a{
+	display: inline;
+}
+.media_tree_wrap .categories .series li.selected a{
+	background: #FFDEDD;
+	padding-left: 2px;
+	padding-right: 2px;
+	border: 1px solid #BF0A01;
+	margin-left: 3px;
+}
+.media_tree_wrap {
+	overflow-y: scroll;
+	padding-top: 10px;
+	padding-right: 5px;
+	padding-left: 5px;
+        border-bottom: 1px solid #CCCCCC;
+        border-left: 1px solid #CCCCCC;
+        border-right: 1px solid #CCCCCC;
+}
+.media_tree_wrap a .icon_home {
+	background: #BF0A01;
+}
+.media_tree_wrap a.top {
+	line-height: 17px;
+}
+.media_tree_wrap div {
+	margin-bottom: 3px; /* ツリーの各項目の上下のスペースを均等に */
+}

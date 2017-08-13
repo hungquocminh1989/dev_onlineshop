@@ -1,0 +1,978 @@
+@charset "utf-8";
+/*======================????????======================*/
+.series_wrap {
+	background: #EEEEEE;
+	padding-right: 10px;
+	padding-left: 10px;
+	border: 1px solid #888888;
+	padding-bottom: 10px;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .series_wrap {
+	width: 98%;
+	overflow: visible;
+}
+.resizetable #series_comment_dialog .series_wrap{
+	width: 97%;
+}
+.resizetable #series_tokki_dialog .series_wrap{
+	width: 97%;
+}
+.column_3 .series_wrap {
+	width: 580px;
+	float: left;
+	margin-right: 3px;
+}
+.series_wrap .title_wrap {
+	background: #EEEEEE;
+	position: relative;
+	min-height: 22px;
+	padding-top: 6px;
+	padding-right: 260px;
+	padding-bottom: 7px;
+}
+.series_wrap .title_wrap h2 {
+	font-size: 15px;
+	float: left;
+	color: #000000;
+	margin-top: 2px;
+	font-weight: bold;
+}
+.series_wrap .title_wrap h2 img{
+	margin-right: 3px;
+}
+.series_wrap .title_wrap .language {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 2px 5px;
+
+}
+.series_wrap .title_wrap .language li {
+	float: left;
+	border: 1px solid #888888;
+	background: #EEEEEE;
+	margin-right: -1px;
+	padding: 2px 3px;
+}
+
+.series_wrap .title_wrap .language li select,
+.series_wrap .title_wrap .language li button{
+	height: 25px;
+}
+.series_wrap .info_wrap,
+.series_wrap .free_wrap {
+	margin-right: auto;
+	margin-left: auto;
+	/*border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;*/
+	padding-bottom: 10px;
+	border: 1px solid #888888;
+	position: relative;
+	background: #FFF;
+	margin-bottom: 5px;
+}
+.series_wrap .free_wrap {
+	margin-top: 15px;
+	border-bottom: none;
+}
+.series_wrap .free_wrap {
+	background: #F07170;
+}
+.series_wrap .info_wrap .hl_wrap,
+.series_wrap .free_item .hl_wrap{
+	background: #CCCCCC;
+	/*border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;*/
+	position: relative;
+	border-bottom: 1px solid #888888;
+	padding-top: 30px;
+}
+.series_wrap .info_wrap .hl_wrap_blue,
+.series_wrap .free_item .hl_wrap_blue{
+	background: #7092be !important;
+}
+.series_wrap .info_wrap .hl_wrap_green,
+.series_wrap .free_item .hl_wrap_green{
+	background: #6fa266 !important;
+}
+.series_wrap .info_wrap .hl_wrap_grey,
+.series_wrap .free_item .hl_wrap_grey{
+	background: #CCCCCC !important;
+}
+.series_wrap .info_wrap .hl_wrap .btn_wrap,
+.series_wrap .free_item .hl_wrap .btn_wrap{
+	display: block;
+	position: absolute;
+	top: 3px;
+	right: 0px;
+	height: 25px;
+	width: 350px;
+}
+.series_wrap .info_wrap .hl_wrap .btn_wrap li,
+.series_wrap .free_item .hl_wrap .btn_wrap li{
+	float: right;
+	margin-right: 5px;
+}
+.series_wrap .info_wrap .hl_wrap h3,
+.series_wrap .free_item .hl_wrap h4{
+	font-size: 15px;
+	padding-left: 10px;
+	color: #333;
+	padding-top: 7px;
+	padding-bottom: 6px;
+	margin-top: -30px;
+}
+.series_wrap .info_wrap table.detail,
+.series_wrap .free_item table.detail{
+	width: 97%;
+	margin: 10px auto;
+}
+.series_wrap .info_wrap table tr th,
+.series_wrap .info_wrap table tr td,
+.series_wrap .free_item table tr th,
+.series_wrap .free_item table tr td {
+	padding: 4px 5px;
+	vertical-align: middle;
+	border-bottom: 1px dashed #999;
+}
+.series_wrap .info_wrap table tr th,
+.series_wrap .free_item table tr th {
+	text-align: right;
+	width: 7em!important;
+	vertical-align: top;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+.series_wrap .info_wrap .detail .line2 th,
+.series_wrap .info_wrap .detail .line2 td{
+	border-bottom: 3px double #999;
+}
+.series_wrap .info_wrap .detail .line0 th,
+.series_wrap .info_wrap .detail .line0 td{
+	border-bottom: none;
+}
+
+.series_wrap .comment_btn {
+	background: #FFF;
+	width: 560px;
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	border: 1px dashed #CCC;
+	display: block;
+	line-height: 25px;
+	text-align: center;
+}
+.series_wrap .comment {
+	width: 80%;
+	border: 1px solid #CCC;
+	position: relative;
+	margin-bottom: -1px;
+	margin-left: 10px;
+	background: #FFFFE0;
+	padding: 5px 35px 5px 5px;
+	text-align: left;
+}
+.series_wrap .free_item .comment {
+	margin-left: 20px;
+}
+.series_wrap .comment a{
+	display: block;
+	height: 25px;
+	width: 25px;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin-top: -12.5px;
+}
+.series_wrap .info_wrap table tr th.data,
+.series_wrap .free_item table tr th.data {
+	vertical-align: top;
+}
+/*
+.series_wrap .free_item table tr td div {
+	background: #FFF;
+	height: 180px;
+	border: 1px solid #999;
+	overflow: scroll;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.series_wrap .free_item table tr td div img{
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}*/
+
+.series_wrap .free_item .hl_wrap ul.up_down {
+	height: 19px;
+	width: 41px;
+	position: absolute;
+	left: 10px;
+	top: 7px;
+}
+.series_wrap .free_item .hl_wrap ul .up {
+	float: left;
+}
+.series_wrap .free_item .hl_wrap ul .down {
+	float: right;
+}
+.series_wrap .free_item .hl_wrap h4 {
+	float: left;
+	clear: none;
+	color: #000;
+	padding-left: 60px;
+}
+.series_wrap.second .comment_btn,
+.series_wrap.second .comment,
+.series_wrap.second .add_free_btn {
+	visibility: hidden;
+}
+.series_wrap.second .free_item.unnecessary div,
+.series_wrap.second .free_item.unnecessary table,
+.series_wrap.second .free_item.unnecessary a{
+	visibility: hidden;
+}
+.series_wrap.second .free_item.unnecessary p.attention{
+	text-align: center;
+	font-size: 24px;
+	line-height: 200px;
+	margin-top: -100px;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 580px;
+}
+.column_0 .series_wrap .info_wrap table tr th {
+	white-space: nowrap;
+}
+
+.irai_list {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.irai_list li{
+	float: left;
+	margin-right: 5px;
+}
+.irai {
+	font-size: 15px;
+	line-height: 26px;
+	color: #BF0A01;
+	text-decoration: none;
+	background: #FFFFCC;
+	border: 1px solid #BF0A01;
+	display: block;
+	text-align: center;
+	position: relative;
+	/*border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;*/
+	margin-bottom: 5px;
+	width: 160px;
+	font-weight: bold;
+}
+.irai span{
+	background: url(../img/icon_arrow.gif) no-repeat 0px center;
+	padding-left: 23px;
+	line-height: 26px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+.irai img {
+	display: block;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-top: -10px;
+	margin-left: -3.5em;
+}
+/*//Add Start - NBKD-37,79 - Tin VNIT - 2014/11/03 */
+#ms_lock {
+	font-size: 15px;
+	line-height: 26px;
+	color: #BF0A01;
+	text-decoration: none;
+	display: block;
+	text-align: center;
+	position: relative;
+	margin-bottom: 5px;
+	width: 204px;
+}
+#ms_lock span{
+	background: url(../img/black_lock.png) no-repeat 0px center;
+	padding-left: 16px;
+	line-height: 26px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	color: #BF0A01;
+	font-size: 15px;
+}
+.locked_enable, .locked_enable a, .locked_disable
+{
+	float: left;
+	width: 16px;
+	height: 26px;
+}
+.locked_enable img
+{
+	width: 15px; /*Edit - NBKD-37,79 - hungtn VNIT - 2014/11/05 */
+}
+/*//Add End - NBKD-37,79 - Tin VNIT - 2014/11/03*/
+/*//Add Start - NBKD-40 - Trung VNIT - 2014/10/16 */
+.recover_list {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.recover_list li{
+	float: left;
+	margin-right: 5px;
+}
+.recover_delete {
+	font-size: 15px;
+	line-height: 26px;
+	color: #BF0A01;
+	text-decoration: none;
+	background: #FFFFCC;
+	border: 1px solid #BF0A01;
+	display: block;
+	text-align: center;
+	position: relative;
+	margin-bottom: 5px;
+	width: 160px;
+	font-weight: bold;
+}
+.recover_delete span{
+	line-height: 26px;
+	padding-top: 3px;
+	padding-bottom: 3px;
+}
+/* //Add End - NBKD-40 - Trung VNIT - 2014/10/16*/
+
+/*.series_wrap .info_wrap table tr td .description th,
+.series_wrap .info_wrap table tr td .description td{
+	border-style: none;
+}
+.series_wrap .info_wrap table tr td .description th{
+	text-align: left;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	width: auto;
+}
+.series_wrap .info_wrap table tr td .description td,
+.series_wrap .free_wrap table tr td .description td{
+	padding-top: 3px;
+	padding-bottom: 8px;
+}*/
+.series_wrap .info_wrap table tr td.image,
+.series_wrap .free_wrap .detail td.image{
+	width: 230px;
+	vertical-align: top;
+}
+.series_wrap .info_wrap table tr td.image span,
+.series_wrap .free_wrap .detail td.image span{
+	vertical-align: middle;
+	background: #EEE;
+	height: 140px;
+	width: 230px;
+	border: 1px solid #999;
+	text-align: center;
+	display: table-cell;
+}
+.series_wrap .info_wrap .detail .border_none th,
+.series_wrap .info_wrap .detail .border_none td,
+.series_wrap .free_wrap .detail .border_none th,
+.series_wrap .free_wrap .detail .border_none td{
+	border-style: none;
+}
+.series_wrap .free_wrap h3 {
+	font-size: 15px;
+	line-height: 40px;
+	color: #FFF;
+	background: #888888;
+	padding-left: 10px;
+}
+.free_wrap .btn_plus {
+	width: 35%;
+	margin: 5px auto;
+}
+.series_wrap .free_wrap .free_item {
+	background: #FFF;
+	width: 98%;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+	/*border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	-webkit-border-radius: 5px 5px 0px 0px;*/
+	padding-bottom: 10px;
+	position: relative;
+}
+.hikaku .comment,
+.hikaku .btn_plus{
+	visibility: hidden;
+}
+.series_wrap.hikaku .free_item.unnecessary div,
+.series_wrap.hikaku .free_item.unnecessary table,
+.series_wrap.hikaku .free_item.unnecessary a{
+	visibility: hidden;
+}
+.series_wrap.hikaku .free_item.unnecessary div.hl_wrap{
+	visibility: visible;
+}
+.series_wrap.hikaku .free_item.unnecessary p.attention{
+	text-align: center;
+	font-size: 24px;
+	line-height: 200px;
+	margin-top: -100px;
+	position: absolute;
+	top: 50%;
+	left: 0px;
+	width: 580px;
+}
+.series_wrap .info_wrap .detail tr td .description {
+	width: 100%;
+}
+.series_wrap .info_wrap .detail tr td .btn_comment {
+	float: right;
+	margin-top: -2px;
+}
+/*.series_wrap .info_wrap .detail tr td .btn_comment {
+	display: block;
+	position: absolute;
+	right: 0px;
+	top: 2px;
+}
+*/.series_wrap .info_wrap .detail tr td p{
+	position: relative;
+	margin-top: -4px;
+	display: block;
+	padding-top: 4px;
+}
+
+.series_wrap input[type="text"]
+{
+        width: 90%;
+}
+
+.series_wrap textarea
+{
+        width: 90%;
+}
+
+.edit_require
+{
+    color: #f00;
+	display:inline !important;/*Add - Minh VNIT - 2014/08/04*/
+}
+
+.edit_area th
+{
+	text-align: left;
+	font-weight: bold;
+	padding-right: 10px;
+}
+.readonly
+{
+	background-color: #eee;
+}
+/*Edit - Trung VNIT - 2014/09/25*/
+.view_data_div
+{
+    float: left;
+    width: 100%;
+    margin-left: 100px;
+    /*margin-right: -120px; Edit - Trung VNIT - 2014/09/25 */
+}
+/* Add Start NVKD-872 hungtn VNIT 2015/01/07 */
+.resizetable .column_3 .div_magic .view_data_div
+{
+    float: left;
+    width: 100%;
+	margin-left: 0;
+}
+/* Add End NVKD-872 hungtn VNIT 2015/01/07 */
+.view_image_div
+{
+    width: 230px;
+    text-align: center;
+    padding: 2px;
+    background-color: #eee;
+    border: solid 1px #999;
+    float: left;
+    margin-left: 5px;
+}
+
+/*Add Start - LIXD-276 - TrungVNIT - 2015/23/11*/
+.view_image_div_custom{
+    width: 27%;
+    max-width: 230px;
+}
+.view_image_div_custom img
+{
+    max-width: 100%;
+    height: auto;
+}
+/*Add End - LIXD-276 - TrungVNIT - 2015/23/11*/
+
+.view_image_div span.org_file_name {
+	padding-left: 50px;
+}
+
+h5
+{
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.view_image_stretch
+{
+    width: 200px;
+    height: 134px;
+}
+
+.stretch_replade_div
+{
+    width: 200px;
+    height: 134px;
+    background-image: url(../../css/images/ajax-loader.gif);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-left: 13px;
+}
+
+.view_image_table
+{
+    float: right;/* //Edit - Trung VNIT - 2014/09/25 */
+    margin-left: 10px;
+    padding: 10px;
+    width: 66%; /* //Edit - hungtn VNIT - 2014/12/02 */
+}
+
+.view_excel_table
+{
+    width:100%;
+    border-collapse: separate;
+}
+
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .view_excel_table
+{
+    width:100%;
+    border-collapse: separate;
+}
+.view_section_text
+{
+    width: 50px!important;
+    text-align: left!important;
+}
+
+.view_text_section_table
+{
+    padding: 10px;
+    width: 100%;/* //Edit - Trung VNIT - 2014/09/25 */
+}
+
+.view_excel_iframe
+{
+    width: 100%;/* //Edit - Trung VNIT - 2014/09/30 */
+    height: 400px;
+    /*border: 1px solid #888; //Edit - Trung VNIT - 2014/09/30 */
+}
+
+.view_separator_div
+{
+    clear: both;
+    height: 30px;
+}
+
+.edit_title_th
+{
+    width: 100px!important;
+    word-break: break-all;
+    font-weight:bold;
+	/*min-width: 170px;/*Edit 150px -> 170px Fix button [?] break outline LIXD-11 MinhVnit 2015/10/09*/
+	min-width: 210px; /*edit LIXD-480 Phong VNIT-20160406*/
+}
+
+.edit_text_th
+{
+    word-break: break-all;
+    width: 100px!important;
+    text-align: left!important;
+}
+
+.description th,
+.description td{
+	border-style: none!important;
+}
+
+.section_sort_button li{
+    padding-left: 3px; /*edit LIXD-480 Phong VNIT-20160406*/
+    display:inline-block;
+    vertical-align: middle;
+}
+
+.series_wrap .comment .append_file {
+	background: #FFFFE0 url(../img/page_2.png) no-repeat left top;
+	width: 80%;
+	height: 15px;
+	position: static;
+	padding-top: 2px;
+	padding-left: 20px;
+}
+
+.series_wrap .comment .append_file_pdf {
+	background: #FFFFE0 url(../img/doc_pdf.png) no-repeat left top;
+}
+
+.series_wrap .comment .append_file_txt {
+	background: #FFFFE0 url(../img/page_white_text.png) no-repeat left top;
+}
+
+.series_wrap .comment .append_file_xls {
+	background: #FFFFE0 url(../img/doc_excel_table.png) no-repeat left top;
+}
+
+.series_wrap .comment .append_file_xlsx {
+	background: #FFFFE0 url(../img/doc_excel_table.png) no-repeat left top;
+}
+
+.comment_append_file {
+	background: #FFFFFF url(../img/page_2.png) no-repeat left top;
+	width: 70%;
+	margin-top: 2px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+}
+
+.append_file_pdf {
+	background: #FFFFFF url(../img/doc_pdf.png) no-repeat left top;
+}
+
+.append_file_txt {
+	background: #FFFFFF url(../img/page_white_text.png) no-repeat left top;
+}
+
+.append_file_xls {
+	background: #FFFFFF url(../img/doc_excel_table.png) no-repeat left top;
+}
+
+.append_file_xlsx {
+	background: #FFFFFF url(../img/doc_excel_table.png) no-repeat left top;
+}
+/* //Add Start - hungtn VNIT - 2014/11/06 */
+.btn_control .btn_wrap li{
+	float: right;
+    margin-right: 2px;
+}
+.btn_control {
+	text-align: center;
+}
+.btn_control .btn_wrap {
+	width: 30%;
+	float: right;
+}
+.btn_control .btn_wrap input{
+	padding: 3px;
+}
+.history_show h1{
+	text-align: left;
+}
+
+.history_show table{
+	clear: both;
+    margin: 5px auto 10px;
+    width: 98%;
+}
+.history_show table th
+{
+	background: none repeat scroll 0 0 #eeeeee;
+    border: 1px solid #888888;
+    text-align: center;
+}
+.history_show table td
+{
+	 padding: 1px 5px;
+     vertical-align: middle;
+	 border: 1px solid #cccccc;
+	 text-align: left;
+}
+/* //Add End - hungtn VNIT - 2014/11/06 */
+/* //Add Start NBKD-495 - hungtn VNIT - 2014/12/02 */
+.fix_checkbox_wrap  input {
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 3px;
+	margin-right: 3px;
+	
+}
+
+.fix_checkbox_wrap {
+	position: relative;	
+	margin-right: 15px;
+    padding-left: 5px;
+	margin-bottom: 5px;
+	display: inline-block;
+}
+
+.fix_checkbox_wrap input{
+	position:absolute;
+	top: 2px;
+	left: -12px;
+}
+.td_fix_checkbox {
+	padding-left: 16px !important;
+}
+.media_checkbox {
+	/* padding-left: 184px; */
+	/* width: 675px; */
+	/* float: left; */
+	/* margin-right: 42px; */
+}
+.media_checkbox_head {
+	padding-left: 10px;
+	width: 710px;
+}
+
+.media_checkbox .fix_checkbox_wrap {
+	max-width: 780px;
+}
+.media_checkbox_info {
+	/* float: left; */
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .media_checkbox_info {
+	width: 90%;
+}
+/* //Add End NBKD-495 - hungtn VNIT - 2014/12/02 */
+
+.width_pre_suf{width:150px !important} /* Add - NBKD-46 - TrungVNIT - 2014/12/03*/
+.hidden_pre_suf{display: none !important}
+.item_info_search_form input:disabled{background: rgb(235, 235, 228) !important} /* //Add - NBKD-66 - TrungVNIT - 2015/01/12*/
+
+.btn_data_file_gazo_select
+{
+  margin-left: 2px;
+  float: left;
+  padding: 3px 2px 2px 2px; 
+}
+#select_gazo_img_dialog{
+	max-height:500px !important;
+}
+.tr_multi_photo {
+	border-bottom:1px dashed #999;
+}
+/*
+Add Start LIXD-9 hungtn VNIT 20150625
+*/
+.td_multi_photo{
+	padding: 0px !important;
+}
+.view_multi_image {
+	height: 15px !important;
+}
+.multi_image_region {
+	padding: 0 0 5px 0 !important; 
+}
+.multi_image_region .multi_image_item .data {
+	/*margin: 5px;
+	display: block; */	
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.multi_image_region .multi_image_item .data img{
+	/*padding-top: 3px; 
+	margin: auto 0;*/
+}
+.section_image_master {
+	padding: 0px !important;
+}
+/*
+Add End LIXD-9 hungtn VNIT 20150625
+*/
+/* Add Start LIXD-18 hungtn VNIT 20150812  */
+table .tr_media_detail {
+	background-color: #FFF;
+	text-align: center;
+}
+table .td_media_detail {
+	font-size: 14px;
+	text-align: center !important;
+	border: 1px solid #888888;
+}
+#media_detail .media_detail_swap {
+width: auto !important;
+}
+#media_detail .info_wrap {
+	padding-bottom: 0px;
+}
+select.template_length {
+	width: 230px;
+	overflow: hidden;
+}
+/* Add End LIXD-18 hungtn VNIT 20150812  */
+/*add start LIXD-11 Phong VNIT 20150820*/
+.detail_section{
+	clear: inherit;
+	width: 100%;
+}
+table.detail_section tr td.image{
+	width:822px !important;	
+}
+.move_section_left,.move_section_right{
+	margin-right: 85px;
+}
+table.detail_section tr th.move_to_right{	
+	min-width: 250px !important;
+}
+/*add end LIXD-11 Phong VNIT 20150820*/
+/*add start LIXD-118 Phong VNIT-20150825*/
+span.tooltips {
+  position: relative;
+  display: inline;
+}
+span.tooltips span {
+  position: absolute;
+  color: #FFFFFF;
+  background: #4D4D4D;
+  border: 2px solid #0F0F0F;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  visibility: hidden;
+  border-radius: 6px;
+  opacity: 1;
+  bottom: 30px;
+  left: 0%;  
+  margin-left: 0px;
+  z-index: 999;
+  /*Add Start - LIXD-276 - TrungVNIT - 2015/19/11*/
+  min-width: 140px;
+  padding-left: 8px;
+  padding-right: 8px;
+  white-space: nowrap;
+  /*Add End - LIXD-276 - TrungVNIT - 2015/19/11*/
+}
+span.tooltips span:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  margin-left: -12px;
+  width: 0; height: 0;
+  border-top: 8px solid #0F0F0F;
+  border-right: 8px solid transparent;
+  border-left: 8px solid transparent;
+  
+}
+span.tooltips span:after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 10%;
+  margin-left: -8px;
+  width: 0; height: 0;
+  border-top: 4px solid #4D4D4D;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+  
+}
+span:hover.tooltips span {
+  visibility: visible;
+  opacity: 1;
+  bottom: 30px;
+  left: 0%;  
+  margin-left: 0px;
+  z-index: 999;
+}
+input:required{
+	background-image: url('../img/require.png');
+    background-repeat: no-repeat;
+    background-position: right top;
+    border-style: ridge;
+    padding-right: 10px;
+    width: 147px; /*edit 107->147 LIXD-480 Phong VNIT-20160406*/
+}
+input:required.display_name_width{
+	width: 90px !important; /*Edit - LIXD-276 - TrungVNIT - 2015/19/11*/
+}  
+.display_name_width{
+	width: 100px; /*Edit - LIXD-276 - TrungVNIT - 2015/19/11*/
+}
+/*Add start- LIXD-276 - PhongVNIT - 20151126*/
+.display_name_width_unhelp{
+	width: 157px; /*edit 117->157 LIXD-480 Phong VNIT-20160406*/
+}
+/*Add end- LIXD-276 - PhongVNIT - 20151126*/
+.basic_name_width{
+	width: 157px; /*edit 130->157 LIXD-480 Phong VNIT-20160406*/
+}
+/*add endLIXD-118 Phong VNIT-20150825*/
+/*add start LIXD-11 Phong VNIT-20151002   */
+.btn_replace_photo_upload
+{
+	width: 23%;
+	float:left;
+	margin-left: 3px;
+	margin-right: 3px;
+	height: 22px;
+}
+/*add start LIXD-11 Phong VNIT-20151002   */
+
+/* Add Start LIXD-498 Tai VNIT 20160427 -- Edit hungtn 20160428 */
+span#tooltips span {
+	background-color:#8A8A8A; 
+	border: 2px solid #555;
+	min-width: 70px;
+	}
+span#tooltips span:before {
+	border-top: 8px solid #555;
+	margin-left: -5px;
+	} 
+span#tooltips span:after {
+	border-top: 4px solid #8A8A8A;
+	margin-left: -1px;
+}	
+/* Add End LIXD-498 Tai VNIT 20160427 -- Edit hungtn 20160428 */
+.checkbox_tableheight {
+	transform: scale(1.3);
+    margin-top: 3px;
+    margin-right: 30px;
+    margin-bottom: 0;
+    margin-left: 7px;
+    position: relative;
+    top: 2px;
+}
+.checkbox_tableheight_child {
+	transform: scale(1.3);
+    margin-top: 3px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    margin-left: 2px;
+    position: relative;
+    top: 2px;
+}
+/* Add LIXD-625 VINH VNIT 20161214 */
+#form_multidl th.edit_title_th{
+	border-top: 1px solid #999;
+}
+#form_multidl tbody tr:first-child > th.edit_title_th{
+	border-top: none;
+}
+#form_multidl .txt_tag{
+	width: 40px;
+    text-align: center;
+}
+.set_width_dl{
+	width: 6% !important;
+}
+/* End LIXD-625 VINH VNIT 20161214 */

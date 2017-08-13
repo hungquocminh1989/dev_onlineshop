@@ -1,0 +1,102 @@
+@charset "utf-8";
+/*======================　媒体別窓用　======================*/
+.baitai_info_wrap{
+	margin-right: auto;
+	margin-left: auto;
+	padding-bottom: 10px;
+	border: 1px solid #888888;
+	position: relative;
+	background: #EEEEEE;
+	margin-bottom: 5px;
+}
+.baitai_info_wrap .baitai_hl_wrap{
+	background: #EEEEEE;
+	position: relative;
+	padding-top: 40px;
+}
+.baitai_info_wrap .baitai_hl_wrap .baitai_btn_wrap{
+	display: block;
+	position: absolute;
+	top: 8px;
+	right: 5px;
+	height: 25px;
+	width: 350px;
+}
+.baitai_info_wrap .baitai_hl_wrap .baitai_btn_wrap li{
+	float: right;
+	margin-right: 5px;
+}
+.baitai_info_wrap .baitai_hl_wrap h3{
+	font-size: 15px;
+	padding-left: 10px;
+	color: #333;
+	margin-top: -40px;
+	text-align: left;
+	line-height: 40px;
+	font-weight: bold;
+}
+
+.baitai_column_0 .baitai_main_contents {
+	width: 600px;
+}
+.baitai_main_contents .baitai_info_wrap .baitai_main_innner {
+	background: #FFF;
+	clear: none;
+	width: 560px;
+	margin-right: auto;
+	margin-left: auto;
+	overflow: auto;
+	padding: 10px;
+}
+.baitai_main_innner table {
+	width: 90%;
+	margin-right: auto;
+	margin-left: auto;
+}
+.baitai_main_innner table tr th,
+.baitai_main_innner table tr td{
+	vertical-align: middle;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	white-space: nowrap;
+}
+.baitai_main_innner table tr th {
+	text-align: right;
+	vertical-align: top;
+	line-height: 21px;
+}
+.baitai_main_innner ul{
+	text-align: left;
+	width: 420px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 10px;
+}
+.baitai_main_innner ul li {
+	margin-bottom: 15px;
+}
+.baitai_main_innner ul li a {
+	background: url(../img/mark_triangle.gif) no-repeat 5px center;
+	font-size: 18px;
+	color: #333;
+	text-decoration: none;
+	font-weight: bold;
+	padding: 3px 10px 3px 20px;
+	white-space: nowrap;
+}
+.baitai_main_innner ul li a:hover{
+	color: #333;
+	text-decoration: underline;
+}
+.baitai_main_innner .selected {
+	background: #FFB8B6 url(../img/mark_triangle_on.gif) no-repeat 5px center;
+	padding-left: 20px;
+}
+.baitai_main_innner p a {
+	height: 25px;
+	width: 90px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 10px;
+}

@@ -1,0 +1,242 @@
+@charset "utf-8";
+/*======================　メインコンテンツ　======================*/
+.main_contents {
+	float: left;
+	margin-left: 6px;/* //Edit - Trung VNIT - 2014/09/18 */
+	z-index: 1;
+	position: relative;
+	/*padding-bottom: 30px;*//*Delete padding-bottom in dialog - Minh VNIT - 2014/08/04*/
+	width: 99.5%;/* //Edit - Trung VNIT - 2014/09/18 */
+}
+.column_0 .main_contents{
+	float: none;
+	z-index: 1;
+	position: relative;
+	padding-bottom: 30px;
+	width: 800px;
+	margin: 0px;
+	
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+
+.resizetable .column_0 .main_contents {
+	width: 100%; 
+}
+
+.resizetable #series_dialog .main_contents {
+	width: 99.5%; 
+}
+
+.main_innner {
+	margin-left: 352px;
+	margin-right: 10px;
+	clear: both;
+	overflow-y: scroll;
+	
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .main_innner{
+	margin-left: 0px;
+	width: 100%;
+}
+
+.column_1 .main_innner {
+	min-width: 900px;
+	margin: 0px;
+	height: 500px;
+	overflow-x: hidden;
+	overflow-y: scroll;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable  .column_1 .main_innner {
+	width: 100%;
+}
+
+.column_2 .main_innner {
+	min-width:700px
+}
+
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable  .column_2 .main_innner {
+	width: 100%;
+}
+
+
+.column_3 .main_innner {
+	width:1228px;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable  .column_3 .main_innner{
+	min-width: 900px;
+}
+.resizetable .column_3 #content_region .series_wrap {
+	width: 47.5% ;
+	padding-right: 0;
+	
+}
+.resizetable .column_3 .series_wrap .info_group {
+	overflow: auto;
+}
+/*
+.resizetable #series_dialog .main_contents .series_wrap {
+	width: 100% ;
+}
+.resizetable .ui-dialog .column_3 .main_contents .series_readonly_sub {
+	width: 48.5%;
+	
+}
+*/
+.resizetable  .column_3 .div_magic {
+	width: 100% !important;
+}
+
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+/*===　条件検索　===*/
+.search_wrap {
+	background: #EEE;
+	width: auto;
+	margin-bottom: 5px;
+}
+.search_wrap .kensaku tr th {
+	font-size: 13px;
+	padding-left: 20px;
+	background: #DDDDDD;
+	font-weight: bold;
+	vertical-align: middle;
+	padding-right: 0px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	position: relative;
+	text-align: left!important;
+	white-space: nowrap;
+}
+.search_wrap .kensaku {
+	width: 100%;
+}
+.search_wrap .kensaku tr td button {
+	line-height: 20px;
+	width: 6em;
+}
+.search_wrap .kensaku tr{
+	border: 1px solid #CCC;
+}
+.search_wrap .kensaku .bottun td{
+	text-align: right;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.search_wrap .kensaku tr td {
+	padding: 10px 5px 10px 10px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.search_wrap .kensaku td.first{
+	background: url(../img/kensaku_triangle.gif) no-repeat 0px center;
+	overflow: visible;
+	padding-left: 40px;
+}
+/*hungtn 20141029*/
+.message_info_import {
+	width: 125px;
+	margin: 0 auto;
+	padding: 10px;
+}
+.message_info_import p {
+	text-align: left;
+}
+.message_info_import ul{
+	padding-left: 20px;
+    text-align: left;
+}
+
+
+/*Add Start - NBKD-928 - TrungVNIT - 2015/04/20*/
+.kensaku_custom{
+	border: 1px solid #CCC;
+}
+.kensaku_custom tr td.kensaku-title {
+	font-size: 13px;
+	padding-left: 20px;
+	background: #DDDDDD;
+	font-weight: bold;
+	vertical-align: middle;
+	padding-right: 0px;
+	border-top: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+	position: relative;
+	text-align: left!important;
+	white-space: nowrap;
+        width: 80px;
+}
+.kensaku_custom, .kensaku_custom table {width: 100%;}
+.kensaku_custom table tr{border:none !important}
+.kensaku_custom > tbody > tr:last-child{background: none !important; border: none}
+.kensaku_custom tr td button {
+	line-height: 20px;
+	width: 6em;
+}
+.kensaku_custom .bottun td{
+	text-align: right;
+	padding-top: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+.kensaku_custom tr td {
+	padding: 5px 5px 2px 10px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+.kensaku_custom .kensaku-arrow{
+	background: url(../img/kensaku_triangle.gif) no-repeat 0px center;
+	overflow: visible;
+	padding-left: 0px;
+        width: 26px;
+}
+.kensaku_custom .search_options{display: inline}
+.kensaku_custom .search_options label, .kensaku_custom .search_options span{padding-right: 10px}
+.kensaku_custom .hidden{display: none; visibility: hidden}
+.kensaku_custom .show{display: block; padding-top: 13px}
+.hidden{display: none;}
+.show{display: block;}
+.kensaku_custom #search_lang_org{margin-right: 15px}
+/*Add End - NBKD-928 - TrungVNIT - 2015/04/20*/
+
+.cls-reflect{margin-top: 5px; position: relative}
+.cls-reflect input{position: absolute;right: 75px;top: -2px;}
+
+/*Add - NBKD-1133 - TrungVNIT - 2015/06/01*/
+.back_wrap{padding-right: 0px !important}
+.back_wrap #back_stop{float: right}
+
+/*Add Start - LIXD-10 - TrungVNIT - 2015/06/19*/
+#dialog_image_excel{margin-left: -6px !important}
+#dialog_image_excel table{width: 100%}
+#dialog_image_excel .width50{width: 50%}
+#dialog_image_excel .image-thumb{max-width: 160px; height: auto}
+#dialog_image_excel .no-border-bottom{border-bottom: none !important; padding: 10px 10px 10px 25px;}
+#dialog_image_excel .title-img{margin-top: 10px}
+#dialog_image_excel .image .data{margin-left: 15px}
+.row_img_tag{width: 100%; margin-bottom: 5px; display: inline-block}
+.view_excel_iframe{width: 100% !important}
+.show_list_tag li{padding-bottom: 5px;}
+.show_list_tag input{width: 40px; text-align: center}
+.positionfix{position: fixed; left: 10000px; bottom: 10000px}
+.border_bottom{border-bottom: 1px dashed #999; width: 90%; float: left; padding-bottom: 5px !important} /*Add LIXD-10 - TrungVNIT - 2015/08/19*/
+.row_img_tag .row_tag_name{width: 40px; text-align: center}
+
+/*Add Start - LIXD-18 - TrungVNIT - 2015/08/11*/
+.cbox_category{margin: 0px 0px 0px 5px} 
+.template_control label, .template_control input{float: left !important; margin-right: 5px !important}
+.template_control label{padding-top: 5px}
+/*Add End - LIXD-18 - TrungVNIT - 2015/08/11*/
+
+/*Add Start - LIXD-558 Nuoi VNIT 20160817*/
+.word-wrap{word-break:break-word; word-wrap: break-word;}
+/*Add End - LIXD-558 Nuoi VNIT 20160817*/
+
+/*Add Start - LIXD-522 Nuoi VNIT 20160819*/
+.view_section_file_name{float: left; width: 40%; padding-right: 10px; word-wrap: break-word;}
+/*Add End - LIXD-558 Nuoi VNIT 20160819*/

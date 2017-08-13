@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ログイン</title>
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/login.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div class="main_contents">
+	<div class="login_wrap">
+		<form action="<%$smarty.const.ACW_BASE_URL%>login/auth" name="login_form" method="POST" id="login_form">
+		<table>
+			<tr><td colspan="2"><h1><%$smarty.const.AKAGANE_TITLE%></h1></td></tr>
+			<tr><td colspan="2"></td></tr> <!-- // Edit LIXD-13 hungtn VNIT 20150803 -->
+			<tr><th>ユーザーID</th><td><input type="text" size="20" name="user_id" id="user_id" value="<%$user_id%>"/></td></tr>
+			<tr><th>パスワード</th><td><input type="password" size="20" name="passwd" id="passwd" /></td></tr><!--Edit - ZZZZ-693 - Trung VNIT - 2014/09/29-->
+			<tr>
+				<td colspan="2">
+					<a href="javascript:void(0);" class="btn img_opacity" id="btn_login">ログイン</a><a href="javascript:void(0);" class="btn img_opacity" id="btn_clear">クリア</a>
+				</td>
+			</tr>
+			<tr><td colspan="2"><span id="msg"><%if count($acw_error) > 0%><%$acw_error.message%><%/if%></span></td></tr>
+		</table>
+		<input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1"/>
+		</form>
+		<p>Copyright (C) 2014 Akagane Co., Ltd. All Rights Reserved.</p>
+	</div>
+</div><!-- / .main_contents -->
+<script src="<%$smarty.const.ACW_BASE_URL%>js/jquery-1.9.1.js"></script>
+<script type="text/javascript">
+$(function() {
+	// クリアボタン
+	$('#btn_clear').click(function () {
+		$('#user_id').val('');
+		$('#passwd').val('');
+		$('#msg').text('');
+	});
+	// ログインボタン
+	$('#btn_login').click(function () {
+		$('#login_form').submit();
+	});
+	$('#user_id').focus();
+	var elements = "input";
+	$("#user_id").on("keypress", function(e) {
+		if (e.keyCode == 13) { 
+			$("#passwd").focus();
+			e.preventDefault();
+		}
+	});
+	$("#passwd").on("keypress", function(e) {
+		if (e.keyCode == 13) { 
+			$("#btn_login").click();
+			e.preventDefault();
+		}
+	});
+});
+</script>
+</body>
+</html>

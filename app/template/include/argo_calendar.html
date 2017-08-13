@@ -1,0 +1,80 @@
+<!-- datepicker対応する追加モジュール（必要な画面だけ呼んでください） -->
+<style type="text/css">
+.date-sunday   .ui-state-default {
+  background-image: none; background-color: #FFC0CB
+}
+.date-saturday .ui-state-default {
+  background-image: none; background-color: #AFEEEE
+}
+.date-holiday .ui-state-default {
+  background-image: none; background-color: #FF99CC
+}
+</style>
+<script type="text/javascript">
+// datepicker用休日設定
+// 名前空間
+function Argo_Calendar() {
+	// 初期化
+//	<!-- %foreach $holiday as $key=>$val% -->
+//	Argo_Calendar.holiday['<!-- %$key% -->'] = '<!-- %$val% -->';
+//	<!-- %/foreach% -->
+}
+
+Argo_Calendar.holiday = [];
+
+// クラスメソッド　init 自動実行
+Argo_Calendar.init = function() {
+};
+
+Argo_Calendar.init();
+
+// クラスメソッド
+Argo_Calendar.get_opt = function () {
+	return {
+			dateFormat:'yy/mm/dd',
+			dayNamesMin:['日','月','火','水','木','金','土'],
+			dayNamesShort:['日','月','火','水','木','金','土'],
+			monthNames:['1月','2月','3月','4月','5月','6月','7月','8月','9月','10月','11月','12月'],
+			yearSuffix:"年",
+			changeYear: true,
+			//numberOfMonths:[1,2],	// 2か月表示
+			showMonthAfterYear:true, // 年の後に月を表示させる
+			beforeShowDay: function(dt) {
+                // 祝日の判定
+				var key;
+				var y = dt.getFullYear();
+				var m = dt.getMonth() + 1;
+				var d = dt.getDate();
+				key = y + '-';
+				if (m < 10) {
+					key += '0' + m + '-';
+				} else {
+					key += m + '-';
+				}
+				if (d < 10) {
+					key += '0' + d;
+				} else {
+					key += d;
+				}
+
+				// 祝日
+				if (Argo_Calendar.holiday[key] != undefined) {
+                    return [true, 'date-holiday', Argo_Calendar.holiday[key]];
+				}
+
+				// 日曜日
+                if (dt.getDay() == 0) {
+                   return [true, 'date-sunday'];
+                }
+                // 土曜日
+                if (dt.getDay() == 6) {
+                    return [true, 'date-saturday'];
+                }
+                // 平日
+                return [true, ''];
+            }
+			
+	};
+};
+
+</script>

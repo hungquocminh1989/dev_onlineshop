@@ -1,0 +1,307 @@
+@charset "utf-8";
+/*======================　媒体　======================*/
+
+/*===　Add LIXD-504 NUOI-VNIT 20160610　===*/
+.baitai_wrap {
+}
+/*===　End LIXD-504 NUOI-VNIT 20160610　===*/
+.baitai_wrap h3 {
+	font-size: 15px;
+	line-height: 25px;
+	background: #F07170 url(../img/icon_i.gif) no-repeat 5px center;
+	padding-left: 25px;
+	border-bottom: 1px solid #D53A3D;
+}
+.baitai_wrap table {
+	width: 98%;
+	margin: 5px auto 10px;
+	clear: both;
+}
+.baitai_wrap table tr{
+}
+.baitai_wrap table thead{
+}
+.baitai_wrap table tr td {
+	border: 1px solid #CCCCCC;
+}
+.baitai_wrap table tr th {
+	border: 1px solid #888888;
+	background: #EEEEEE;
+        text-align: center;
+}
+.baitai_wrap table tr td,
+.baitai_wrap table tr th{
+	vertical-align: middle;
+	padding: 1px 5px;
+}
+.baitai_wrap .btn_plus.next {
+	width: 30%;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+/*Add start LIXD-638 TinVNIT 23/02/2017*/
+.baitai_wrap .btn_go_output, .baitai_wrap .copy_media_button{
+	width: 88px;
+}
+/*Add end LIXD-638 TinVNIT 23/02/2017*/
+.baitai_wrap tr td button {
+	width: 90px;
+	height: 20px;
+	line-height: 1%;
+	font-size: 12px;
+}
+.baitai_wrap table tr td a {
+	text-decoration: underline;
+}
+.baitai_wrap .btn {
+	font-size: 13px;
+	line-height: 40px;
+	color: #333;
+	text-decoration: none;
+	background: url(../img/btn_bg2.jpg) repeat-x 0px center;
+	height: 40px;
+	width: 150px;
+	border: 1px solid #CCC;
+	display: block;
+	text-align: center;
+	float: right;
+}
+.baitai_wrap p {
+	width: 98%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 4px;
+}
+/*===　媒体登録　===*/
+.detail_wrap {
+	border: 1px solid #CCC;
+	padding-bottom: 5px;
+}
+.detail_wrap h2 {
+	background: #EEE;
+	padding-left: 20px;
+	border-bottom: 1px solid #CCC;
+	font-size: 13px;
+	line-height: 25px;
+	font-weight: bold;
+}
+.detail_wrap table {
+	width: 98%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 5px;
+}
+.detail_wrap table tr th,
+.detail_wrap table tr td{
+	padding: 3px;
+}
+.detail_wrap table tr th{
+	text-align: right;
+}
+.detail_wrap table tr td a {
+	height: 25px;
+	width: 90px;
+}
+.entry .detail_wrap,
+.entry .main_innner{
+	width: 1090px;
+        height: auto;
+}
+.entry .main_innner{
+	margin-top: 10px;
+}
+.info_wrap{
+	padding-bottom: 10px;
+	border: 1px solid #888888;
+	position: relative;
+	background: #FFF;
+	margin-right: auto;
+	margin-bottom: 5px;
+	margin-left: auto;
+}
+.info_wrap .hl_wrap{
+	background: #EEEEEE;
+	position: relative;
+	border-bottom: 1px solid #888888;
+}
+.info_wrap .hl_wrap h3{
+	font-size: 15px;
+	padding-left: 10px;
+	color: #333;
+	line-height: 22px;
+}
+.edit_wrap {
+	width: 450px;
+	clear: none;
+	height: 100%;
+	z-index: 2;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 20px;
+	float: left;
+}
+.move_wrap{
+	width: 100px;
+	height: 100%;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 20px;
+	float: left;
+	min-height:200px;
+}
+.edit_wrap h3.hl{
+	line-height: 25px;
+	width: auto;
+	font-size: 16px;
+	background: #EEEEEE;
+	border-radius: 0px;
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	padding: 0px;
+	height: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	border: 1px solid #CCC;
+}
+.main_innner {
+	margin-left: 352px;
+	margin-right: 10px;
+	overflow: hidden;
+}
+.related .tree_wrap ul li {
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.move_wrap ul {
+	margin-top: 25px;
+	margin-left: -30px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.move_wrap ul li a {
+	height: 60px;
+	width: 60px;
+}
+.info_wrap {
+	overflow: hidden;
+}
+.edit_wrap li.selected a{
+	background: #FFDEDD;
+	border: 1px solid #888888;
+	padding: 2px;
+	margin-left: -2px;
+}
+.entry .tree_wrap {
+	border-right: 1px solid #CCC;
+	border-bottom: 1px solid #CCC;
+	border-left: 1px solid #CCC;
+}
+.entry .function {
+	width: 450px;
+	height: 50px;
+	margin-bottom: 5px;
+}
+.entry .function th,
+.entry .function td{
+	vertical-align: middle;
+}
+.entry .function td a{
+	float: left;
+	height: 25px;
+	width: 90px;
+	margin-right: 5px;
+}
+.entry .function.right td a{margin-right: -1px;}
+.entry .function.right th,
+.entry .function.right td{vertical-align: bottom;}
+.entry .main_innner,
+.entry .info_wrap{overflow-y: hidden}
+.right_btn {
+    display: block;
+    float: right;
+    height: 28px;
+}
+
+/* Add Start hungtn VNIT 2014/11/21*/
+table tr:nth-child(even) {
+    background-color: #ecf8eb;
+}
+/* Add End hungtn VNIT 2014/11/21*/
+
+/* Add Start hungtn VNIT 2015/01/15*/
+#media_head_form table tr:nth-child(even) {
+    background-color: #fff;
+}
+.baitai_main_innner .history tr th {
+	text-align: center;
+	border-right: 1px solid #999;
+	padding: 4px;
+}
+.baitai_main_innner .history tr {
+	border: 1px solid #999;
+}
+.baitai_main_innner .history tr td{
+	text-align: left;
+	border-right: 1px solid #999;
+	padding: 4px;
+}
+/* Edit Start NBKD-41 hungtn VNIT 2015/01/28*/
+.btn_history input[type="button"] {
+	padding: 5px;
+}
+/* Edit End NBKD-41 hungtn VNIT 2015/01/28*/
+.history_div {
+	max-height: 400px;
+	overflow-y: scroll;
+}
+.baitai_main_contents .baitai_info_wrap .history_div {
+	width: auto;
+}
+.history_popup {
+	width: auto;
+}
+#batch_dialog .history_popup .baitai_main_contents {
+	width: auto;
+}
+.history_popup .baitai_main_contents .baitai_info_wrap{
+	width: auto;
+}
+.history_popup .baitai_main_contents .baitai_info_wrap .baitai_main_innner{
+	width: auto;
+	height: 450px;
+}
+.edit_wrap  #search_form table tr:nth-child(even) {
+	background-color: #fff;
+}
+.info_wrap .edit_wrap  table.function tr:nth-child(even) {
+	background-color: #fff;
+}
+
+/* Add End hungtn VNIT 2015/01/15*/
+.process_order{width: 40px !important; text-align: center !important}
+
+/* Add Start - NBKD-1014 - TrungVNIT - 2015/02/27 */
+table.bg_yoyaku_indd tr:nth-child(even) {
+	background-color: #ffffff !important;
+}
+table.bg_yoyaku_indd tr:nth-child(odd) {
+	background-color: #ffecf2 !important;
+}
+/* Add End - NBKD-1014 - TrungVNIT - 2015/02/27 */
+/* Add Start NBKD-41 Tin VNIT 2015/03/31*/
+.ms_batch
+{
+	font-weight: bold;
+	color: red;
+	padding-left: 15px;	
+}
+/* Add End NBKD-41 Tin VNIT 2015/03/31*/
+/*Add Start LIXD-628 VINH VNIT 20170104*/
+.fix_tb_scroll{
+	margin-left: 5px !important;
+}
+/*Add End LIXD-628 VINH VNIT 20170104*/

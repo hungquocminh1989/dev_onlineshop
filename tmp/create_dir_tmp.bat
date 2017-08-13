@@ -1,0 +1,16 @@
+mkdir comment
+mkdir excel
+mkdir export
+mkdir icon
+mkdir import
+mkdir log
+mkdir object_storage
+mkdir series
+mkdir template_cache
+mkdir upload
+mkdir yoyaku_upload
+mkdir y_comment
+mkdir y_export
+mkdir y_import
+mkdir y_series
+mkdir table_upload

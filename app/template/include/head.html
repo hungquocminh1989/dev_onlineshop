@@ -1,0 +1,41 @@
+<meta http-equiv="X-UA-Compatible" content="IE=100" /><%* IEを互換表示させない設定（常に最新Verで表示） *%>
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/common.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/main_contents.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/side_contents.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/series.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>shared/js/jquery.droppy.js"></script>
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>shared/js/jquery.lazyload-any.js"></script> <!-- Add LIXD-355 hungtn VNIT 20151118 -->
+<script type='text/javascript'>
+  $(function() {
+	//Add Start - Minh VNIT - 2014/08/04
+	$(".gnav_0,.gnav_2,.gnav_3,.gnav_4,.gnav_5,.gnav_6,.gnav_7,.gnav_8, .gnav_9").click(function() {//Edit - ZZZZ-925 - Tin VNIT - 2015/2/2 　Add - miyazaki U_SYS - 2015/01/05 //Edit LIXD-492 TAI 20160420
+		$(this).next(".sub").slideToggle("fast");
+		$(this).toggleClass("active");
+		return false;
+	});
+	$(".gnav_0,.gnav_2,.gnav_3,.gnav_4,.gnav_5,.gnav_6,.gnav_7,.gnav_8, .gnav_9").mouseover(function() {//Edit - ZZZZ-925 - Tin VNIT - 2015/2/2　Add - miyazaki U_SYS - 2015/01/05 //Edit LIXD-492 TAI 20160420
+		$(".sub").hide();
+	});
+	$(":not([class='sub'],[class*='gnav_'])").click(function() {
+		$(".sub").hide();
+	});
+	//Add End - Minh VNIT - 2014/08/04	
+	//Add Start - Trung VNIT - 2014/08/27
+	$.fn.enterKey = function (fnc) {
+	    return this.each(function () {
+	        $(this).keypress(function (ev) {
+	            var keycode = (ev.keyCode ? ev.keyCode : ev.which);
+	            if (keycode == '13') {
+	                fnc.call(this, ev);
+	            }
+	        })
+	    })
+	}
+	//Add End - Trung VNIT - 2014/08/27
+  });
+</script>
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>js/mustache.js"></script>

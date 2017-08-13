@@ -1,0 +1,63 @@
+@charset "utf-8";
+/*======================　フリー項目登録　======================*/
+.main_contents{
+	float: none;
+	z-index: 1;
+	position: relative;
+	padding-bottom: 30px;
+	width: 800px;
+	margin: 0px;
+}
+.free_list {
+	height: 30px;
+	width: 450px;
+	list-style: none;
+	margin: 0;
+	position: absolute;
+	left: -1px;
+	top: -1px;
+}
+.free_list li {
+	float: left;
+	height: 30px;
+	width: 110px;
+}
+.free_list a.free_tab{
+	display: block;
+	background: #FFB8B6 url(../img/top/newstab_1.jpg) no-repeat 2px 2px;
+	height: 30px;
+	width: 110px;
+	line-height: 32px;
+	color: #BF0A01;
+	text-decoration: none;
+	white-space: nowrap; /* required in IE 6 */
+	outline: 0;
+	border: 1px solid #BF0A01;
+}
+.free_list a.free_tab:hover{
+	background: #FFF;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.50, #ffffff), color-stop(0.00, #CCCCCC));
+	background: -webkit-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -moz-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -o-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -ms-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	;color: #333;
+}
+.free_list a.free_tab.selected{
+	background: #FFF;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0.50, #ffffff), color-stop(0.00, #CCCCCC));
+	background: -webkit-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -moz-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -o-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: -ms-linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	background: linear-gradient(top, #CCCCCC 0%, #ffffff 50%);
+	;border-bottom-style: none;
+	height: 31px;
+	color: #333;
+}
+.series_wrap .title_wrap h2 {
+	color: #333;
+	padding-left: 5px;
+}
+

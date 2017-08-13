@@ -1,0 +1,49 @@
+@charset "utf-8";
+/*======================　トップ画面　======================*/
+.top_wrap {
+	border: 1px solid #888888;
+	width: 99%;
+	margin: 10px auto 15px;
+}
+.top_wrap h3 {
+	font-size: 15px;
+	line-height: 25px;
+	background: #EEEEEE url(../img/icon_i.gif) no-repeat 5px center;
+	padding-left: 25px;
+	border-bottom: 1px solid #888888;
+}
+.top_wrap table {
+	width: 98%;
+	margin: 10px auto;
+}
+.top_wrap table tr{
+}
+.top_wrap table thead{
+}
+.top_wrap table tr td {
+	border: 1px solid #CCCCCC;
+}
+.top_wrap table tr td a {
+        text-decoration: underline;
+}
+.top_wrap table tr th {
+	border: 1px solid #888888;
+	background: #EEEEEE;
+}
+.top_wrap table tr td,
+.top_wrap table tr th{
+	vertical-align: top;
+	padding: 5px;
+}
+.top_wrap .btn_plus.next {
+	width: 30%;
+	margin-right: auto;
+	margin-bottom: 10px;
+	margin-left: auto;
+}
+
+/* Add Start hungtn VNIT 2014/11/21*/
+table tr:nth-child(even) {
+    background-color: #ecf8eb !important;
+}
+/* Add End hungtn VNIT 2014/11/21*/

@@ -1,0 +1,207 @@
+@charset "utf-8";
+/*======================　サイドコンテンツ　======================*/
+.side_contents {
+
+	float: left;
+	width: 350px;
+	clear: both;
+	height: 100%;
+	border: 1px solid #CCC;
+	margin-right: -352px;
+	z-index: 2;
+	position: relative;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents {
+	width: 100%;
+	min-width: 215px;
+}
+
+.side_contents .path_wrap ul li {
+	float: left;
+	line-height: 1.8;
+}
+.side_contents .path_wrap a {
+	clear: both;
+	margin: 3px auto;
+	width: 230px;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable  .side_contents .path_wrap a {
+	
+	width: 100%;
+}
+
+.side_contents .path_wrap {
+	padding-top: 2px;
+	border-bottom: 1px solid #CCC;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents .path_wrap {
+	width: 100%;
+}
+
+.side_contents .path_wrap li{
+	margin-bottom: 4px;
+}
+.side_contents .categories li a{
+	padding-left: 3px;
+	
+}
+/*.side_contents .categories{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}*/
+.side_contents .categories,
+.side_contents .categories ul{
+	padding-left: 14px;
+	font-size: 12px;
+        /* Edit LIXD-504 NUOI-VNIT 20160610 */
+        /*padding-bottom: 10px;*/
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents .categories,
+.resizetable .side_contents .categories ul{
+	width: 100%;
+}
+.side_contents .categories li {
+	margin-top: 2px;
+	margin-bottom: 2px;
+	line-height: 1.4;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents .categories li {
+	max-width: 500px;
+	position: relative;
+	top: 0;
+	overflow: visible;
+	width: 100%;
+
+}
+
+.side_contents .categories.open,
+.side_contents .categories ul.open{
+	background: url(../img/icon_close.gif) no-repeat 0px 1px;
+}
+.side_contents .categories.close,
+.side_contents .categories ul.close{
+	background: url(../img/icon_open.gif) no-repeat 0px 1px;
+}
+.side_contents .categories.close li ul,
+.side_contents .categories ul.close li{
+	display: none;
+}
+.side_contents .categories ul.close li:first-child{
+	display: block;
+}
+.side_contents .categories .series li a{
+	display: inline;
+}
+.side_contents .categories .series li.selected a{
+	background: #FFDEDD;
+	padding-left: 2px;
+	padding-right: 2px;
+	border: 1px solid #BF0A01;
+	margin-left: 3px;
+}
+/* Edit Start NBKD-872 hungtn VNIT 2015/01/23*/
+.side_contents .tree_wrap {
+	overflow-y: scroll;
+	padding-top: 10px;
+}
+/* Edit End NBKD-872 hungtn VNIT 2015/01/23*/
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents .tree_wrap {
+	width: 100%; /* Edit NBKD-872 hungtn VNIT 2015/01/23*/
+	overflow-x: hidden;
+}
+
+.side_contents .btn_close {
+	display: block;
+	height: 18px;
+	width: 17px;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+}
+.side_contents .btn_wrap li {
+	float: right;
+	margin-top: 8px;
+	margin-right: 5px;
+}
+.side_contents .btn_wrap {
+	background: #EEEEEE;
+	height: 40px;
+	width: 340px;
+	margin: 5px auto;
+	/*border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;*/
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable .side_contents .btn_wrap {
+	width: 100%;
+}
+
+h3.hl{
+	background: #EEEEEE;
+	height: 40px;
+	width: 340px;
+	margin: 5px auto;
+	/*border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;*/
+	font-size: 18px;
+	line-height: 40px;
+	text-align: center;
+}
+/* Edit NBKD-872 hungtn VNIT 2015/01/05*/
+.resizetable h3.hl{
+	width: 100%;
+}
+.categories h3 .icon_file {
+	background: #BF0A01;
+	margin-left: 3px;
+}
+.categories .series li .icon_file {
+	background: #888;
+	margin-left: 3px;
+}
+.tree_wrap a .icon_home {
+	background: #BF0A01;
+}
+.tree_wrap a.top {
+	line-height: 17px;
+}
+.tree_wrap div {
+	margin-bottom: 3px; /* ツリーの各項目の上下のスペースを均等に */
+}
+.category_selected {
+	background: #FFDEDD;
+	padding-right: 2px;
+	border: 1px solid #BF0A01;
+	margin-left: 1px;
+}
+/* Add Start - Trung VNIT - 2014/08/29 */
+.fold_r{position: absolute; right: 5px; top: 5px}
+.fold_l{position: absolute; right: 5px; top: 13px}
+/* Add End - Trung VNIT - 2014/08/29 */
+/*Add Start NBKD-872 hungtn VNIT 2014/12/31*/
+a.btn_open {
+	top: 0;
+	right: 0;
+}
+/*Add End NBKD-872 hungtn VNIT 2014/12/31*/
+/*Add Start LIXD-598 hungtn VNIT 20161121*/
+.indd_column {
+	max-width: 220px;
+}
+@media screen and (min-width: 1366px) {
+    .indd_column {
+		width: 220px;
+	}
+	.note_column {
+		width: auto;
+	}
+
+}/*Add End LIXD-598 hungtn VNIT 20161121*/

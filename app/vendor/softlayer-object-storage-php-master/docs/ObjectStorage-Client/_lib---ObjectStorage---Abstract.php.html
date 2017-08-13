@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Docs for page Abstract.php</title>
+  <link rel="stylesheet" href="../media/stylesheet.css" />
+  <script src="../media/lib/classTree.js"></script>
+<link id="webfx-tab-style-sheet" type="text/css" rel="stylesheet" href="../media/lib/tab.webfx.css" />
+<script type="text/javascript" src="../media/lib/tabpane.js"></script>
+  <script language="javascript" type="text/javascript" src="../media/lib/ua.js"></script>
+<script language="javascript" type="text/javascript">
+	var imgPlus = new Image();
+	var imgMinus = new Image();
+	imgPlus.src = "../media/images/plus.gif";
+	imgMinus.src = "../media/images/minus.gif";
+	
+	function showNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgMinus.src;
+		oTable.style.display = "block";
+	}
+	
+	function hideNode(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+				var oImg = document.layers["img" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+				var oImg = document.all["img" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+				var oImg = document.getElementById("img" + Node);
+        		break;
+        }
+		oImg.src = imgPlus.src;
+		oTable.style.display = "none";
+	}
+	
+	function nodeIsVisible(Node){
+        switch(navigator.family){
+        	case 'nn4':
+        		// Nav 4.x code fork...
+				var oTable = document.layers["span" + Node];
+        		break;
+        	case 'ie4':
+        		// IE 4/5 code fork...
+				var oTable = document.all["span" + Node];
+        		break;
+        	case 'gecko':
+        		// Standards Compliant code fork...
+				var oTable = document.getElementById("span" + Node);
+        		break;
+        }
+		return (oTable && oTable.style.display == "block");
+	}
+	
+	function toggleNodeVisibility(Node){
+		if (nodeIsVisible(Node)){
+			hideNode(Node);
+		}else{
+			showNode(Node);
+		}
+	}
+</script>
+<!-- template designed by Julien Damon based on PHPEdit's generated templates, and tweaked by Greg Beaver -->
+<body bgcolor="#ffffff" ><h2>File: /lib/ObjectStorage/Abstract.php</h2>
+<div class="tab-pane" id="tabPane1">
+<script type="text/javascript">
+tp1 = new WebFXTabPane( document.getElementById( "tabPane1" ) );
+</script>
+
+<div class="tab-page" id="Description">
+<h2 class="tab">Description</h2>
+<!-- ========== Info from phpDoc block ========= -->
+<h5>Abstract class for ObjectStorage_Container and ObjectStorage_Object.</h5>
+<div class="desc"><p>ObjectStorage_Abstract class represents a ObjectStorage container or an object.  With this class, you can easily create/retrieve/update/delete ObjectStorage containers and objects.</p><p>ObjectStorage_Abstract has many properties but these three are the major componets</p><p>* $objectStorage: holds reference to a ObjectStorage object (optional)  * $request: HTTP request object is consisted of headers and body  * $response: HTTP response object is consisted of headers and body</p><p>CRUD operation of a container  <div class="src-code"><ol><li><div class="src-line">&nbsp;<strong>$objectStorageDallas&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ObjectStorage-Client/ObjectStorage.html">ObjectStorage</a><strong>(</strong><strong>$objectStorageHost</strong><strong>,&nbsp;</strong><strong>$username</strong><strong>,&nbsp;</strong><strong>$password</strong><strong>,&nbsp;</strong><strong>$options</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<strong>$newContainer&nbsp;</strong>=&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'example_container'</font><strong>)</strong><strong>-&gt;</strong>create<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<strong>$updatedContainer&nbsp;</strong>=&nbsp;<strong>$newContainer</strong><strong>-&gt;</strong>setMeta<strong>(</strong><font color="#66cccc">'Description'</font><strong>,&nbsp;</strong><font color="#66cccc">'Adding&nbsp;a&nbsp;meta&nbsp;data'</font><strong>)</strong><strong>-&gt;</strong>update<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<strong>$reloadedContainer&nbsp;</strong>=&nbsp;<strong>$newContainer</strong><strong>-&gt;</strong>get<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<strong>$result&nbsp;</strong>=&nbsp;<strong>$newContainer</strong><strong>-&gt;</strong>delete<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;If&nbsp;you&nbsp;wanted,&nbsp;you&nbsp;can&nbsp;do&nbsp;this&nbsp;all&nbsp;one&nbsp;line.</font></div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;Most&nbsp;functions&nbsp;return&nbsp;itself&nbsp;so&nbsp;you&nbsp;can&nbsp;chain&nbsp;method&nbsp;calls&nbsp;except&nbsp;detele&nbsp;method&nbsp;which&nbsp;returns&nbsp;a&nbsp;boolean&nbsp;value.</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$result&nbsp;</strong>=&nbsp;<strong>$objectStorageDallas05</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'example_container'</font><strong>)</strong><strong>-&gt;</strong>create<strong>(</strong><strong>)</strong><strong>-&gt;</strong>setMeta<strong>(</strong><font color="#66cccc">'Description'</font><strong>,&nbsp;</strong><font color="#66cccc">'Adding&nbsp;a&nbsp;meta&nbsp;data'</font><strong>)</strong><strong>-&gt;</strong>update<strong>(</strong><strong>)</strong><strong>-&gt;</strong>get<strong>(</strong><strong>)</strong><strong>-&gt;</strong>delete<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;When&nbsp;you&nbsp;create&nbsp;a&nbsp;new&nbsp;container&nbsp;or&nbsp;an&nbsp;object,&nbsp;ObjectStorage_Abstract&nbsp;will&nbsp;return&nbsp;itself,&nbsp;not&nbsp;the&nbsp;newly&nbsp;created&nbsp;conainer&nbsp;or&nbsp;object.</font></div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;If&nbsp;you&nbsp;wish&nbsp;to&nbsp;reload&nbsp;the&nbsp;the&nbsp;data&nbsp;from&nbsp;ObjectStorage&nbsp;cluster,&nbsp;use&nbsp;ObjectStorage_Abstract::get&nbsp;or&nbsp;ObjectStorage_Abstract::reload&nbsp;methods.</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$newContainer&nbsp;</strong>=&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'example_container'</font><strong>)</strong><strong>-&gt;</strong>create<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;It&nbsp;will&nbsp;fetch&nbsp;the&nbsp;container&nbsp;info&nbsp;from&nbsp;ObjectStorage&nbsp;and&nbsp;reload&nbsp;$newContainer&nbsp;object&nbsp;with&nbsp;it.</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$newContainer</strong><strong>-&gt;</strong>reload<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+</ol></div></p><p>ObjectStorage_Abstract tries to postpone the actual interaction with ObjectStorage as late as it can.  Authentication to ObjectStorage or any CRUD operation happens when you invoke these method:  * create  * get  * getInfo (Equivalent to HEAD request)  * update  * delete  * getCdnUrls  * purgeCache (only applicable to a ObjectStorage_Object in a public container)  * loadCache (only applicable to a ObjectStorage_Object in a public container)</p><p>In order to make objects available via CDN, you will need to make a container public. See the example below:  <div class="src-code"><ol><li><div class="src-line">&nbsp;<font color="green">//&nbsp;To&nbsp;create&nbsp;a&nbsp;CDN&nbsp;enabled&nbsp;container</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'cdn_container'</font><strong>)</strong><strong>-&gt;</strong>enableCdn<strong>(</strong><strong>)</strong><strong>-&gt;</strong>create<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;To&nbsp;update&nbsp;an&nbsp;existing&nbsp;container&nbsp;to&nbsp;a&nbsp;CDN&nbsp;enabled&nbsp;container</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'another_container'</font><strong>)</strong><strong>-&gt;</strong>enableCdn<strong>(</strong><strong>)</strong><strong>-&gt;</strong>update<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<font color="green">//&nbsp;Likewise,&nbsp;you&nbsp;can&nbsp;change&nbsp;a&nbsp;container&nbsp;private&nbsp;this&nbsp;way.</font></div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'another_container'</font><strong>)</strong><strong>-&gt;</strong>disableCdn<strong>(</strong><strong>)</strong><strong>-&gt;</strong>update<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+</ol></div></p><p>You can iterate through container or object using $containers or $objects property  <div class="src-code"><ol><li><div class="src-line">&nbsp;<font color="blue">if&nbsp;</font><strong>(</strong><a href="http://www.php.net/count">count</a><strong>(</strong><strong>$container</strong><strong>-&gt;</strong>objects<strong>)&nbsp;</strong>&gt;&nbsp;0<strong>)&nbsp;</strong><strong>{</strong></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<font color="blue">foreach&nbsp;</font><strong>(</strong><strong>$results</strong><strong>-&gt;</strong>objects&nbsp;as&nbsp;<strong>$shallowObject</strong><strong>)&nbsp;</strong><strong>{</strong></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>$object&nbsp;</strong>=&nbsp;<strong>$shallowObject</strong><strong>-&gt;</strong>get<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<strong>$object</strong><strong>-&gt;</strong>getUrl<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;<strong>$object</strong><strong>-&gt;</strong>getResponse<strong>(</strong><strong>)</strong><strong>-&gt;</strong>getBody<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;&nbsp;&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line">&nbsp;<strong>}</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;You&nbsp;can&nbsp;<a href="http://www.php.net/copy">copy</a>&nbsp;a&nbsp;container&nbsp;or&nbsp;an&nbsp;object&nbsp;to&nbsp;another&nbsp;<a href="../ObjectStorage-Client/ObjectStorage.html">ObjectStorage</a>&nbsp;cluster&nbsp;this&nbsp;way:</div></li>
+<li><div class="src-line">&nbsp;&lt;code&gt;</div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageDallas&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ObjectStorage-Client/ObjectStorage.html">ObjectStorage</a><strong>(</strong><strong>$objectStorageHost01</strong><strong>,&nbsp;</strong><strong>$username01</strong><strong>,&nbsp;</strong><strong>$password01</strong><strong>,&nbsp;</strong><strong>$options</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageSeattle&nbsp;</strong>=&nbsp;new&nbsp;<a href="../ObjectStorage-Client/ObjectStorage.html">ObjectStorage</a><strong>(</strong><strong>$objectStorageHost02</strong><strong>,&nbsp;</strong><strong>$username02</strong><strong>,&nbsp;</strong><strong>$password02</strong><strong>,&nbsp;</strong><strong>$options</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;</div></li>
+<li><div class="src-line">&nbsp;<strong>$object&nbsp;</strong>=&nbsp;<strong>$objectStorageDallas</strong><strong>-&gt;</strong>with<strong>(</strong><font color="#66cccc">'path/object'</font><strong>)</strong><strong>-&gt;</strong>get<strong>(</strong><strong>)</strong><strong>;</strong></div></li>
+<li><div class="src-line">&nbsp;<strong>$objectStorageSeattle</strong><strong>-&gt;</strong>create<strong>(</strong><strong>$object</strong><strong>)</strong><strong>;</strong></div></li>
+</ol></div></p></div>
+<ul>
+		<li><strong>copyright:</strong> - Copyright (c) 2012 SoftLayer Technologies Inc. (http://www.softlayer.com)</li>
+		<li><strong>abstract:</strong> - </li>
+	</ul>
+<!-- =========== Used Classes =========== -->
+<A NAME='classes_summary'><!-- --></A>
+<h3>Classes defined in this file</h3>
+
+<TABLE CELLPADDING='3' CELLSPACING='0' WIDTH='100%' CLASS="border">
+	<THEAD>
+		<TR><TD STYLE="width:20%"><h4>CLASS NAME</h4></TD><TD STYLE="width: 80%"><h4>DESCRIPTION</h4></TD></TR>
+	</THEAD>
+	<TBODY>
+				<TR BGCOLOR='white' CLASS='TableRowColor'>
+			<TD><a href="../ObjectStorage-Client/ObjectStorage_Abstract.html">ObjectStorage_Abstract</a></TD>
+			<TD>Abstract class for ObjectStorage_Container and ObjectStorage_Object.</TD>
+		</TR>
+			</TBODY>
+</TABLE>
+</div>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "Description" ) );</script>
+<div class="tab-page" id="tabPage1">
+<!-- ============ Includes DETAIL =========== -->
+
+<h2 class="tab">Include/Require Statements</h2>
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage1" ) );</script>
+
+
+</div>
+<div class="tab-page" id="tabPage2">
+<!-- ============ GLOBAL DETAIL =========== -->
+
+<h2 class="tab">Global Variables</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage2" ) );</script>
+
+</div>
+<div class="tab-page" id="tabPage3">
+<!-- ============ CONSTANT DETAIL =========== -->
+
+<A NAME='constant_detail'></A>
+<h2 class="tab">Constants</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage3" ) );</script>
+
+</div>
+<div class="tab-page" id="tabPage4">
+<!-- ============ FUNCTION DETAIL =========== -->
+
+<h2 class="tab">Functions</h2>
+
+<script type="text/javascript">tp1.addTabPage( document.getElementById( "tabPage4" ) );</script>
+
+</div>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+
+setupAllTabs();
+
+//]]>
+</script>
+	<div id="credit">
+		<hr />
+		Documentation generated on Wed, 23 May 2012 09:58:25 -0500 by <a href="http://www.phpdoc.org" target="_blank">phpDocumentor 1.4.4</a>
+	</div>
+</body>
+</html>

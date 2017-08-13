@@ -1,0 +1,73 @@
+@charset "utf-8";
+/*======================　シリーズ情報　======================*/
+.column_2 .main_innner {
+	min-width:800px;
+}
+.edit_wrap {
+	min-width: 300px;
+	clear: none;
+	height: 100%;
+	border: 1px solid #CCC;
+	z-index: 2;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+}
+
+.move_wrap{
+	width: 100px;
+	height: 100%;
+	position: relative;
+	margin-top: 10px;
+	margin-left: 10px;
+	float: left;
+	min-height:200px;
+}
+.edit_wrap h3.hl{
+	line-height: 25px;
+	height: 25px;
+	width: auto;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.main_innner {
+	margin-left: 352px;
+	margin-right: 10px;
+	/*overflow: hidden;*/
+}
+.related .tree_wrap ul li {
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: bold;
+	margin-left: 10px;
+}
+.move_wrap ul {
+	margin-top: -75px;
+	margin-left: -30px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}
+.move_wrap ul li a {
+	height: 60px;
+	width: 60px;
+}
+.move_wrap ul li{
+	margin-bottom: 30px;
+}
+.info_wrap {
+	overflow: hidden;
+}
+.edit_wrap li.selected a{
+	background: #FFDEDD;
+	border: 1px solid #BF0A01;
+	padding: 2px;
+	margin-left: -2px;
+}
+/*Add Start - Minh VNIT - 2014/08/04*/
+a.disabled {
+   pointer-events: none;
+   cursor: default;
+}
+/*Add End - Minh VNIT - 2014/08/04*/

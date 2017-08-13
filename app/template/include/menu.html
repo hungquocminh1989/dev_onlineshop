@@ -1,0 +1,229 @@
+<%if $user_info.user_kbn == '1'%>
+<%*Start LIXD-463 menu master*%>
+<div class="header clear_fix">
+	<p><%$smarty.const.AKAGANE_TITLE%></p>
+	<ul class="subnav">
+	    <!-- Add Start LIXD-492 Tai VNIT 20160420 -->
+		<li><a href="javascript:void(0);" class="gnav_0">ヘルプ</a>
+		    <ul class="sub">
+		      <li><a href="javascript:void(0);" class="helperdownload" id="manual">マニュアル</a></li>
+              <li><a href="javascript:void(0);" class="helperdownload" id="guideline">ガイドライン</a></li>
+		    </ul>
+		</li>
+		<!-- Add End LIXD-492 Tai VNIT 20160420 -->
+		
+		
+		<li><a href="<%$smarty.const.ACW_BASE_URL%>login/delete">ログアウト</a></li>
+		<li>ログイン　<%$user_info.user_name%><%*これはLogin_model::check()で入ります*%></li>
+	</ul>
+	<ul class="gnav">
+		<li><a href="<%$smarty.const.ACW_BASE_URL%>top" class="gnav_1">トップ</a></li>
+		<li><a href="javascript:void(0);" class="gnav_2">商品情報管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>iteminfo">商品情報</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>category">カテゴリ登録</a></li>
+<%* Remove - LIXD-463 - TrungVNIT - 2016/03/30				<li><a href="<%$smarty.const.ACW_BASE_URL%>relation">関連商品登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>relationinfo">関連情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>kyoyu">共有シリーズ情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>syuyaku">シリーズ集約情報登録</a></li>*%>
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>itemcode/shohincode">商品コード検索</a></li><!--Add LIXD-422 hungtn VNIT 20160225-->
+				<!-- //Edit - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+				<!--<li><a href="<%$smarty.const.ACW_BASE_URL%>itemstop"><%$smarty.const.AKAGANE_SERIES_STOP_WORD%>登録</a></li> Remove - LIXD-175 - TrungVNIT - 2015/02/10-->
+			</ul></li>
+		<li><a href="javascript:void(0);" class="gnav_3">版管理</a>
+			<ul class="sub">
+				<!--<li><a href="<%$smarty.const.ACW_BASE_URL%>translate">翻訳一覧</a></li>-->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>comment">コメント一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>history">履歴一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval">承認一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdf_status">PDF状況確認</a></li>
+			</ul></li>
+
+		<!-- //Add Start - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<li><a href="javascript:void(0);" class="gnav_4">一括管理</a><!-- Edit - miyazaki U_SYS - 2015/01/09 -->
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexport">商品エクスポート</a></li>
+<!--				<li><a href="<%$smarty.const.ACW_BASE_URL%>translateexport">翻訳エクスポート</a></li>--><!-- Remove - ZZZZ-928 - TrungVNIT - 2015/04/23 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexporthistory">エクスポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimport">商品インポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimporthistory">インポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/downloadindd">Indd・PDF一括ダウンロード</a></li> <!--Edit ZZZZ-765 hungtn VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfdownloadhistory">Indd・PDF一括ダウンロード履歴</a></li> <!--Add ZZZZ-41 Phong VNIT 2015/01/15 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/uploadindd">Indd一括アップロード</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfuploadhistory">Indd一括アップロード履歴</a></li> <!--Add ZZZZ-41 Phong VNIT 2015/01/16 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval2">一括承認</a></li> <!--Add ZZZZ-924 Tin VNIT 2015/01/26 -->
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>tableupdoad">表一括アップロード</a></li><!--Add LIXD-422 - TrungVNIT - 2015/01/12-->
+			</ul></li>
+		<!-- //Add End - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<%* Remove - LIXD-463 - TrungVNIT - 2016/03/30 <li><a href="javascript:void(0);" class="gnav_5">予約管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyaku">予約情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>iteminfo/yoyaku">予約商品情報</a></li><!-- Edit - miyazaki U_SYS - 2014/12/24 -->
+				<!--Start comment ZZZZ-1128 Tin 5/22/2015 <li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakurelation">予約関連商品登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakurelationinfo">予約関連情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakukyoyu">予約共有シリーズ情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakusyuyaku">予約シリーズ集約情報登録</a></li>End comment ZZZZ-1128 Tin 5/22/2015 -->
+			</ul></li>
+		<!-- Add start - miyazaki U_SYS - 2015/01/05 -->
+		<li><a href="javascript:void(0);" class="gnav_6">予約版管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>comment/yoyaku">予約コメント一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>history/yoyaku">予約履歴一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval/yoyaku">予約承認一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdf_status/yoyaku">予約PDF状況確認</a></li>				
+			</ul></li>
+		<!-- Add end - miyazaki U_SYS - 2015/01/05 -->
+
+		<!-- //Add Start - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<li><a href="javascript:void(0);" class="gnav_7">予約一括管理</a><!-- Edit - miyazaki U_SYS - 2015/01/09 -->
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakuitemexport">予約商品エクスポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexporthistory/yoyaku">予約エクスポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakuitemimport">予約商品インポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimporthistory/yoyaku">予約インポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/yoyakudownloadindd">予約Indd・PDF一括ダウンロード</a></li> <!--Add ZZZZ-1014 Minh VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfdownloadhistory/yoyaku">予約Indd・PDF一括ダウンロード履歴</a></li> <!--Add ZZZZ-1014 Minh VNIT 2015/01/15 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/yoyakuuploadindd">予約Indd 一括アップロード</a></li><!--Add ZZZZ-1014 Minh VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfuploadhistory/yoyaku">予約Indd一括アップロード履歴</a></li> <!--Add ZZZZ-1014 Minh VNIT 2015/01/16 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval2/yoyaku">予約一括承認</a></li><!--add ZZZZ-925 PhongVNIT 20150129-->
+			
+			</ul></li>
+		<!-- //Add End - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+        *%>
+		<li><a href="javascript:void(0);" class="gnav_8">媒体管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>media">媒体管理</a></li>
+                                <li><a href="<%$smarty.const.ACW_BASE_URL%>mediatemplate">テンプレート登録画面</a></li><!--Add - LIXD-18 - TrungVNIT - 2015/08/12-->
+				<!-- <li><a href="#">媒体エクスポート</a></li>
+				<li><a href="#">媒体インポート</a></li>-->
+			</ul></li>
+		<li><a href="javascript:void(0);" class="gnav_9">マスタ管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>user">ユーザマスタ</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>spec">アイコンマスタ</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>mediatype">媒体種類マスタ</a></li>
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>mscolor">背景色マスタ</a></li><!-- Add LIXD-79 hungtn VNIT 20150901 -->
+			</ul></li>
+	</ul>
+</div><!-- / .header -->
+<%else%>
+<%*Start menu nomal LIXD-463*%>
+<div class="header clear_fix">
+	<p><%$smarty.const.AKAGANE_TITLE%></p>
+	<ul class="subnav">
+		<!-- Add Start LIXD-492 Tai VNIT 20160420 -->
+        <li><a href="javascript:void(0);" class="gnav_0">ヘルプ</a>
+            <ul class="sub">
+              <li><a href="javascript:void(0);" class="helperdownload" id="manual">マニュアル</a></li>
+              <li><a href="javascript:void(0);" class="helperdownload" id="guideline">ガイドライン</a></li>
+            </ul>
+        </li>
+        <!-- Add End LIXD-492 Tai VNIT 20160420 -->
+		<li><a href="<%$smarty.const.ACW_BASE_URL%>login/delete">ログアウト</a></li>
+		<li>ログイン　<%$user_info.user_name%><%*これはLogin_model::check()で入ります*%></li>
+	</ul>
+	<ul class="gnav">
+		<li><a href="<%$smarty.const.ACW_BASE_URL%>top" class="gnav_1">トップ</a></li>
+		<li><a href="javascript:void(0);" class="gnav_2">商品情報管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>iteminfo">商品情報</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>category">カテゴリ登録</a></li>
+				<%* Remove - LIXD-463 - TrungVNIT - 2016/03/30<li><a href="<%$smarty.const.ACW_BASE_URL%>relation">関連商品登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>relationinfo">関連情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>kyoyu">共有シリーズ情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>syuyaku">シリーズ集約情報登録</a></li>	*%>			
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>itemcode/shohincode">商品コード検索</a></li><!--Add LIXD-422 hungtn VNIT 20160225-->
+				<!-- //Edit - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+				<!--<li><a href="<%$smarty.const.ACW_BASE_URL%>itemstop"><%$smarty.const.AKAGANE_SERIES_STOP_WORD%>登録</a></li> Remove - LIXD-175 - TrungVNIT - 2015/02/10-->
+			</ul></li>
+		<li><a href="javascript:void(0);" class="gnav_3">版管理</a>
+			<ul class="sub">
+				<!--<li><a href="<%$smarty.const.ACW_BASE_URL%>translate">翻訳一覧</a></li>-->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>comment">コメント一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>history">履歴一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval">承認一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdf_status">PDF状況確認</a></li>
+			</ul></li>
+
+		<!-- //Add Start - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<li><a href="javascript:void(0);" class="gnav_4">一括管理</a><!-- Edit - miyazaki U_SYS - 2015/01/09 -->
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexport">商品エクスポート</a></li>
+<!--				<li><a href="<%$smarty.const.ACW_BASE_URL%>translateexport">翻訳エクスポート</a></li>--><!-- Remove - ZZZZ-928 - TrungVNIT - 2015/04/23 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexporthistory">エクスポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimport">商品インポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimporthistory">インポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/downloadindd">Indd・PDF一括ダウンロード</a></li> <!--Edit ZZZZ-765 hungtn VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfdownloadhistory">Indd・PDF一括ダウンロード履歴</a></li> <!--Add ZZZZ-41 Phong VNIT 2015/01/15 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/uploadindd">Indd一括アップロード</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfuploadhistory">Indd一括アップロード履歴</a></li> <!--Add ZZZZ-41 Phong VNIT 2015/01/16 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval2">一括承認</a></li> <!--Add ZZZZ-924 Tin VNIT 2015/01/26 -->
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>tableupdoad">表一括アップロード</a></li><!--Add LIXD-422 - TrungVNIT - 2015/01/12-->
+			</ul></li>
+		<!-- //Add End - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<%* Remove - LIXD-463 - TrungVNIT - 2016/03/30<li><a href="javascript:void(0);" class="gnav_5">予約管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyaku">予約情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>iteminfo/yoyaku">予約商品情報</a></li><!-- Edit - miyazaki U_SYS - 2014/12/24 -->
+				<!--Start comment ZZZZ-1128 Tin 5/22/2015 <li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakurelation">予約関連商品登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakurelationinfo">予約関連情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakukyoyu">予約共有シリーズ情報登録</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakusyuyaku">予約シリーズ集約情報登録</a></li>End comment ZZZZ-1128 Tin 5/22/2015 -->
+			</ul></li>
+		<!-- Add start - miyazaki U_SYS - 2015/01/05 -->
+		<li><a href="javascript:void(0);" class="gnav_6">予約版管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>comment/yoyaku">予約コメント一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>history/yoyaku">予約履歴一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval/yoyaku">予約承認一覧</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdf_status/yoyaku">予約PDF状況確認</a></li>				
+			</ul></li>
+		<!-- Add end - miyazaki U_SYS - 2015/01/05 -->
+
+		<!-- //Add Start - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<li><a href="javascript:void(0);" class="gnav_7">予約一括管理</a><!-- Edit - miyazaki U_SYS - 2015/01/09 -->
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakuitemexport">予約商品エクスポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemexporthistory/yoyaku">予約エクスポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>yoyakuitemimport">予約商品インポート</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>itemimporthistory/yoyaku">予約インポート履歴</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/yoyakudownloadindd">予約Indd・PDF一括ダウンロード</a></li> <!--Add ZZZZ-1014 Minh VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfdownloadhistory/yoyaku">予約Indd・PDF一括ダウンロード履歴</a></li> <!--Add ZZZZ-1014 Minh VNIT 2015/01/15 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>inddpdf/yoyakuuploadindd">予約Indd 一括アップロード</a></li><!--Add ZZZZ-1014 Minh VNIT 2014/11/24 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>pdfuploadhistory/yoyaku">予約Indd一括アップロード履歴</a></li> <!--Add ZZZZ-1014 Minh VNIT 2015/01/16 -->
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>approval2/yoyaku">予約一括承認</a></li><!--add ZZZZ-925 PhongVNIT 20150129-->
+			
+			</ul></li>*%>
+		<!-- //Add End - ZZZZ-765 - Hungtn VNIT - 2014/11/18 -->
+		<li><a href="javascript:void(0);" class="gnav_8">媒体管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>media">媒体管理</a></li>
+				<!-- <li><a href="#">媒体エクスポート</a></li>
+				<li><a href="#">媒体インポート</a></li>-->
+			</ul></li>
+		<li><a href="javascript:void(0);" class="gnav_9">マスタ管理</a>
+			<ul class="sub">
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>spec">アイコンマスタ</a></li>
+				<li><a href="<%$smarty.const.ACW_BASE_URL%>mediatype">媒体種類マスタ</a></li>
+                <li><a href="<%$smarty.const.ACW_BASE_URL%>mscolor">背景色マスタ</a></li><!-- Add LIXD-79 hungtn VNIT 20150901 -->
+			</ul></li>
+	</ul>
+</div><!-- / .header -->
+<%/if%>
+
+<!-- Add Start LIXD-492 Tai VNIT 20160420 -->
+<script type="text/javascript">
+$(function() {
+    $('a.helperdownload').click(function () {
+        var json_ajax = new Argo_ajax("json");
+        var id = $(this).attr('id');
+        json_ajax.done_func = function(data) {
+            if (data.success == "1") {
+                   location.href = "<%$smarty.const.ACW_BASE_URL%>helper/download" + id;
+            }
+        }
+        json_ajax.connect("POST", "Helper/index", {"file":id});
+    })
+})
+</script>
+<!-- Add End LIXD-492 Tai VNIT 20160420 -->

@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>ログインエラー</title>
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/reset.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/login.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>shared/css/common.css" rel="stylesheet" type="text/css" />
+<link href="<%$smarty.const.ACW_BASE_URL%>css/jquery-ui-1.10.3.custom.css" rel="stylesheet" type="text/css" />
+<script src="<%$smarty.const.ACW_BASE_URL%>js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="<%$smarty.const.ACW_BASE_URL%>js/jquery-ui-1.10.3.custom.js"></script>
+</head>
+<body class="column_2">
+<div class="bg">
+<div class="container">
+	
+	<div class="header clear_fix">
+		<p><%$smarty.const.AKAGANE_TITLE%></p>
+		<img class="logo" src="<%$smarty.const.ACW_BASE_URL%>shared/img/logo.jpg" alt="株式会社LIXIL" />
+	</div>
+	<div class="error_banner">
+		<h3 class="ui-state-error">
+			<span class="ui-icon ui-icon-alert"></span>
+			<span class="error_msg">一定時間操作されなかったため、再度、ログインが必要です。</span>
+		<br />
+		<input type="button" id="btn_login" value="ログイン画面へ" style="margin-top: 15px;"/>
+		</h3>
+
+	</div>
+</div>
+</div>
+<%include 'include/footer.html'%>
+<style>
+.error_banner {
+	width: 100%;
+	margin: 10px auto;
+	text-align: center;
+}
+
+.error_msg {
+	font-size: 15px;
+}
+
+h3.ui-state-error {
+    margin: auto;
+	padding: 5px;
+	width: 500px;
+}
+span.ui-icon {
+	border: outset 2px;
+	margin: 2px auto;
+}
+
+</style>
+<script type="text/javascript">
+
+$(function() {
+	
+	$(document).off("click", "#btn_login");
+	$(document).on("click", "#btn_login", function () {
+		location.href = "<%$smarty.const.ACW_BASE_URL%>login";
+	});
+});
+
+</script>
+</body>
+</html>

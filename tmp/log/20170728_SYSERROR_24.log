@@ -1,0 +1,40 @@
+2017/07/28 17:54:41 access ip -> 192.168.1.15
+Undefined variable: param
+ACWCore::__set_state(array(
+   'config' => 
+  array (
+    'controller_class_name' => 'ACWController',
+    'url_cmd' => 'acw_url_cmd',
+    'smarty_left_delimiter' => '<%',
+    'smarty_right_delimiter' => '%>',
+    'smarty_debug' => 0,
+  ),
+   'gvar' => 
+  array (
+    'url_level' => 
+    array (
+      0 => 'top',
+    ),
+    'model' => 'top',
+    'action' => 'index',
+    'dir_level' => 
+    array (
+    ),
+    'model_name' => 'Top_model',
+    'action_method' => 'action_index',
+    'param_level' => 
+    array (
+    ),
+    'model_php' => 'E:/DEVELOPMENT/simple_framework/app/model/Login.php',
+  ),
+   'error' => 
+  array (
+  ),
+))
+#0 E:\DEVELOPMENT\simple_framework\app\model\Top.php(20): ACWController->error_stop(8, 'Undefined varia...', 'E:\DEVELOPMENT\...', 20, Array)
+#1 [internal function]: Top_model::action_index()
+#2 E:\DEVELOPMENT\simple_framework\acwork\class\ACWController.php(164): call_user_func(Array)
+#3 E:\DEVELOPMENT\simple_framework\acwork\class\ACWController.php(32): ACWController->dispach()
+#4 E:\DEVELOPMENT\simple_framework\acwork\class\ACWCore.php(115): ACWController->main(NULL)
+#5 E:\DEVELOPMENT\simple_framework\index.php(29): ACWCore::acwork()
+#6 {main}

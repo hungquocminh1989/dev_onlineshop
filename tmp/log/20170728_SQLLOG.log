@@ -1,0 +1,23 @@
+2017/07/28 17:10:48 access ip -> 192.168.1.15
+
+			SELECT
+				  m_user_id
+				, user_id
+				, user_name
+				, mail_address
+				, user_auth
+				, user_ver_auth
+				, user_kbn
+			FROM
+				m_user
+			WHERE
+				user_id = :user_id
+			AND
+				pass = :passwd
+			AND
+				del_flg = 0
+			
+array (
+  'user_id' => 'MK',
+  'passwd' => '453864d4a1c914a9358be722475337b9',
+)
