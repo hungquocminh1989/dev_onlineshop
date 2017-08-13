@@ -24,7 +24,7 @@ class ACWSession
 		if (defined('ACW_SESSION_DIR')) {
 			ini_set('session.save_path', ACW_SESSION_DIR);
 			//Add Start LIXD-631 Nuoi VNIT 20161227
-	        $file = new COM ('Scripting.FileSystemObject', null, CP_UTF8);
+	        /*$file = new COM ('Scripting.FileSystemObject', null, CP_UTF8);
 			
 			$folderspec1 = new VARIANT(ACW_SESSION_PARENT_DIR, VT_BSTR, CP_UTF8);
 			
@@ -40,7 +40,7 @@ class ACWSession
 			if($exist_folder2 != TRUE)
 			{
 				$file->CreateFolder($folderspec2);
-			}
+			}*/
 	        //Add End LIXD-631 Nuoi VNIT 20161227
 		}
 	        
