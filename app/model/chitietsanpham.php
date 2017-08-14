@@ -4,9 +4,10 @@
 */
 class chitietsanpham_model extends ACWModel
 {
-	/**
-	* 共通初期化
-	*/
+	public static function action_index()
+	{
+		return ACWView::template('chitietsanpham.html');
+	}
 	
 }
 /* ファイルの終わり */
