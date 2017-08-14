@@ -74,7 +74,11 @@ class ACWController
 				$this->error_404('url_cmd');
 			}
 
-			$url_level = explode('/', $_GET[$cmd_name]);
+			$url_level = explode('/', $_GET[$cmd_name] );
+			//replace ký tự - để sử dụng được url đẹp
+			if(count($url_level) > 0){
+				$url_level[0] = str_replace("-","",$url_level[0]);
+			}
 			ACWCore::set_var('url_level', $url_level);
 			/**
 			 * URLによるルーティング

@@ -9,7 +9,7 @@ class Index_model extends ACWModel
 	*/
 	public static function init()
 	{
-		Login_model::check();	// ログインチェック
+		//Login_model::check();	// ログインチェック
 	}
 
 	/**
@@ -17,7 +17,7 @@ class Index_model extends ACWModel
 	*/
 	public static function action_index()
 	{
-		return ACWView::redirect(ACW_BASE_URL . 'top');
+		return ACWView::redirect(ACW_BASE_URL . 'trang-chu');
 	}
 }
 /* ファイルの終わり */
