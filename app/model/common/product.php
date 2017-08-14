@@ -2,7 +2,7 @@
 /**
  * ログインを行う
 */
-class product_model extends ACWModel
+class product_common_model extends ACWModel
 {
 	public function _getProduct()
 	{

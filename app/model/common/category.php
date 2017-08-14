@@ -2,7 +2,7 @@
 /**
  * ログインを行う
 */
-class category_model extends ACWModel
+class category_common_model extends ACWModel
 {
 	/**
 	* 共通初期化

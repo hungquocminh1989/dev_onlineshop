@@ -2,7 +2,7 @@
 /**
  * ログインを行う
 */
-class menu_model extends ACWModel
+class menu_common_model extends ACWModel
 {
 	public function _getMenu()
 	{
@@ -10,10 +10,7 @@ class menu_model extends ACWModel
 			SELECT
 				*
 			FROM
-				t_section_trans
-			WHERE
-				 COALESCE(m_section_id,t_ctg_section_id) = :select_id
-			ORDER BY m_lang_id
+				m_menu
 		";
 		$sql_param = array();
 		
