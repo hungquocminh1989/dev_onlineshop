@@ -13,10 +13,7 @@ class category_common_model extends ACWModel
 			SELECT
 				*
 			FROM
-				t_section_trans
-			WHERE
-				 COALESCE(m_section_id,t_ctg_section_id) = :select_id
-			ORDER BY m_lang_id
+				m_category
 		";
 		$sql_param = array();
 		
