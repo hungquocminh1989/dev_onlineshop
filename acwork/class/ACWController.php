@@ -127,7 +127,8 @@ class ACWController
 		 * _を抜いてみる
 		 */
 		ACWCore::set_var('dir_level', $dir_level);
-		ACWCore::set_var('model_name', str_replace('_', '', ucwords($exec_model)) . $dir_name . '_model');
+		//ACWCore::set_var('model_name', str_replace('_', '', ucwords($exec_model)) . $dir_name . '_model');
+		ACWCore::set_var('model_name', str_replace('_', '', $exec_model) . $dir_name . '_model');//Bỏ ucwords để chạy phân biệt hoa thường trên linux
 		ACWCore::set_var('action_method', 'action_' . str_replace('_', '', $exec_action));
 		ACWCore::set_var('param_level', $url_level);
 
