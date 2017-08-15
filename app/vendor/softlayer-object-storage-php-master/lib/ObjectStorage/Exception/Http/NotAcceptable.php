@@ -1,4 +1,0 @@
-<?php
-
-class ObjectStorage_Exception_Http_NotAcceptable extends ObjectStorage_Exception implements ObjectStorage_Exception_Http_Interface
-{}
