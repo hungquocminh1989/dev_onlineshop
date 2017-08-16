@@ -18,7 +18,7 @@ class trangchu_model extends ACWModel
 		$template_data["header_main"] = $result_menu_header;
 		$template_data["slider_main"] = "";
 		$template_data["category_main"] = "";
-		$template_data["product_main"] = "";
+		$template_data["product_main"] = $result_product;
 		$template_data["other_main"] = "";
 		$template_data["footer_main"] = "";
 		return ACWView::template('trangchu.html',$template_data);
