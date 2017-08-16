@@ -10,12 +10,12 @@ class trangchu_model extends ACWModel
 		$oProduct = new product_common_model();
 		$oCategory = new category_common_model();
 		
-		$result_menu = $oMenu->_getMenu();
+		$result_menu_header = $oMenu->_getMenuHeader();
 		$result_product = $oProduct->_getProduct();
 		$result_category = $oCategory->_getCategory();
 		
 		$template_data = array();
-		$template_data["header_main"] = $result_menu;
+		$template_data["header_main"] = $result_menu_header;
 		$template_data["slider_main"] = "";
 		$template_data["category_main"] = "";
 		$template_data["product_main"] = "";

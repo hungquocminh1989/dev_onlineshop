@@ -2,20 +2,18 @@
 <div class="container">
     <nav>
         <div class="nav-wrapper">
-            <a href="#!" class="brand-logo">Logo</a>
-            <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <a href="<%$smarty.const.ACW_BASE_URL%>" class="brand-logo">Logo</a>
+            <a href="<%$smarty.const.ACW_BASE_URL%>" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <a href="#" class="button-collapse"><i class="material-icons">shopping_cart</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
+            	<%foreach $header_main as $item%>
+            		<li><a href="<%$smarty.const.ACW_BASE_URL%><%$item.menu_link%>"><%$item.menu_name%></a></li>
+                <%/foreach%>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">Javascript</a></li>
-                <li><a href="mobile.html">Mobile</a></li>
+                <%foreach $header_main as $item%>
+            		<li><a href="<%$smarty.const.ACW_BASE_URL%><%$item.menu_link%>"><%$item.menu_name%></a></li>
+                <%/foreach%>
             </ul>
         </div>
     </nav>
