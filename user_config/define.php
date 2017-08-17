@@ -1,6 +1,5 @@
 <?php
-define('AKAGANE_COPYRIGHT', 'Copyright (C) 2014 Akagane Co., Ltd. All Rights Reserved.');//Add - Minh VNIT - 2014/08/04
-
+define('ACW_FOOTER_COPY_RIGHT', '2017 - Admin');
 /*
  * CMSタイトル
  */
