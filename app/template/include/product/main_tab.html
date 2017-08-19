@@ -1,0 +1,45 @@
+<!--Product-->
+<style>
+    .card .card-action b {
+    color: red;
+    }
+</style>
+<div class="divider"></div>
+<div class="section">
+    <h5>Section 2</h5>
+    <div>
+        <div class="row">
+            <div class="col s12">
+                <ul class="tabs">
+                    <li class="tab col s3"><a class="active" href="#test1">Test 1</a></li>
+                    <li class="tab col s3"><a href="#test2">Test 2</a></li>
+                    <li class="tab col s3"><a href="#test3">Disabled Tab</a></li>
+                    <li class="tab col s3"><a href="#test4">Test 4</a></li>
+                </ul>
+            </div>
+            <div id="test1" class="col s12">
+                <div class="row">
+	        	<%foreach $product_trending as $item%>
+	            <div class="col s6">
+				    <div class="card">
+				        <div class="card-image">
+				            <img src="<%$smarty.const.ACW_BASE_URL%>/data/sample-1.jpg">
+				        </div>
+				        <div class="card-content">
+				            <%$item.product_name%>
+				            <div><%$item.product_info%></div>
+				        </div>
+				        <div class="card-action right-align">
+				        	<h5><b><%$item.product_price|number_format:0%><%$smarty.const.HTML_CURRENCY%></b></h5>
+				        </div>
+				    </div>
+				</div>
+	        	<%/foreach%>
+	        </div>
+            </div>
+            <div id="test2" class="col s12">Test 2</div>
+            <div id="test3" class="col s12">Test 3</div>
+            <div id="test4" class="col s12">Test 4</div>
+        </div>
+    </div>
+</div>

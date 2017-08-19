@@ -1,5 +1,5 @@
 RewriteEngine on
-RewriteBase /
+RewriteBase /shop
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_URI} !^(.*\.(png|jpg|jpeg|gif|bmp|ico|css|js))$ [NC]
