@@ -9,15 +9,16 @@
 	display: inline-block;
 	vertical-align: middle;
 	padding-left: 10px;
+	color: #21fc3d;
 }
-.svg-next-icon-size-30 {
+.svg-phone-icon-top {
 	width: 60px;
 	height: 60px;
 }
 
-.svg-next-icon-size-100 {
-	width: 100px;
-	height: 100px;
+.svg-phone-icon-bottom {
+	width: 80px;
+	height: 80px;
 }
 
 /*
@@ -25,7 +26,8 @@ Header
 */
 nav {
     color: white;
-    background-color: #1c2632;
+    /*background-color: #1c2632;*/
+    background: #ea377c url(../img/main.png);
 }
 .header-menu-fixed {
     position: fixed;
@@ -42,7 +44,8 @@ nav {
 Footer
 */
 .page-footer {
-    background: #1c2632;
+    /*background: #1c2632;*/
+    background: #ea377c url(../img/main.png);
     border-top: 1px solid #addef0;
 }
 .fixed-phone-button {
@@ -64,10 +67,12 @@ body {
 Button Common
 */
 .btn {
-	background-color: #58b3f0;
+	/*background-color: #1c2632;*/
+	background: #ea377c url(../img/main.png);
 }
 .btn:hover, .btn-large:hover {
-	background-color: #58b3f0;
+	/*background-color: #1c2632;*/
+	background: #ea377c url(../img/main.png);
 }
 
 .card .card-content {
