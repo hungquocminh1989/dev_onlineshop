@@ -69,3 +69,7 @@ Button Common
 .btn:hover, .btn-large:hover {
 	background-color: #58b3f0;
 }
+
+.card .card-content {
+    padding: 5px;
+}
