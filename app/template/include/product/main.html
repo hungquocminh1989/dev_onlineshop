@@ -21,13 +21,16 @@
 			        </div>
 			        <div class="card-action right-align">
 			        	<%if $item.org_price > $item.product_price%>
-			        	<strike><h5><%$item.org_price|number_format:0%><%$smarty.const.HTML_CURRENCY%></h5></strike>
+			        	<strike><%$item.org_price|number_format:0%><%$smarty.const.HTML_CURRENCY%></strike>
 			        	<%/if%>
-			        	<h5><b><%$item.product_price|number_format:0%><%$smarty.const.HTML_CURRENCY%></b></h5>
+			        	<b><%$item.product_price|number_format:0%><%$smarty.const.HTML_CURRENCY%></b>
 			        </div>
 			    </div>
 			</div>
         	<%/foreach%>
+        	<div class="col s12 center">
+        		<a class="waves-effect waves-light btn">Xem Thêm</a>
+        	</div>
         </div>
     </div>
 </div>
