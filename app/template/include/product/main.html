@@ -10,19 +10,13 @@
     <div>
         <div class="row">
         	<%foreach $product_trending as $item%>
-            <div class="col s6">
+            <div class="col m4">
 			    <div class="card">
 			        <div class="card-image">
 			            <img src="<%$smarty.const.ACW_BASE_URL%>/data/sample-1.jpg">
 			        </div>
 			        <div class="card-content">
-			        <div class="row">
-			        	<div class="col s6"><%$item.product_name%></div><div class="col s6"><%$item.product_name%></div>
-			        </div>
-			        <div class="row">
-			        	<div class="col s6"><%$item.product_info%></div><div class="col s6"><%$item.product_info%></div>
-			        </div>
-			        
+				   		<%$item.product_name%>
 			        </div>
 			        <div class="card-action right-align">
 			        	<%if $item.org_price > $item.product_price%>

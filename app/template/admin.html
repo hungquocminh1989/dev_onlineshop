@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Admin</title>
+        <%include 'include/common_script.html'%>
+    </head>
+    <body>
+        <div class="main">
+            <div class="container">
+                <div class="row">
+                    <div class="col s12">
+                        <ul class="tabs">
+                            <li class="tab col s3"><a class="active" href="#tabMenu">Menu</a></li>
+                            <li class="tab col s3"><a href="#tabCategory">Category</a></li>
+                            <li class="tab col s3"><a href="#tabProduct">Product</a></li>
+                        </ul>
+                    </div>
+                    <div id="tabMenu" class="col s12">
+                    
+                    <div class="row">
+    <form class="col s12">
+    <br>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Menu Name" id="first_name" type="text" class="validate">
+          <label for="first_name">Menu Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Menu Name" id="last_name" type="text" class="validate">
+          <label for="last_name">Menu Link</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input placeholder="Menu Type" id="first_name" type="text" class="validate">
+          <label for="first_name">Menu Type</label>
+        </div>
+        <div class="input-field col s6">
+          <input placeholder="Sort No" id="last_name" type="text" class="validate">
+          <label for="last_name">Sort No</label>
+        </div>
+      </div>
+      <a class="waves-effect waves-light btn">Add</a>
+    </form>
+  </div>
+                    
+                    
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Menu Name</th>
+                                    <th>Menu Link</th>
+                                    <th>Menu Type</th>
+                                    <th>Sort No</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%foreach $header_main as $item%>
+                                <tr>
+                                    <td><%$item.menu_name%></td>
+                                    <td><%$item.menu_link%></td>
+                                    <td><%$item.menu_type%></td>
+                                    <td><%$item.sort_no%></td>
+                                    <td><a class="waves-effect waves-light btn">Edit</a></td>
+                                    <td><a class="waves-effect waves-light btn">Delete</a></td>
+                                </tr>
+                                <%/foreach%>  
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tabCategory" class="col s12">
+                    	<table>
+                            <thead>
+                                <tr>
+                                    <th>ctg_id</th>
+                                    <th>Category Name</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%foreach $category_main as $item%>
+                                <tr>
+                                    <td><%$item.m_ctg_id%></td>
+                                    <td><%$item.ctg_name%></td>
+                                </tr>
+                                <%/foreach%>  
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="tabProduct" class="col s12">
+                    	<table>
+                            <thead>
+                                <tr>
+                                    <th>Category Name</th>
+                                    <th>Product Name</th>
+                                    <th>Product Price</th>
+                                    <th>Product Info</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%foreach $product_main as $item%>
+                                <%/foreach%>  
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
