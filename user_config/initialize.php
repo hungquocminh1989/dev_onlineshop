@@ -51,7 +51,7 @@ header('Expires: -1');
 header('Cache-Control:');
 header('Pragma:');
 
-date_default_timezone_set('Asia/Tokyo');	// Smartyのエラー回避
+date_default_timezone_set(ACW_TIMEZONE);	// Smartyのエラー回避
 
 /**
 * コントローラー名 継承したコントローラーを使う場合変更してください
