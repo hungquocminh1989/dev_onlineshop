@@ -16,8 +16,13 @@
 			            <img src="<%$smarty.const.ACW_BASE_URL%>/data/sample-1.jpg">
 			        </div>
 			        <div class="card-content">
-			            <%$item.product_name%>
-			            <div><%$item.product_info%></div>
+			        <div class="row">
+			        	<div class="col s6"><%$item.product_name%></div><div class="col s6"><%$item.product_name%></div>
+			        </div>
+			        <div class="row">
+			        	<div class="col s6"><%$item.product_info%></div><div class="col s6"><%$item.product_info%></div>
+			        </div>
+			        
 			        </div>
 			        <div class="card-action right-align">
 			        	<%if $item.org_price > $item.product_price%>
