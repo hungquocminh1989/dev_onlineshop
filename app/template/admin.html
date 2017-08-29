@@ -22,25 +22,25 @@
     <br>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Menu Name" id="first_name" type="text" class="validate">
+          <input placeholder="Menu Name" id="txtMenuName" name="txtMenuName" type="text" class="validate">
           <label for="first_name">Menu Name</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Menu Name" id="last_name" type="text" class="validate">
+          <input placeholder="Menu Name" id="txtMenuLink" name="txtMenuLink" type="text" class="validate">
           <label for="last_name">Menu Link</label>
         </div>
       </div>
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Menu Type" id="first_name" type="text" class="validate">
+          <input placeholder="Menu Type" id="txtMenuType" name="txtMenuType" type="text" class="validate">
           <label for="first_name">Menu Type</label>
         </div>
         <div class="input-field col s6">
-          <input placeholder="Sort No" id="last_name" type="text" class="validate">
+          <input placeholder="Sort No" id="txtMenuSortNo" name="txtMenuSortNo" type="text" class="validate">
           <label for="last_name">Sort No</label>
         </div>
       </div>
-      <a class="waves-effect waves-light btn">Add</a>
+      <input type="button" id="menu_add" value="abc"/>
     </form>
   </div>
                     
@@ -63,8 +63,12 @@
                                     <td><%$item.menu_link%></td>
                                     <td><%$item.menu_type%></td>
                                     <td><%$item.sort_no%></td>
-                                    <td><a class="waves-effect waves-light btn">Edit</a></td>
-                                    <td><a class="waves-effect waves-light btn">Delete</a></td>
+                                    <td>
+                                    	<input type="button" value="edit"/>
+                                    </td>
+                                    <td>
+                                    	<input type="button" value="delete"/>
+                                    </td>
                                 </tr>
                                 <%/foreach%>  
                             </tbody>
@@ -109,3 +113,18 @@
         </div>
     </body>
 </html>
+<%include 'include/argo_ajax.html'%>
+<script>
+$(function() {
+	$('#menu_add').click(function(){
+		var html_ajax = new Argo_ajax("html");
+		html_ajax.done_func = function(html) {
+			
+			
+		};
+		html_ajax.connect("POST", "admin/menuadd", {
+			"m_user_id": 'abc'
+		});
+	});
+});
+</script>
