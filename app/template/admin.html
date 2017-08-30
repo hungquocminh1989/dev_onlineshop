@@ -113,11 +113,11 @@
         </div>
     </body>
 </html>
-<%include 'include/argo_ajax.html'%>
+<%include 'include/base_ajax.html'%>
 <script>
 $(function() {
 	$('#menu_add').click(function(){
-		var html_ajax = new Argo_ajax("html");
+		var html_ajax = new Base_ajax("html");
 		html_ajax.done_func = function(html) {
 			
 			

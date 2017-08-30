@@ -1,0 +1,111 @@
+<style type="text/css">
+.loading_screen{   
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background-color: rgb(220,220,220);
+    background-color: rgba(220,220,220, 0.5);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display:none;
+}
+.loading_dialog{
+	min-width: 10px;
+	min-height: 10px;
+	max-width: 100px;
+	max-height: 100px;
+	/*background-color: gray;*/
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+</style>
+<script type="text/javascript">
+
+	function Base_ajax() {
+	    this.initialize.apply(this, arguments);
+	}
+
+	Base_ajax.prototype.initialize = function(data_type) {
+	    this.ajax_option = {
+			cache: false,
+			dataType: data_type,
+			statusCode: {
+				401 : function () {
+					//Edit start LIXD-614 TinVNIT 12022016
+					//$('#modal_message').dialog('close');
+					//Base_ajax.sesstion_err_msg();
+					//Edit end LIXD-614 TinVNIT 12022016
+				}
+			}
+		};
+	};
+
+	Base_ajax.prototype.always_func = function (data){};
+	Base_ajax.prototype.done_func = function (data){};
+	Base_ajax.prototype.fail_func = function (data) {
+		if(data.status == 0){
+			if(data.responseText == ""){
+				alert('Error');
+			}else{
+				alert('Error');
+			}
+		}else{
+			alert('Error');
+		}
+	};
+
+	Base_ajax.prototype.connect = function (action_type, ajax_url, ajax_data) {
+		var aa_this = this;
+		var opt =　this.ajax_option;
+		Base_ajax.loading(true);
+		opt.type =  action_type;
+		opt.url = '<%$smarty.const.ACW_BASE_URL%>' + ajax_url;
+		if (ajax_data) {
+			opt.data = ajax_data;
+		} else if (opt.data) {
+			delete opt.data;
+		}
+		$.ajax(opt)
+			.always(function (data) {
+				Base_ajax.loading(false);
+				aa_this.always_func(data);
+			})	// alwaysを一番先に実行
+			.done(aa_this.done_func)
+			.fail(aa_this.fail_func);
+	};
+
+	Base_ajax.loading = function (flag) {
+		if (flag) {
+			$("#loading_screen").show();
+		} else {
+			$("#loading_screen").hide();
+		}
+	};
+	
+</script>
+<div id="loading_screen" class="loading_screen">
+    <div class="loading_dialog" class="loading_dialog">
+    	<!--Preloader-->
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-blue">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="modal_message"></div>
