@@ -31,21 +31,21 @@ class product_common_model extends ACWModel
 		return $this->query($sql,$sql_param);
 	}
 	
-	public function _insertProduct($ctg_name)
+	public function _insertProduct($param)
 	{
 		$sql = "
 			INSERT INTO m_product (m_ctg_id, product_name, product_price, product_info, discount_price, group_type, add_datetime, upd_datetime, del_flg)
 			VALUES (:m_ctg_id, :product_name, :product_price, :product_info, :discount_price, :group_type, NOW(), NOW(), 0);
 		";
-		$sql_param = array();
-		$sql_param['m_ctg_id'] = $m_ctg_id;
-		$sql_param['product_name'] = $product_name;
-		$sql_param['product_price'] = $product_price;
-		$sql_param['product_info'] = $product_info;
-		$sql_param['discount_price'] = $discount_price;
-		$sql_param['group_type'] = $group_type;
 		
-		return $this->execute($sql,$sql_param);
+		return $this->execute($sql,ACWArray::filter($param,array(
+													'm_ctg_id'
+													,'product_name'
+													,'product_price'
+													,'product_info'
+													,'discount_price'
+													,'group_type'
+		)));
 	}
 	
 	public function _updateProduct($ctg_name)

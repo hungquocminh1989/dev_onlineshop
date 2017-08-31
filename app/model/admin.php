@@ -24,12 +24,22 @@ class admin_model extends ACWModel
 		return ACWView::template('admin.html',$template_data);
 	}
 	
-	public static function action_menuadd()
+	public static function action_addmenu()
 	{
+		
+		$param = self::get_param(array(
+                    'acw_url'
+                    , 'menu_name'
+                    , 'menu_link'
+                    , 'menu_type'
+                    , 'sort_no'
+        ));
 		
 		$oMenu = new menu_common_model();
 		$oProduct = new product_common_model();
 		$oCategory = new category_common_model();
+		
+		$oMenu->_insertMenu($param);
 		
 		$result_menu_header = $oMenu->_getMenuHeader();
 		$product_main = $oProduct->_getProduct();

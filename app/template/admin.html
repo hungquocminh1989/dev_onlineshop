@@ -16,35 +16,32 @@
                         </ul>
                     </div>
                     <div id="tabMenu" class="col s12">
-                    
-                    <div class="row">
-    <form class="col s12">
-    <br>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Menu Name" id="txtMenuName" name="txtMenuName" type="text" class="validate">
-          <label for="first_name">Menu Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Menu Name" id="txtMenuLink" name="txtMenuLink" type="text" class="validate">
-          <label for="last_name">Menu Link</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s6">
-          <input placeholder="Menu Type" id="txtMenuType" name="txtMenuType" type="text" class="validate">
-          <label for="first_name">Menu Type</label>
-        </div>
-        <div class="input-field col s6">
-          <input placeholder="Sort No" id="txtMenuSortNo" name="txtMenuSortNo" type="text" class="validate">
-          <label for="last_name">Sort No</label>
-        </div>
-      </div>
-      <input type="button" id="menu_add" value="abc"/>
-    </form>
-  </div>
-                    
-                    
+                        <div class="row">
+                            <form id="addmenu" class="col s12">
+                                <br>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Menu Name" id="txtMenuName" name="menu_name" type="text" class="validate">
+                                        <label for="first_name">Menu Name</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Menu Name" id="txtMenuLink" name="menu_link" type="text" class="validate">
+                                        <label for="last_name">Menu Link</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="input-field col s6">
+                                        <input placeholder="Menu Type" id="txtMenuType" name="menu_type" type="text" class="validate">
+                                        <label for="first_name">Menu Type</label>
+                                    </div>
+                                    <div class="input-field col s6">
+                                        <input placeholder="Sort No" id="txtMenuSortNo" name="sort_no" type="text" class="validate">
+                                        <label for="last_name">Sort No</label>
+                                    </div>
+                                </div>
+                                <input type="button" id="menu_add" value="abc"/>
+                            </form>
+                        </div>
                         <table>
                             <thead>
                                 <tr>
@@ -64,10 +61,10 @@
                                     <td><%$item.menu_type%></td>
                                     <td><%$item.sort_no%></td>
                                     <td>
-                                    	<input type="button" value="edit"/>
+                                        <input type="button" value="edit"/>
                                     </td>
                                     <td>
-                                    	<input type="button" value="delete"/>
+                                        <input type="button" value="delete"/>
                                     </td>
                                 </tr>
                                 <%/foreach%>  
@@ -75,7 +72,7 @@
                         </table>
                     </div>
                     <div id="tabCategory" class="col s12">
-                    	<table>
+                        <table>
                             <thead>
                                 <tr>
                                     <th>ctg_id</th>
@@ -93,7 +90,7 @@
                         </table>
                     </div>
                     <div id="tabProduct" class="col s12">
-                    	<table>
+                        <table>
                             <thead>
                                 <tr>
                                     <th>Category Name</th>
@@ -115,16 +112,16 @@
 </html>
 <%include 'include/base_ajax.html'%>
 <script>
-$(function() {
-	$('#menu_add').click(function(){
-		var html_ajax = new Base_ajax("html");
-		html_ajax.done_func = function(html) {
-			
-			
-		};
-		html_ajax.connect("POST", "admin/menuadd", {
-			"m_user_id": 'abc'
-		});
-	});
-});
+    $(function() {
+    	$('#menu_add').click(function(){
+    		var html_ajax = new Base_ajax("html");
+    		html_ajax.done_func = function(html) {
+    			
+    			
+    		};
+    		var data = $("form#addmenu").serializeArray();
+    		console.log(data);
+    		html_ajax.connect("POST", "admin/addmenu", data);
+    	});
+    });
 </script>
