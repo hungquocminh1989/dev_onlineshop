@@ -19,52 +19,71 @@
                         <div class="row">
                             <form id="addmenu" class="col s12">
                                 <br>
+                                <a class="waves-effect waves-light btn" id="menu_add">Save</a>
+                                <a class="waves-effect waves-light btn" id="menu_reset">Clear</a>
+                                <input id="m_menu_id" name="m_menu_id" type="hidden" value="" />
+                                <table width="100%">
+                                    <col width="30%">
+                                    <col width="70%">
+                                    <thead>
+                                        <th></th>
+                                        <th></th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>Menu Name:</b></td>
+                                            <td>
+                                                <input placeholder="" id="txtMenuName" name="menu_name" type="text" class="validate inputMenuTextBox">
+                                                <input type="checkbox" class="filled-in" id="filled-in-box" name="menu_mobile" checked="checked" />
+                                                <label for="filled-in-box">Mobile</label>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Menu Link:</b></td>
+                                            <td>
+                                                <input placeholder="" id="txtMenuLink" name="menu_link" type="text" class="validate inputMenuTextBox">	
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Menu Type:</b></td>
+                                            <td>
+                                                <input placeholder="" id="txtMenuType" name="menu_type" type="text" class="validate inputMenuTextBox">	
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Sort No:</b></td>
+                                            <td>
+                                                <input placeholder="" id="txtSortNo" name="sort_no" type="text" class="validate inputMenuTextBox">	
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                                 <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Menu Name" id="txtMenuName" name="menu_name" type="text" class="validate">
-                                        <label for="first_name">Menu Name</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input placeholder="Menu Name" id="txtMenuLink" name="menu_link" type="text" class="validate">
-                                        <label for="last_name">Menu Link</label>
+                                    <div class="col s12">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input-field col s6">
-                                        <input placeholder="Menu Type" id="txtMenuType" name="menu_type" type="text" class="validate">
-                                        <label for="first_name">Menu Type</label>
-                                    </div>
-                                    <div class="input-field col s6">
-                                        <input placeholder="Sort No" id="txtMenuSortNo" name="sort_no" type="text" class="validate">
-                                        <label for="last_name">Sort No</label>
-                                    </div>
-                                </div>
-                                <input type="button" id="menu_add" value="abc"/>
                             </form>
                         </div>
-                        <table>
+                        <table class="highlight">
                             <thead>
                                 <tr>
                                     <th>Menu Name</th>
                                     <th>Menu Link</th>
                                     <th>Menu Type</th>
                                     <th>Sort No</th>
-                                    <th>Edit</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <%foreach $header_main as $item%>
-                                <tr>
-                                    <td><%$item.menu_name%></td>
-                                    <td><%$item.menu_link%></td>
-                                    <td><%$item.menu_type%></td>
-                                    <td><%$item.sort_no%></td>
+                                <tr class="table_row" id="<%$item.m_menu_id%>">
+                                	<input type="hidden" class="menu_mobile_<%$item.m_menu_id%>" value="<%$item.mobile_display%>">
+                                    <td class="menu_name_<%$item.m_menu_id%>"><%$item.menu_name%></td>
+                                    <td class="menu_link_<%$item.m_menu_id%>"><%$item.menu_link%></td>
+                                    <td class="menu_type_<%$item.m_menu_id%>"><%$item.menu_type%></td>
+                                    <td class="sort_no_<%$item.m_menu_id%>"><%$item.sort_no%></td>
                                     <td>
-                                        <input type="button" value="edit"/>
-                                    </td>
-                                    <td>
-                                        <input type="button" value="delete"/>
+                                        <a class="menu_delete waves-effect waves-light btn" id="menu_delete_<%$item.m_menu_id%>">Delete</a>
                                     </td>
                                 </tr>
                                 <%/foreach%>  
@@ -123,5 +142,41 @@
     		console.log(data);
     		html_ajax.connect("POST", "admin/addmenu", data);
     	});
+    	
+    	$('#menu_reset').click(function(){
+    		$("#m_menu_id").val('');
+    		$("#txtMenuName").val('');
+    		$("#txtMenuLink").val('');
+    		$("#txtMenuType").val('');
+    		$("#txtSortNo").val('');
+    		
+    		$(".validate").removeClass("valid");
+    	});
+    	
+    	$('.menu_delete').click(function(){
+    		var html_ajax = new Base_ajax("html");
+    		html_ajax.done_func = function(html) {
+    			alert('delete ok');
+    		};
+    		var delete_id = this.id.replace("menu_delete_","");
+    		html_ajax.connect("POST", "admin/delmenu", {'m_menu_id':delete_id});
+    	});
+    	
+    	$('.table_row').click(function(){
+    		$("#m_menu_id").val(this.id);
+    		$("#txtMenuName").val($(".menu_name_"+this.id).html());
+    		$("#txtMenuLink").val($(".menu_link_"+this.id).html());
+    		$("#txtMenuType").val($(".menu_type_"+this.id).html());
+    		$("#txtSortNo").val($(".sort_no_"+this.id).html());
+    		if($(".menu_mobile_"+this.id).val() == "on"){
+    			$("#filled-in-box").attr("checked","checked");
+    		}
+    		else{
+    			$("#filled-in-box").attr("checked","");
+    		}
+    		
+    		$(".validate").addClass("valid");
+    	});
+    	
     });
 </script>

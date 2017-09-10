@@ -78,3 +78,6 @@ Button Common
 .card .card-content {
     padding: 5px;
 }
+.inputMenuTextBox{
+	width: 300px !important;
+}
