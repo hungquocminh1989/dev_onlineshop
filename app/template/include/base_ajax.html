@@ -1,5 +1,6 @@
 <style type="text/css">
-.loading_screen{   
+.loading_screen
+{   
     height: 100%;
     width: 100%;
     position: fixed;
@@ -11,6 +12,33 @@
     overflow-x: hidden;
     overflow-y: hidden;
     display:none;
+}
+.modal_message
+{   
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    background-color: rgb(220,220,220);
+    background-color: rgba(220,220,220, 0.5);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    display:none;
+}
+.message_dialog{
+	min-width: 10px;
+	min-height: 10px;
+	max-width: 100px;
+	max-height: 100px;
+	/*background-color: gray;*/
+	position: absolute;
+	top:0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
 }
 .loading_dialog{
 	min-width: 10px;
@@ -47,8 +75,12 @@
 		};
 	};
 
-	Base_ajax.prototype.always_func = function (data){};
-	Base_ajax.prototype.done_func = function (data){};
+	Base_ajax.prototype.always_func = function (data){
+		//alert(111);
+	};
+	Base_ajax.prototype.done_func = function (data){
+		//alert(111);
+	};
 	Base_ajax.prototype.fail_func = function (data) {
 		if(data.status == 0){
 			if(data.responseText == ""){
@@ -79,6 +111,18 @@
 			})	// alwaysを一番先に実行
 			.done(aa_this.done_func)
 			.fail(aa_this.fail_func);
+	};
+	
+	Base_ajax.message_box = function () {
+		$("#modal_message").show();
+	};
+	
+	Base_ajax.ok_cancel_box = function () {
+		$("#modal_message").show();
+	};
+	
+	Base_ajax.message_box_error = function () {
+		$("#modal_message").show();
 	};
 
 	Base_ajax.loading = function (flag) {
@@ -141,4 +185,8 @@
         </div>
     </div>
 </div>
-<div id="modal_message"></div>
+<div id="modal_message" class="modal_message">
+	<div class="message_dialog" class="message_dialog">
+		abcxyz
+	</div>
+</div>

@@ -79,7 +79,7 @@
                                 <tr class="table_row" id="<%$item.m_menu_id%>">
                                 	<input type="hidden" class="menu_mobile_<%$item.m_menu_id%>" value="<%$item.mobile_display%>">
                                     <td class="menu_name_<%$item.m_menu_id%>"><%$item.menu_name%></td>
-                                    <td class="menu_link_<%$item.m_menu_id%>"><%$item.menu_link%></td>
+                                    <td class="menu_link_<%$item.m_menu_id%>"><a target="_blank" href="<%$smarty.const.ACW_BASE_URL%><%$item.menu_link%>"><%$item.menu_link%></a></td>
                                     <td class="menu_type_<%$item.m_menu_id%>"><%$item.menu_type%></td>
                                     <td class="sort_no_<%$item.m_menu_id%>"><%$item.sort_no%></td>
                                     <td>
@@ -135,11 +135,11 @@
     	$('#menu_add').click(function(){
     		var html_ajax = new Base_ajax("html");
     		html_ajax.done_func = function(html) {
-    			
-    			
+    			console.log(html);
+    			Base_ajax.message_box();
     		};
     		var data = $("form#addmenu").serializeArray();
-    		console.log(data);
+    		
     		html_ajax.connect("POST", "admin/addmenu", data);
     	});
     	
@@ -165,7 +165,7 @@
     	$('.table_row').click(function(){
     		$("#m_menu_id").val(this.id);
     		$("#txtMenuName").val($(".menu_name_"+this.id).html());
-    		$("#txtMenuLink").val($(".menu_link_"+this.id).html());
+    		$("#txtMenuLink").val($(".menu_link_"+this.id+" a").html());
     		$("#txtMenuType").val($(".menu_type_"+this.id).html());
     		$("#txtSortNo").val($(".sort_no_"+this.id).html());
     		if($(".menu_mobile_"+this.id).val() == "on"){

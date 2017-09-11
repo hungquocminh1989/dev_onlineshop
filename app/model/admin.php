@@ -26,7 +26,7 @@ class admin_model extends ACWModel
 	
 	public static function action_addmenu()
 	{
-		
+		$result = array();
 		$param = self::get_param(array(
                     'acw_url'
                     , 'm_menu_id'
@@ -46,13 +46,12 @@ class admin_model extends ACWModel
 			$oMenu->_insertMenu($param);
 		}
 		
-		
-		return ACWView::json(NULL);
+		return ACWView::json($result);
 	}
 	
 	public static function action_delmenu()
 	{
-		
+		$result = array();
 		$param = self::get_param(array(
                     'acw_url'
                     , 'm_menu_id'
@@ -61,7 +60,7 @@ class admin_model extends ACWModel
 		$oMenu = new menu_common_model();
 		
 		$oMenu->_deleteMenu($param);
-		return ACWView::json(NULL);
+		return ACWView::json($result);
 	}
 	
 }
