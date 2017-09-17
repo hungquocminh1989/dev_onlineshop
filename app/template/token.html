@@ -1,51 +1,80 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>Token</title>
-        <%include 'include/common_script.html'%>
+        <title>THÊM TÀI KHOẢN FACEBOOK</title>
+        <%include 'include/admin_common_script.html'%>
     </head>
     <body>
-    	<div class="main">
-	        <div class="container">
-				<div class="row">
-				    <form class="col s12" id="frm_token">
-				    	Facebook Account
-				      <div class="row">
-				        <div class="input-field col s12">
-				          <i class="material-icons prefix">email</i>
-				          <input id="email" name="email" type="email" class="validate">
-				          <label for="icon_prefix">Email</label>
-				        </div>
-				      </div>
-				      <div class="row">
-				        <div class="input-field col s12">
-				          <i class="material-icons prefix">vpn_key</i>
-				          <input id="password" name="pass" type="password" class="validate">
-				          <label for="icon_telephone">Password</label>
-				        </div>
-				      </div>
-				      <a class="waves-effect waves-light btn" id="get_token" >Get Token</a>
-				      <br>
-				      <div class="row">
-				        <div class="input-field col s12">
-				          <textarea id="result_token" class="materialize-textarea"></textarea>
-				        </div>
-				      </div>
-				    </form>
-				    
-				    
-				    <form class="col s12" id="frm_token_multi">
-				    Multi Account:
-				      <div class="row">
-				        <div class="input-field col s12">
-				          <textarea id="result_token" name="multi_line" class="materialize-textarea"></textarea>
-				        </div>
-				      </div>
-				      <a class="waves-effect waves-light btn" id="get_token_multi" >Get Multi Token</a>
-				    </form>
-				  </div>
-	        </div>
+        <div id="wrapper">
+            <!-- /. header  -->
+            <%include 'include/admin/header.html'%>
+            <!-- /. NAV TOP  -->
+            <%include 'include/admin/menu.html'%>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-head-line">THÊM TÀI KHOẢN FACEBOOK</h1>
+                            <h1 class="page-subhead-line">Tạo mã facebook token</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    Thông Tin Tài Khoản
+                                </div>
+                                <div class="panel-body">
+                                    <form id="frm_token">
+                                        <div class="form-group">
+                                            <label>Địa Chỉ Email:</label>
+                                            <input class="form-control" id="email" name="email" type="text">
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Mật Khẩu</label>
+                                            <input class="form-control" id="password" name="pass" type="password">
+                                        </div>
+                                        <button id="get_token" type="button" class="btn btn-info">Nhập Token</button>
+                                        <div class="form-group">
+                                            <label>Kết Quả:</label>
+                                            <textarea id="result_token" name="multi_line"  class="form-control" rows="5"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-subhead-line">Tạo mã facebook token hàng loạt</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    Thông Tin Tài Khoản Trên 1 Dòng : username|password
+                                </div>
+                                <div class="panel-body">
+                                    <form id="frm_token_multi">
+                                        <div class="form-group">
+                                            <label>Danh Sách Tài Khoản:</label>
+                                            <textarea id="multi_line" name="multi_line"  class="form-control" rows="10"></textarea>
+                                        </div>
+                                        <button id="get_token_multi" type="button" class="btn btn-info">Nhập Toàn Bộ Token</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
         </div>
+        <!-- /. WRAPPER  -->
+        <%include 'include/admin/footer.html'%>
     </body>
 </html>
 <%include 'include/base_ajax.html'%>
