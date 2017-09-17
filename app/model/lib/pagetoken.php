@@ -2,9 +2,9 @@
 /**
  * ログインを行う
 */
-class accesstoken_lib_model extends ACWModel
+class pagetoken_lib_model extends ACWModel
 {
-	public function ios_token($user, $pass){
+	public function get_token($user, $pass){
 		$token = array();
 		$token['access_token'] = "";
 		$token['error_msg'] = "";

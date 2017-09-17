@@ -18,20 +18,12 @@ class testfb_model extends ACWModel
 	*/
 	public static function action_index()
 	{
-		$accesstoken = "EAAVjM3Dif5YBAGVyW1vsFSGAdWcVJ9AM2SbFMOXCtULbgZCbTX8qKV3pnJUXWI5z1eYEjMTI6Ala4xZBLz8UNyv3nVVZA7NgukMKEZB1fZAbmaN59b00HrUZCKzflteZCgBoSAZB2yS49au2DNHzwaWG0HNeg2GRviP4xd6ZClx8Dnxq6MVqAoAJyDkfOsy48LZBUZD";
-		$fb = new Facebook\Facebook([
-			 'app_id' => '1516447471927190',
-        	'app_secret' => 'e1249d40b48864326f23bb05631fa15c',
-			'default_graph_version' => 'v2.4',
-			// . . .
-		]);
-		//$fb->setDefaultAccessToken('');
-		$a= array();
-		$a[] = "111";
-		$a[] = "222";
-		$response = $fb->get('/me?fields=cover', $accesstoken);
-		var_dump($response->getBody());
-		echo 123;die();
+		$accesstoken = "EAAAAAYsX7TsBAErF5SZBo1Ch4AtMKwx9alZCDhuYqWpYwKZBUpqsIDzk9OXnL8fYIXZBmlUTG0ZBO9h7GFwnryflQwU51I2rW9ZCZClmvEgNKGWZADG9fuJlRRAX9PJpsYPeXMop5fdtRLqrVTAgXIIAu7z0Tpqt5ybb9GgwYVDwCBpSBbb8AX0oZAxzZAljZBC354NafXNSQdE7X08t1k3IAf7t2tsWUTIP9cZD";
+		
+		$curl = new curlpost_lib_model();
+		$res = $curl->addFriend($accesstoken);
+		print_r($res);
+		die();
 		//return ACWView::redirect(ACW_BASE_URL . 'trang-chu');
 	}
 }

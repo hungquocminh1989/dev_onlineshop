@@ -9,15 +9,16 @@
 	        <div class="container">
 				<div class="row">
 				    <form class="col s12" id="frm_token">
+				    	Facebook Account
 				      <div class="row">
-				        <div class="input-field col s6">
+				        <div class="input-field col s12">
 				          <i class="material-icons prefix">email</i>
 				          <input id="email" name="email" type="email" class="validate">
 				          <label for="icon_prefix">Email</label>
 				        </div>
 				      </div>
 				      <div class="row">
-				        <div class="input-field col s6">
+				        <div class="input-field col s12">
 				          <i class="material-icons prefix">vpn_key</i>
 				          <input id="password" name="pass" type="password" class="validate">
 				          <label for="icon_telephone">Password</label>
@@ -30,6 +31,17 @@
 				          <textarea id="result_token" class="materialize-textarea"></textarea>
 				        </div>
 				      </div>
+				    </form>
+				    
+				    
+				    <form class="col s12" id="frm_token_multi">
+				    Multi Account:
+				      <div class="row">
+				        <div class="input-field col s12">
+				          <textarea id="result_token" name="multi_line" class="materialize-textarea"></textarea>
+				        </div>
+				      </div>
+				      <a class="waves-effect waves-light btn" id="get_token_multi" >Get Multi Token</a>
 				    </form>
 				  </div>
 	        </div>
@@ -52,6 +64,15 @@
     		};
     		var data = $("form#frm_token").serializeArray();
     		html_ajax.connect("POST", "token/gettoken", data);
+    	});
+    	
+    	$('#get_token_multi').click(function(){
+    		var html_ajax = new Base_ajax("json");
+    		html_ajax.done_func = function(data) {
+    			alert('Done');
+    		};
+    		var data = $("form#frm_token_multi").serializeArray();
+    		html_ajax.connect("POST", "token/gettokenmulti", data);
     	});
     });
 </script>
