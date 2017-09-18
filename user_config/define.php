@@ -32,6 +32,7 @@ define('HTML_DELIVER_INFO_CONTENT_4', HTML_PHONE);
 //Product Trending
 define('HTML_PRODUCT_TRENDING_TITLE', 'Xu Hướng');
 
+define('EXCEPTION_CATCH_ERROR_MSG', 'Có lỗi bất thường xảy ra trong quá trình xử lý.');
 
 
 // ------------------------------------
