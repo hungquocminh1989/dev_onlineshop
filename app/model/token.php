@@ -85,7 +85,7 @@ class token_model extends ACWModel
 					$sql_arr['token1'] = $arr[5];
 					$sql_arr['token2'] = $arr[6];
 					$sql_arr['full_name'] = $info['name'];
-					$fb_db = new facebookmanager_common_model();
+					$fb_db = new tokenmanager_common_model();
 					$fb_db->_insertRecord($sql_arr);
 				}
 				else{

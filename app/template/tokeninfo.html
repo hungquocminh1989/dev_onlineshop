@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>THÊM TÀI KHOẢN FACEBOOK</title>
+        <%include 'include/admin_common_script.html'%>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- /. header  -->
+            <%include 'include/admin/header.html'%>
+            <!-- /. NAV TOP  -->
+            <%include 'include/admin/menu.html'%>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-head-line">THÔNG TIN TOKEN</h1>
+                            <h1 class="page-subhead-line">Quản lý thông tin danh sách token</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <div class="panel panel-info">
+                        <div class="panel-heading">
+                            Danh Sách Token
+                        </div>
+                        <div class="panel-body">
+                        	<div class="form-group">
+                        		<button id="exec_update" type="button" class="btn btn-info">Cập Nhật</button>
+                        	</div>
+                            <div class="table-responsive">
+                                <table class="table table-striped table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Email</th>
+                                            <th>Mật Khẩu</th>
+                                            <th>UID</th>
+                                            <th>Họ Tên</th>
+                                            <th>Tổng Số Bạn</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>1</td>
+                                            <td>Mark</td>
+                                            <td>Otto</td>
+                                            <td>1/5000</td>
+                                            <td>1/5000</td>
+                                            <td>1/5000</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <%include 'include/admin/footer.html'%>
+    </body>
+</html>
+<%include 'include/base_ajax.html'%>
+<script>
+    $(function() {
+    	$('#exec_update').click(function(){
+    		var html_ajax = new Base_ajax("json");
+    		html_ajax.done_func = function(data) {
+    			if(data.error_msg != ''){
+    				alert(data.error_msg);
+    			}
+    			else{
+    				$("#result_token").val(data.access_token);
+    			}
+    		};
+    		var data = $("form#frm_token").serializeArray();
+    		html_ajax.connect("POST", "tokeninfo/reload", data);
+    	});
+    });
+</script>

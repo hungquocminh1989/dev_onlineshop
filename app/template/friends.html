@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>THÊM TÀI KHOẢN FACEBOOK</title>
+        <%include 'include/admin_common_script.html'%>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- /. header  -->
+            <%include 'include/admin/header.html'%>
+            <!-- /. NAV TOP  -->
+            <%include 'include/admin/menu.html'%>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-head-line">YÊU CẦU KẾT BẠN FACEBOOK</h1>
+                            <h1 class="page-subhead-line">Sử dụng toàn bộ token hiện có để thực hiện kết bạn</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-10 col-sm-10 col-xs-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    Thông Tin UID
+                                </div>
+                                <div class="panel-body">
+                                    <form id="frm_token">
+                                        <div class="form-group">
+                                            <label>Danh sách UID cần kết bạn:</label>
+                                            <textarea id="result_token" name="import_uid"  class="form-control" rows="5"></textarea>
+                                        </div>
+                                        <button id="exec_import" type="button" class="btn btn-info">Nhập Dữ Liệu</button>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    Danh Sách UID Đã Nạp
+                                </div>
+                                <div class="panel-body">
+                                    <div class="form-group">
+                                        <button id="exec_run" type="button" class="btn btn-info">Gửi Yêu Cầu Hàng Loạt</button>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Thời gian chờ:</label>
+                                        <select class="form-control" name="time_delay">
+                                            <option>One Vale</option>
+                                            <option>Two Vale</option>
+                                            <option>Three Vale</option>
+                                            <option>Four Vale</option>
+                                        </select>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table class="table table-striped table-bordered table-hover">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>UID</th>
+                                                    <th>Họ Tên</th>
+                                                    <th>Trạng Thái</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>1</td>
+                                                    <td>Mark</td>
+                                                    <td>Otto</td>
+                                                    <td>@mdo</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>2</td>
+                                                    <td>Jacob</td>
+                                                    <td>Thornton</td>
+                                                    <td>@fat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>3</td>
+                                                    <td>Larry</td>
+                                                    <td>the Bird</td>
+                                                    <td>@twitter</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <%include 'include/admin/footer.html'%>
+    </body>
+</html>
+<%include 'include/base_ajax.html'%>
+<script>
+    $(function() {
+    	$('#exec_import').click(function(){
+    		var html_ajax = new Base_ajax("json");
+    		html_ajax.done_func = function(data) {
+    			if(data.error_msg != ''){
+    				alert(data.error_msg);
+    			}
+    			else{
+    				$("#result_token").val(data.access_token);
+    			}
+    		};
+    		var data = $("form#frm_token").serializeArray();
+    		html_ajax.connect("POST", "friends/importuid", data);
+    	});
+    	
+    	$('#exec_run').click(function(){
+    		var html_ajax = new Base_ajax("json");
+    		html_ajax.done_func = function(data) {
+    			alert('Done');
+    		};
+    		var data = $("form#frm_token_multi").serializeArray();
+    		html_ajax.connect("POST", "friends/execfriendsrequest", data);
+    	});
+    });
+</script>
