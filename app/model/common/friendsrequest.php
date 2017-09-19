@@ -38,19 +38,16 @@ class friendsrequest_common_model extends ACWModel
 		return $this->query($sql,$sql_param);
 	}
 	
-	public function _insertMenu($param)
+	public function _insertFriend($param)
 	{
 		$sql = "
-			INSERT INTO m_menu (menu_name, menu_link, menu_type, sort_no,mobile_display, add_datetime, upd_datetime, del_flg)
-			VALUES (:menu_name, :menu_link, :menu_type, :sort_no,:menu_mobile, NOW(), NOW(), 0);
+			INSERT INTO m_friends_request (uid, name, status, upd_datetime)
+			VALUES (:uid, :name, 0, NOW());
 		";
 		
 		return $this->execute($sql,ACWArray::filter($param,array(
-													'menu_name'
-													,'menu_mobile'
-													,'menu_link'
-													,'menu_type'
-													,'sort_no'
+													'uid'
+													,'name'
 		)));
 	}
 	

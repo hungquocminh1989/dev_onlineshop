@@ -8,7 +8,7 @@ class tokenmanager_common_model extends ACWModel
 	{
 		$sql = "
 			SELECT
-				*
+				*,'' as countfriend
 			FROM
 				m_token_manager
 		";

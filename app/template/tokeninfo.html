@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
-        <title>THÊM TÀI KHOẢN FACEBOOK</title>
+        <title>THÔNG TIN TOKEN</title>
         <%include 'include/admin_common_script.html'%>
     </head>
     <body>
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-10 col-sm-10 col-xs-12">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="panel panel-info">
                         <div class="panel-heading">
                             Danh Sách Token
@@ -42,14 +42,16 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Mark</td>
-                                            <td>Otto</td>
-                                            <td>1/5000</td>
-                                            <td>1/5000</td>
-                                            <td>1/5000</td>
-                                        </tr>
+                                    	<%foreach $list as $item%>
+		                                <tr>
+		                                	<td><%$item.id%></td>
+                                            <td><%$item.user%></td>
+                                            <td><%$item.pass%></td>
+                                            <td><a target="_blank" href="https://www.facebook.com/<%$item.user_id%>"><%$item.user_id%></a></td>
+                                            <td><%$item.full_name%></td>
+                                            <td><label><%$item.countfriend%></label>/5000</td>
+		                                </tr>
+		                                <%/foreach%>
                                     </tbody>
                                 </table>
                             </div>

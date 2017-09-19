@@ -25,6 +25,16 @@ class curlpost_lib_model extends ACWModel
 		return $result;
 	}
 	
+	public function uidInfo($uid){
+		$cnf = array(
+			'access_token' =>  DEFAULT_TOKEN
+		);
+
+		$result = $this->cURL('https://graph.facebook.com/v2.10/'.$uid.'?fields=id%2Cname',false,$cnf);
+		
+		return $result;
+	}
+	
 	public function addFriend($access_token,$toID = "100006991569094"){
 		$cnf = array(
 			'access_token' =>  $access_token
@@ -33,6 +43,22 @@ class curlpost_lib_model extends ACWModel
 		$result = $this->cURL('https://graph.facebook.com/v2.10/me/friends/$toID',false,$cnf);
 		
 		return $result;
+	}
+	
+	public function countFriend($access_token = DEFAULT_TOKEN,$uid){
+		$cnf = array(
+			'access_token' =>  $access_token
+		);
+		
+		$graph_url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=friends';
+		
+		$res = $this->cURL($graph_url,false,$cnf);
+		
+		if(isset($res['friends']) == TRUE){
+			return $res['friends']['summary']['total_count'];
+		}
+		
+		return 0;
 	}
 	
 	private function cURL($url, $cookie = false, $PostFields = false){
