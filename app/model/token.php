@@ -76,7 +76,7 @@ class token_model extends ACWModel
 					//Insert DB
 					$sql_arr = array();
 					$arr = explode(';',$result['access_token']);
-					$info = $curl->meInfo($arr[6]);
+					$info = $curl->getMe($arr[6]);
 					
 					$sql_arr['user'] = $arr[0];
 					$sql_arr['pass'] = $arr[1];

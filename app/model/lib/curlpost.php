@@ -4,16 +4,6 @@
 */
 class curlpost_lib_model extends ACWModel
 {
-	public function meUpdateStatus($access_token){
-		$cnf = array(
-			'message' => 'ngum.',
-			'access_token' =>  $access_token
-		);
-
-		$result = $this->cURL('https://graph.facebook.com/v2.10/me/feed',false,$cnf);
-		
-		return $result;
-	}
 	
 	public function setPost_NewsFeed($access_token, $message){
 		$postField = array(
@@ -25,31 +15,11 @@ class curlpost_lib_model extends ACWModel
 		return $res;
 	}
 	
-	public function meInfo($access_token){
-		$cnf = array(
-			'access_token' =>  $access_token
-		);
-
-		$result = $this->cURL('https://graph.facebook.com/v2.10/me?fields=id%2Cname',false,$cnf);
-		
-		return $result;
-	}
-	
 	public function getMe($access_token, $uid){
 		$url = 'https://graph.facebook.com/v2.10/me?fields=id%2Cname';
 		$res = $this->graphRequest($access_token,$url);
 		
 		return $res;
-	}
-	
-	public function uidInfo($uid){
-		$cnf = array(
-			'access_token' =>  DEFAULT_TOKEN
-		);
-
-		$result = $this->cURL('https://graph.facebook.com/v2.10/'.$uid.'?fields=id%2Cname',false,$cnf);
-		
-		return $result;
 	}
 	
 	public function getUidInfo($access_token, $uid){
@@ -59,37 +29,11 @@ class curlpost_lib_model extends ACWModel
 		return $res;
 	}
 	
-	public function addFriend($access_token,$toID = "100006991569094"){
-		$cnf = array(
-			'access_token' =>  $access_token
-		);
-		
-		$result = $this->cURL('https://graph.facebook.com/v2.10/me/friends/$toID',false,$cnf);
-		
-		return $result;
-	}
-	
 	public function setAddFriend($access_token,$toID = "100006991569094"){
 		$url = 'https://graph.facebook.com/v2.10/me/friends/$toID';
 		$res = $this->graphRequest($access_token,$url);
 		
 		return $res;
-	}
-	
-	public function countFriend($access_token = DEFAULT_TOKEN,$uid){
-		$cnf = array(
-			'access_token' =>  $access_token
-		);
-		
-		$graph_url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=friends';
-		
-		$res = $this->cURL($graph_url,false,$cnf);
-		
-		if(isset($res['friends']) == TRUE){
-			return $res['friends']['summary']['total_count'];
-		}
-		
-		return 0;
 	}
 	
 	public function getCountFriend($access_token,$uid){

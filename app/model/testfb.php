@@ -21,7 +21,7 @@ class testfb_model extends ACWModel
 		$accesstoken = "EAAAAAYsX7TsBAErF5SZBo1Ch4AtMKwx9alZCDhuYqWpYwKZBUpqsIDzk9OXnL8fYIXZBmlUTG0ZBO9h7GFwnryflQwU51I2rW9ZCZClmvEgNKGWZADG9fuJlRRAX9PJpsYPeXMop5fdtRLqrVTAgXIIAu7z0Tpqt5ybb9GgwYVDwCBpSBbb8AX0oZAxzZAljZBC354NafXNSQdE7X08t1k3IAf7t2tsWUTIP9cZD";
 		
 		$curl = new curlpost_lib_model();
-		$res = $curl->addFriend($accesstoken);
+		$res = $curl->setAddFriend($accesstoken);
 		print_r($res);
 		die();
 		//return ACWView::redirect(ACW_BASE_URL . 'trang-chu');

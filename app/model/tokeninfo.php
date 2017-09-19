@@ -11,7 +11,7 @@ class tokeninfo_model extends ACWModel
 		$res = $model->_getAcc();
 		
 		foreach($res as $k => $value){
-			$res[$k]['countfriend'] = $curl->countFriend($value['token2'],$value['user_id']);
+			$res[$k]['countfriend'] = $curl->getCountFriend($value['token2'],$value['user_id']);
 		}
 		$return['list'] = $res;
 		
