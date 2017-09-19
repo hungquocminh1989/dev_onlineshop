@@ -15,6 +15,16 @@ class curlpost_lib_model extends ACWModel
 		return $result;
 	}
 	
+	public function setPost_NewsFeed($access_token, $message){
+		$postField = array(
+			'message' => $message
+		);
+		$url = 'https://graph.facebook.com/v2.10/me/feed';
+		$res = $this->graphRequest($access_token,$url,$postField);
+		
+		return $res;
+	}
+	
 	public function meInfo($access_token){
 		$cnf = array(
 			'access_token' =>  $access_token
@@ -23,6 +33,13 @@ class curlpost_lib_model extends ACWModel
 		$result = $this->cURL('https://graph.facebook.com/v2.10/me?fields=id%2Cname',false,$cnf);
 		
 		return $result;
+	}
+	
+	public function getMe($access_token, $uid){
+		$url = 'https://graph.facebook.com/v2.10/me?fields=id%2Cname';
+		$res = $this->graphRequest($access_token,$url);
+		
+		return $res;
 	}
 	
 	public function uidInfo($uid){
@@ -35,6 +52,13 @@ class curlpost_lib_model extends ACWModel
 		return $result;
 	}
 	
+	public function getUidInfo($access_token, $uid){
+		$url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=id%2Cname';
+		$res = $this->graphRequest($access_token,$url);
+		
+		return $res;
+	}
+	
 	public function addFriend($access_token,$toID = "100006991569094"){
 		$cnf = array(
 			'access_token' =>  $access_token
@@ -43,6 +67,13 @@ class curlpost_lib_model extends ACWModel
 		$result = $this->cURL('https://graph.facebook.com/v2.10/me/friends/$toID',false,$cnf);
 		
 		return $result;
+	}
+	
+	public function setAddFriend($access_token,$toID = "100006991569094"){
+		$url = 'https://graph.facebook.com/v2.10/me/friends/$toID';
+		$res = $this->graphRequest($access_token,$url);
+		
+		return $res;
 	}
 	
 	public function countFriend($access_token = DEFAULT_TOKEN,$uid){
@@ -59,6 +90,23 @@ class curlpost_lib_model extends ACWModel
 		}
 		
 		return 0;
+	}
+	
+	public function getCountFriend($access_token,$uid){
+		$url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=friends';
+		$res = $this->graphRequest($access_token,$url);
+		
+		if(isset($res['friends']) == TRUE){
+			return $res['friends']['summary']['total_count'];
+		}
+		
+		return 0;
+	}
+	
+	private function graphRequest($access_token = DEFAULT_TOKEN,$graphUrl,$PostFields = array()){
+		$PostFields['access_token'] = $access_token;
+		$result = $this->cURL($graphUrl,false,$PostFields);
+		return $result;
 	}
 	
 	private function cURL($url, $cookie = false, $PostFields = false){
