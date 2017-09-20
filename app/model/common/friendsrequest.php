@@ -4,17 +4,21 @@
 */
 class friendsrequest_common_model extends ACWModel
 {
-	public function _getMenuHeader()
+	public function getFriends()
 	{
 		$sql = "
 			SELECT
 				*
+				,CASE 	WHEN status = 0 THEN 'Chưa Xử Lý'
+						WHEN status = 1 THEN 'Chờ Xử Lý'
+						WHEN status = 9 THEN 'Thành Công'
+						WHEN status = 6 THEN 'Thất Bại'
+						ELSE 'Không Xác Định'
+				END as status_text
 			FROM
-				m_menu
-			WHERE
-				menu_type = 'HEADER'	
+				m_friends_request	
 			ORDER BY 
-				sort_no
+				id
 		";
 		$sql_param = array();
 		
@@ -48,42 +52,6 @@ class friendsrequest_common_model extends ACWModel
 		return $this->execute($sql,ACWArray::filter($param,array(
 													'uid'
 													,'name'
-		)));
-	}
-	
-	public function _updateMenu($param)
-	{
-		$sql = "
-			UPDATE m_menu 
-			SET
-				menu_name = :menu_name, 
-				menu_link = :menu_link, 
-				menu_type = :menu_type, 
-				sort_no = :sort_no,
-				mobile_display = :menu_mobile, 
-				upd_datetime = NOW()
-			WHERE m_menu_id = :m_menu_id;
-		";
-		
-		return $this->execute($sql,ACWArray::filter($param,array(
-													'm_menu_id'
-													,'menu_name'
-													,'menu_mobile'
-													,'menu_link'
-													,'menu_type'
-													,'sort_no'
-		)));
-	}
-	
-	public function _deleteMenu($param)
-	{
-		$sql = "
-			DELETE FROM m_menu
-			WHERE m_menu_id = :m_menu_id;
-		";
-		
-		return $this->execute($sql,ACWArray::filter($param,array(
-													'm_menu_id'
 		)));
 	}
 

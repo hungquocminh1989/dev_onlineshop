@@ -15,7 +15,7 @@ class curlpost_lib_model extends ACWModel
 		return $res;
 	}
 	
-	public function getMe($access_token, $uid){
+	public function getMe($access_token){
 		$url = 'https://graph.facebook.com/v2.10/me?fields=id%2Cname';
 		$res = $this->graphRequest($access_token,$url);
 		
@@ -53,11 +53,28 @@ class curlpost_lib_model extends ACWModel
 		return $result;
 	}
 	
-	private function cURL($url, $cookie = false, $PostFields = false){
+	public function getPHPExecutableFromPath() {
+	  $paths = explode(PATH_SEPARATOR, getenv('PATH'));
+	  foreach ($paths as $path) {
+	    // we need this for XAMPP (Windows)
+	    if (strstr($path, 'php.exe') && isset($_SERVER["WINDIR"]) && file_exists($path) && is_file($path)) {
+	        return $path;
+	    }
+	    else {
+	        $php_executable = $path . DIRECTORY_SEPARATOR . "php" . (isset($_SERVER["WINDIR"]) ? ".exe" : "");
+	        if (file_exists($php_executable) && is_file($php_executable)) {
+	           return $php_executable;
+	        }
+	    }
+	  }
+	  return FALSE; // not found
+	}
+	
+	public function cURL($url, $cookie = false, $PostFields = false){
 		$c = curl_init();
 		$opts = array(
 			CURLOPT_URL => $url,
-			CURLOPT_RETURNTRANSFER => true,
+			CURLOPT_RETURNTRANSFER => false,
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_FRESH_CONNECT => true,
 			CURLOPT_USERAGENT => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13D15 Safari Line/5.9.5',
