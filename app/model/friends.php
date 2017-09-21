@@ -44,14 +44,11 @@ class friends_model extends ACWModel
 	}
 	public static function action_execfriendsrequest()
 	{
-		$curl = new curlpost_lib_model();
-		$aa = dirname(php_ini_loaded_file()).DIRECTORY_SEPARATOR.'php.exe';
-		//$res = shell_exec(ACW_BASE_URL.'batch_add_friends.php');
-		//pclose(popen("start /B ". $aa . " ../batch_add_friends.php", "r"));
-		//$ddd = $aa.' '.ACW_ROOT_DIR.'/batch/php/batch_add_friends.php';
-		shell_exec('"'.$aa.'" "'.ACW_ROOT_DIR.'/batch_add_friends.php"') ;
+		//$curl = new curlpost_lib_model();
+		//$phpExe = dirname(php_ini_loaded_file()).DIRECTORY_SEPARATOR.'php.exe';
 		if (substr(php_uname(), 0, 7) == "Windows"){
-		     //pclose(popen('start /B "'.$aa.'" "'.ACW_ROOT_DIR.'/batch/php/batch_add_friends.php"', "r")); 
+			$cmd = str_replace('/','\\',ACW_ROOT_DIR) .  '\batch\windows\add_friends.bat' ;
+			pclose(popen("start /B ". $cmd, "r")); 
 		}
 		else {
 		     exec('yourphpscript.php 2>nul >nul');

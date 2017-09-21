@@ -1,6 +1,7 @@
 <?php
-
-define('ACW_PUBLIC_DIR', str_replace("\\", '/', __DIR__));
+$_SERVER["REMOTE_ADDR"] = "batch in process...";
+define('ACW_PUBLIC_DIR', str_replace("\\", '/', dirname(dirname(__DIR__))));//Chạy bên trong thư mục
+//define('ACW_PUBLIC_DIR', str_replace("\\", '/', __DIR__)); //Chạy ngoài root
 define('ACW_ROOT_DIR', ACW_PUBLIC_DIR);
 
 define('ACW_SYSTEM_DIR', ACW_ROOT_DIR . '/acwork');
