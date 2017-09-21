@@ -8,6 +8,13 @@ class friends_model extends ACWModel
 	{
 		$friend_model = new friendsrequest_common_model();
 		$result['list'] = $friend_model->getFriends();
+		if(file_exists(BATH_LOCK_TXT) === TRUE) {
+			$result['batch_status'] = 'locked';
+		}
+		else{
+			$result['batch_status'] = 'unlock';
+		}
+		$result['status'] = 'OK';
 		return ACWView::template('friends.html',$result);
 	}
 	
@@ -44,9 +51,18 @@ class friends_model extends ACWModel
 	}
 	public static function action_execfriendsrequest()
 	{
-		$curl = new curlpost_lib_model();
-		$curl->execute_batch(ACW_BASE_URL.'batch/php/batch_add_friends.php');
+		if(file_exists(BATH_LOCK_TXT) === FALSE) {
+			$curl = new curlpost_lib_model();
+			$curl->execute_batch(ACW_BASE_URL.'batch/php/batch_add_friends.php');
+			$result['batch_status'] = 'locked';
+		}
+		else{
+			unlink(BATH_LOCK_TXT);
+			$result['batch_status'] = 'unlock';
+		}
+		
 		$result['status'] = 'OK';
+		
 		return ACWView::json($result);
 	}
 	

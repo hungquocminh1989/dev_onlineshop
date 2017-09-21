@@ -47,7 +47,7 @@ class ACWSession
 		session_name(str_replace('.', '_', ACW_PROJECT)); // dot不可（PHP仕様）
 		// Add end   - miyazaki Argo - 2016/12/26
 		session_start();
-		$token = md5(uniqid(rand(),1));
+		$token = md5(uniqid(rand().time(),1));
 		static::$pre_token = static::get('acw_token');
 		static::set('acw_token', $token);
 	}

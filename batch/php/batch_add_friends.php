@@ -19,7 +19,6 @@ require ACW_USER_CONFIG_DIR . '/initialize.php';
 
 set_time_limit(0);
 define('LOG_SUCCESS', 'LOG_AUTO_ADD_FRIENDS');
-define('BATH_LOCK_TXT', ACW_TMP_DIR.'/auto_friend_lock.txt');
 
 class batchaddfriends_model extends ACWModel {
     

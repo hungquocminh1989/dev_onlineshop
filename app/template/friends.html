@@ -41,7 +41,11 @@
                                 </div>
                                 <div class="panel-body">
                                     <div class="form-group">
-                                        <button id="exec_run" type="button" class="btn btn-info">Gửi Yêu Cầu Hàng Loạt</button>
+                                    	<%if $batch_status == 'locked'%>
+                                        	<button id="exec_run" type="button" class="btn btn-danger">Dừng Tiến Trình</button>
+                                        <%else%>
+                                        	<button id="exec_run" type="button" class="btn btn-success">Chạy Tiến Trình</button>
+                                        <%/if%>
                                     </div>
                                     <div class="form-group">
                                         <label>Thời gian chờ:</label>
@@ -109,7 +113,16 @@
     		var html_ajax = new Base_ajax("json");
     		html_ajax.done_func = function(data) {
     			if(data.status == 'OK'){
-    				//alert
+    				if(data.batch_status == 'locked'){
+    					$('#exec_run').html('Dừng Tiến Trình');
+    					$('#exec_run').removeClass('btn-success');
+    					$('#exec_run').addClass('btn-danger');
+    				}
+    				else{
+    					$('#exec_run').html('Chạy Tiến Trình');
+    					$('#exec_run').removeClass('btn-danger');
+    					$('#exec_run').addClass('btn-success');
+    				}
     			}
     		};
     		var data = $("form#frm_token_multi").serializeArray();

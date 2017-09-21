@@ -34,6 +34,7 @@ define('HTML_PRODUCT_TRENDING_TITLE', 'Xu Hướng');
 
 define('EXCEPTION_CATCH_ERROR_MSG', 'Có lỗi bất thường xảy ra trong quá trình xử lý.');
 define('DEFAULT_TOKEN', 'EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHlRBt8aqk08bb2kpv8cSm38LfnZCNt9EO3VINVpLJBinRuCx6KC34UH2WsuVZA9ehFtERwqTw0dT1QAZAnk7ZCZAhdZBKfL1fNElCkF4HAlDiR7VjLIEeG6MNd7Mv2epO9zfFVU1WeynE3nsZARZBv9AgYvryx5tKtq6zZAEt3wYxspmIAZD');
+define('BATH_LOCK_TXT', ACW_TMP_DIR.'/auto_friend_lock.txt');
 
 
 // ------------------------------------
