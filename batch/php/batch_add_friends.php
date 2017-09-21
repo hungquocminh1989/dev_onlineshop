@@ -29,8 +29,16 @@ class batchaddfriends_model extends ACWModel {
     public static function init() {
         
     }
+    
+    public function checkStopBatch(){
+		if(file_exists(BATH_LOCK_TXT) === FALSE) {
+			ACWLog::debug_var(LOG_SUCCESS, "====STOP");
+			return TRUE;
+		}
+		return FALSE;
+	}
 
-    public static function main()
+    public function main()
     {
 		try {
 			/*if (time() >= strtotime(TIME_STOP)) {
@@ -38,18 +46,23 @@ class batchaddfriends_model extends ACWModel {
 				goto end_batch;
 			}*/
 			
-			$file_check_run = ACW_TMP_DIR.BATH_LOCK_TXT;
 			if(file_exists(BATH_LOCK_TXT) === TRUE) {
 				unlink(BATH_LOCK_TXT);
+				if($this->checkStopBatch() == TRUE){
+					goto end_batch;
+				}
 			}
-			file_put_contents(BATH_LOCK_TXT, 'start');
+			else{
+				file_put_contents(BATH_LOCK_TXT, 'start');
+				ACWLog::debug_var(LOG_SUCCESS, "====Start Batch");
+			}
+			
 			
 			do{
 				//========================================
 				
 				//========================================
-				if(file_exists(BATH_LOCK_TXT) === FALSE) {
-					ACWLog::debug_var(LOG_SUCCESS, "====STOP");
+				if($this->checkStopBatch() == TRUE){
 					goto end_batch;
 				}
 			} while(TRUE);
