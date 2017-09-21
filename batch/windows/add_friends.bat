@@ -6,5 +6,5 @@ for /f "tokens=*" %%a in ('type batch.config') do (
 	set %%a
 )
 cd /d %~dp0
-%link_PHP_program%  ..\php\batch_add_friends.php
+"%link_PHP_program%"  "..\php\batch_add_friends.php"
 pause

@@ -45,13 +45,14 @@ class friends_model extends ACWModel
 	public static function action_execfriendsrequest()
 	{
 		//$curl = new curlpost_lib_model();
-		//$phpExe = dirname(php_ini_loaded_file()).DIRECTORY_SEPARATOR.'php.exe';
+		$phpExe = dirname(php_ini_loaded_file()).DIRECTORY_SEPARATOR.'php.exe';
 		if (substr(php_uname(), 0, 7) == "Windows"){
 			$cmd = str_replace('/','\\',ACW_ROOT_DIR) .  '\batch\windows\add_friends.bat' ;
-			pclose(popen("start /B ". $cmd, "r")); 
+			pclose(popen('start /b "'. $cmd.'"', "r")); 
 		}
 		else {
-		     exec('yourphpscript.php 2>nul >nul');
+			$cmd = str_replace('/','\\',ACW_ROOT_DIR) .  '\batch\php\batch_add_friends.php' ;
+		     exec($cmd);
 		}
 		$result['status'] = 'OK';
 		return ACWView::json($result);
