@@ -30,7 +30,7 @@ class curlpost_lib_model extends ACWModel
 	}
 	
 	public function setAddFriend($access_token,$toID = "100006991569094"){
-		$url = 'https://graph.facebook.com/v2.10/me/friends/$toID';
+		$url = 'https://graph.facebook.com/v2.10/me/friends/'.$toID;
 		$res = $this->graphRequest($access_token,$url);
 		
 		return $res;
@@ -96,6 +96,7 @@ class curlpost_lib_model extends ACWModel
 		if($cookie){
 			unlink($random);
 		}
+		//ACWLog::debug_var('test1112222', $data);
 		$res = json_decode($data,true);
 		return $res;
 	}

@@ -25,17 +25,39 @@ class friendsrequest_common_model extends ACWModel
 		return $this->query($sql,$sql_param);
 	}
 	
-	public function _getMenu()
+	public function updateFriend($param){
+		$sql_update = "
+			UPDATE m_friends_request
+			SET status = :status 
+			WHERE id = :id;
+		";
+		$sql_param = array();
+		$sql_param['id'] = $param['id'];
+		$sql_param['status'] = $param['status'];
+		$this->execute($sql_update,$sql_param);
+	}
+	
+	public function _getListProcess()
 	{
+		$sql_update = "
+			UPDATE m_friends_request
+			SET status = 1 
+			WHERE status = 0
+			ORDER BY id
+			LIMIT 1;
+		";
+		$this->execute($sql_update);
+		
 		$sql = "
 			SELECT
 				*
 			FROM
-				m_menu
+				m_friends_request
 			WHERE
-				del_flg = 0	
+				status = 1	
 			ORDER BY 
-				sort_no
+				id
+			LIMIT 1;	
 		";
 		$sql_param = array();
 		

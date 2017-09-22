@@ -62,7 +62,6 @@
                                                 <tr>
                                                     <th>No.</th>
                                                     <th>UID</th>
-                                                    <th>Họ Tên</th>
                                                     <th>Trạng Thái</th>
                                                 </tr>
                                             </thead>
@@ -71,8 +70,12 @@
 				                                <tr>
 				                                	<td><%$item.id%></td>
 		                                            <td><a target="_blank" href="https://www.facebook.com/<%$item.uid%>"><%$item.uid%></a></td>
-		                                            <td><%$item.name%></td>
-		                                            <td><%$item.status_text%></td>
+		                                            
+		                                            <%if $item.status == 1%>
+			                                        	<td><div style="color: red;"><%$item.status_text%></div></td>
+			                                        <%else%>
+			                                        	<td><%$item.status_text%></td>
+			                                        <%/if%>
 				                                </tr>
 				                                <%/foreach%>
 		                                    </tbody>
@@ -101,7 +104,7 @@
     				alert(data.error_msg);
     			}
     			else{
-    				//$("#result_token").val(data.access_token);
+    				$("#result_token").val('');
     				alert('Xong');
     			}
     		};

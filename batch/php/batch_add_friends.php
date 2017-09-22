@@ -16,9 +16,13 @@ define('ACW_TEMPLATE_CACHE_DIR', ACW_TMP_DIR . '/template_cache');
 define('ACW_LOG_DIR', ACW_TMP_DIR . '/log');
 
 require ACW_USER_CONFIG_DIR . '/initialize.php';
+require_once(ACW_APP_DIR. "/model/common/friendsrequest.php");
+require_once(ACW_APP_DIR. "/model/common/tokenmanager.php");
+require_once(ACW_APP_DIR. "/model/lib/curlpost.php");
 
 set_time_limit(0);
 define('LOG_SUCCESS', 'LOG_AUTO_ADD_FRIENDS');
+define('LOG_FAIL', 'LOG_AUTO_ADD_FRIENDS_ERROR');
 
 class batchaddfriends_model extends ACWModel {
     
@@ -35,6 +39,49 @@ class batchaddfriends_model extends ACWModel {
 			return TRUE;
 		}
 		return FALSE;
+	}
+	
+	public function GetListFriends(){
+		$model_friends = new friendsrequest_common_model();
+		$tryAgain = TRUE;
+		$n = 0;
+		$listProcess = NULL;
+		do{
+			if($this->checkStopBatch() == TRUE){
+				return FALSE;
+			}
+			try{
+				$listProcess = $model_friends->_getListProcess();
+				if($listProcess != NULL && count($listProcess)>0){
+					$tryAgain = FALSE;
+				}
+			} catch (Exception $e1) {
+				$tryAgain = TRUE;
+			}
+			$n++;
+		} while($tryAgain ==TRUE && $n <= TRY_AGAIN_GET_UID);
+		
+		return $listProcess;
+	}
+	
+	public function GetListTokens(){
+		$model_token = new tokenmanager_common_model();
+		$tryAgain = TRUE;
+		$n = 0;
+		$tokens = NULL;
+		do{
+			try{
+				$tokens = $model_token->_getActiveToken();
+				if($tokens != NULL && count($tokens)>0){
+					$tryAgain = FALSE;
+				}
+			} catch (Exception $e1) {
+				$tryAgain = TRUE;
+			}
+			$n++;
+		} while($tryAgain ==TRUE && $n <= TRY_AGAIN_GET_TOKEN);
+		
+		return $tokens;
 	}
 
     public function main()
@@ -56,10 +103,65 @@ class batchaddfriends_model extends ACWModel {
 				ACWLog::debug_var(LOG_SUCCESS, "====Start Batch");
 			}
 			
-			
+			$model_friends = new friendsrequest_common_model();
+			$model_token = new tokenmanager_common_model();
+			$curl = new curlpost_lib_model();
 			do{
 				//========================================
+				//Lấy danh sách UID cần kết bạn
+				$listProcess = $this->GetListFriends();
+				if($listProcess === FALSE){
+					goto end_batch;
+				}
 				
+				if($listProcess != NULL && count($listProcess) > 0){
+					foreach($listProcess as $friends){
+						//Lấy danh sách token để gửi yêu cầu kết bạn
+						$tokens = $this->GetListTokens();
+						if($tokens != NULL && count($tokens)>0){
+							foreach($tokens as $token){
+								try{
+									//Gửi yêu cầu kết bạn
+									$res = $curl->setAddFriend($token['token2'],$friends['uid']);
+									
+									//ACWLog::debug_var('test', $token['full_name']."->".$friends['uid']);
+									
+									$friend_param['id'] = $friends['id'];
+									if($res === 1){
+										//Kết bạn thành công
+										$friend_param['status'] = 9;
+										$model_friends->updateFriend($friend_param);
+									}
+									else{
+										//Kết bạn thất bại
+										$friend_param['status'] = 6;
+										$model_friends->updateFriend($friend_param);
+									}
+								} catch (Exception $ex1) {
+									//Kết bạn thất bại
+									$friend_param['status'] = 6;
+									$model_friends->updateFriend($friend_param);
+								}
+								//Tắt token sau 1 khoảng thời gian mới sử dụng lại được
+								$model_token->_deactiveToken($token['id']);
+							}
+						}
+						else{
+							//Không có token khả dụng thì update UID về trạng thái chưa xử lý
+							$friend_param['id'] = $friends['id'];
+							$friend_param['status'] = 0;
+							$model_friends->updateFriend($friend_param);
+						}
+						//test 1 lan chay
+						/*if(file_exists(BATH_LOCK_TXT) === TRUE) {
+							unlink(BATH_LOCK_TXT);
+							if($this->checkStopBatch() == TRUE){
+								goto end_batch;
+							}
+						}*/
+						break;
+					}
+				}
 				//========================================
 				if($this->checkStopBatch() == TRUE){
 					goto end_batch;
