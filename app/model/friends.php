@@ -52,8 +52,12 @@ class friends_model extends ACWModel
 	public static function action_execfriendsrequest()
 	{
 		if(file_exists(BATH_LOCK_TXT) === FALSE) {
-			$curl = new curlpost_lib_model();
-			$curl->execute_batch(ACW_BASE_URL.'batch/php/batch_add_friends.php');
+			do{
+				$curl = new curlpost_lib_model();
+				$curl->execute_batch(ACW_BASE_URL.'batch/php/batch_add_friends.php');
+				sleep(3);
+			} while(file_exists(BATH_LOCK_TXT) === FALSE);
+			
 			$result['batch_status'] = 'locked';
 		}
 		else{
