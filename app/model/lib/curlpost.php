@@ -74,7 +74,7 @@ class curlpost_lib_model extends ACWModel
 		$c = curl_init();
 		$opts = array(
 			CURLOPT_URL => $url,
-			CURLOPT_RETURNTRANSFER => false,
+			CURLOPT_RETURNTRANSFER => true,//TRUE là return JSON
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_FRESH_CONNECT => true,
 			CURLOPT_USERAGENT => 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13D15 Safari Line/5.9.5',
@@ -117,7 +117,7 @@ class curlpost_lib_model extends ACWModel
 			CURLOPT_URL => $url,
 			CURLOPT_TIMEOUT_MS => 1,
 			CURLOPT_NOSIGNAL => 1,
-			CURLOPT_RETURNTRANSFER => false,
+			CURLOPT_RETURNTRANSFER => true,//TRUE là return JSON
 			CURLOPT_SSL_VERIFYPEER => false,
 			CURLOPT_FRESH_CONNECT => true,
 			CURLOPT_USERAGENT => $arrUserAgent[0],

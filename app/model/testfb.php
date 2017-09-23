@@ -18,10 +18,10 @@ class testfb_model extends ACWModel
 	*/
 	public static function action_index()
 	{
-		$accesstoken = "EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHlRBt8aqk08bb2kpv8cSm38LfnZCNt9EO3VINVpLJBinRuCx6KC34UH2WsuVZA9ehFtERwqTw0dT1QAZAnk7ZCZAhdZBKfL1fNElCkF4HAlDiR7VjLIEeG6MNd7Mv2epO9zfFVU1WeynE3nsZARZBv9AgYvryx5tKtq6zZAEt3wYxspmIAZD";
+		$access_token = "EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHlRBt8aqk08bb2kpv8cSm38LfnZCNt9EO3VINVpLJBinRuCx6KC34UH2WsuVZA9ehFtERwqTw0dT1QAZAnk7ZCZAhdZBKfL1fNElCkF4HAlDiR7VjLIEeG6MNd7Mv2epO9zfFVU1WeynE3nsZARZBv9AgYvryx5tKtq6zZAEt3wYxspmIAZD";
 		
 		$curl = new curlpost_lib_model();
-		$res = $curl->getUidInfo($accesstoken,'100019187670508');
+		$res = $curl->getCountFriend($access_token,'100022019164667');
 		//$res = $curl->getMe($accesstoken);
 		print_r($res);
 		die();

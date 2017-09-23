@@ -127,7 +127,7 @@ class batchaddfriends_model extends ACWModel {
 									//ACWLog::debug_var('test', $token['full_name']."->".$friends['uid']);
 									
 									$friend_param['id'] = $friends['id'];
-									if($res === 1){
+									if(isset($res['success']) == TRUE && $res['success'] == TRUE){
 										//Kết bạn thành công
 										$friend_param['status'] = 9;
 										$model_friends->updateFriend($friend_param);
