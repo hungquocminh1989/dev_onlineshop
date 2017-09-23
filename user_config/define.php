@@ -37,7 +37,7 @@ define('DEFAULT_TOKEN', 'EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHl
 define('BATH_LOCK_TXT', ACW_TMP_DIR.'/auto_friend_lock.txt');
 define('TRY_AGAIN_GET_UID', 10);
 define('TRY_AGAIN_GET_TOKEN', 10);
-define('LIMIT_TOKEN_REQUEST', 10);
+define('LIMIT_TOKEN_REQUEST', 1);//Số token để gửi đến 1 target UID
 
 
 // ------------------------------------
