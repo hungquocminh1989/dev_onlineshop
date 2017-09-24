@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Admin</title>
+        <%include 'include/admin_common_script.html'%>
+    </head>
+    <body>
+        <div id="wrapper">
+            <!-- /. header  -->
+            <%include 'include/admin/header.html'%>
+            <!-- /. NAV TOP  -->
+            <%include 'include/admin/menu.html'%>
+            <!-- /. NAV SIDE  -->
+            <div id="page-wrapper">
+                <div id="page-inner">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 class="page-head-line">Đăng Bài Hàng Loạt</h1>
+                            <h1 class="page-subhead-line">Đăng bài viết lên toàn bộ các token hiện có</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="panel panel-info">
+                                <div class="panel-heading">
+                                    THÔNG TIN ĐĂNG BÀI 
+                                </div>
+                                <div class="panel-body">
+                                    <form role="form" id="frm_post">
+                                        <div class="form-group">
+                                            <label>Chọn Tài Khoản:</label>
+                                            <select class="form-control" id="account_select" name="account_select">
+	                                            <option value="-1">Tất cả</option>
+	                                            <%foreach $list as $item%>
+				                                <option value="<%$item.id%>"><%$item.user_id%> - <%$item.full_name%></option>
+				                                <%/foreach%>
+	                                        </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Tags UID:</label>
+                                            <input class="form-control" type="text" id="list_tags" name="list_tags">
+                                            <p class="help-block">Mỗi UID cách nhau dấu phẩy (,)</p>
+                                        </div>
+                                        <div class="form-group">
+					                        <input type="file" id="image_select" name="image_select[]" multiple>
+					                    </div>
+                                        <div class="form-group">
+                                            <label>Nội Dung:</label>
+                                            <textarea class="form-control" rows="3" id="post_content" name="post_content"></textarea>
+                                        </div>
+                                        <button type="button" class="btn btn-info" id="post">Đăng Lên Tường</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- /. PAGE INNER  -->
+            </div>
+            <!-- /. PAGE WRAPPER  -->
+        </div>
+        <!-- /. WRAPPER  -->
+        <%include 'include/admin/footer.html'%>
+    </body>
+</html>
+<%include 'include/base_ajax.html'%>
+<script>
+    $(function() {
+    	$('#post').click(function(){
+    		var formData = new FormData();
+    		if( $('#image_select')[0].files.length > 0 ){
+    				for (i = 0; i < $('#image_select')[0].files.length; i++) {
+					    formData.append('image_select_'+i,$('#image_select')[0].files[i] );
+					}
+                    formData.append('account_select',$('#account_select').val() );
+                    formData.append('list_tags',$('#list_tags').val() );
+                    formData.append('post_content',$('#post_content').val() );
+                    $.ajax({
+                        type: "POST", 
+                        url: "<%$smarty.const.ACW_BASE_URL%>postfeed/post", 
+                        data: formData,
+                        dataType: 'json',
+                        cache : false, 
+                        contentType: false,
+                        processData: false,
+                        beforeSend: function(){
+                            Base_ajax.loading(true);
+                        },
+                        success: function(data) {
+                        	Base_ajax.loading(false);
+                        	alert("Xong");
+                        }  
+                    });
+                }else{
+                    //Argo_ajax.message_box_error('', 'ファイルを選択してください');
+                    alert('Loi');
+                }
+    	});
+    });
+</script>

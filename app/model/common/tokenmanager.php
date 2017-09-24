@@ -4,15 +4,25 @@
 */
 class tokenmanager_common_model extends ACWModel
 {
-	public function _getAcc()
+	public function _getAcc($id = '')
 	{
+		$where = "";
+		
+		$sql_param = array();
+		if($id != ''){
+			$sql_param['id'] = $id;
+			$where = "WHERE id = :id";
+		}
+		
 		$sql = "
 			SELECT
-				*,'' as countfriend
+				*,'' countfriend
 			FROM
 				m_token_manager
+			$where
+			ORDER BY id	
 		";
-		$sql_param = array();
+		
 		
 		return $this->query($sql,$sql_param);
 	}

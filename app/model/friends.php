@@ -62,6 +62,7 @@ class friends_model extends ACWModel
 		}
 		else{
 			unlink(BATH_LOCK_TXT);
+			sleep(5);
 			$result['batch_status'] = 'unlock';
 		}
 		

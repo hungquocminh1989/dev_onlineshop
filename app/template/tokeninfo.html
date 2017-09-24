@@ -44,7 +44,7 @@
                                     <tbody>
                                     	<%foreach $list as $item%>
 		                                <tr>
-		                                	<td><%$item.id%></td>
+		                                	<td><%$item@iteration%></td>
                                             <td><%$item.user%></td>
                                             <td><%$item.pass%></td>
                                             <td><a target="_blank" href="https://www.facebook.com/<%$item.user_id%>"><%$item.user_id%></a></td>

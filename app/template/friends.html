@@ -68,7 +68,7 @@
                                             <tbody>
 		                                    	<%foreach $list as $item%>
 				                                <tr>
-				                                	<td><%$item.id%></td>
+				                                	<td><%$item@iteration%></td>
 		                                            <td><a target="_blank" href="https://www.facebook.com/<%$item.uid%>"><%$item.uid%></a></td>
 		                                            
 		                                            <%if $item.status == 1%>

@@ -5,10 +5,54 @@
 class curlpost_lib_model extends ACWModel
 {
 	
-	public function setPost_NewsFeed($access_token, $message){
+	/**Get UID 
+	* curl -i -X GET \
+ "https://graph.facebook.com/v2.10/100006991569094?fields=friends.limit(5000)&access_token=EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHlRBt8aqk08bb2kpv8cSm38LfnZCNt9EO3VINVpLJBinRuCx6KC34UH2WsuVZA9ehFtERwqTw0dT1QAZAnk7ZCZAhdZBKfL1fNElCkF4HAlDiR7VjLIEeG6MNd7Mv2epO9zfFVU1WeynE3nsZARZBv9AgYvryx5tKtq6zZAEt3wYxspmIAZD"
+	*/
+	
+	
+	public function setPost($access_token, $content = '',$link = '', $tags_id = '', $upload_image = array()){
+		//me/photos
+		//url
+		//published = false
+		/**{
+		  "id": "126749868068985"
+		}
+		*/
+		//Upload photo unPublished
 		$postField = array(
-			'message' => $message
+			'message' => $content,
+			'link' => $link,
+			'tags' => $tags_id
+			
 		);
+		
+		if(count($upload_image) > 0){
+			foreach($upload_image as $key => $value){
+				$post1 = array(
+					'url' => $value,
+					'published' => FALSE
+					
+				);
+				$url = 'https://graph.facebook.com/v2.10/me/photos';
+				$res = $this->graphRequest($access_token,$url,$post1);
+				if($res != NULL && isset($res['id'])== TRUE){
+					$postField['attached_media['.$key.']'] = '{"media_fbid":"'.$res['id'].'"}';
+				}
+			}
+				
+		}
+		
+		//attached_media = {"media_fbid":"126749868068985"}
+		//message
+		//tags
+		/**{
+			  "id": "100022019164667_126750331402272",
+			  "post_supports_client_mutation_id": true
+			}
+		*/
+		
+		
 		$url = 'https://graph.facebook.com/v2.10/me/feed';
 		$res = $this->graphRequest($access_token,$url,$postField);
 		
@@ -44,7 +88,7 @@ class curlpost_lib_model extends ACWModel
 			return $res['friends']['summary']['total_count'];
 		}
 		
-		return 0;
+		return '[Error]';
 	}
 	
 	private function graphRequest($access_token = DEFAULT_TOKEN,$graphUrl,$PostFields = array()){
