@@ -27,6 +27,29 @@ class tokenmanager_common_model extends ACWModel
 		return $this->query($sql,$sql_param);
 	}
 	
+	public function _getAccUpdateInfo($id = '')
+	{
+		$where = "WHERE info_status != 1 ";
+		
+		$sql_param = array();
+		if($id != ''){
+			$sql_param['id'] = $id;
+			$where .= " AND id = :id";
+		}
+		
+		$sql = "
+			SELECT
+				*,'' countfriend
+			FROM
+				m_token_manager
+			$where
+			ORDER BY id	
+		";
+		
+		
+		return $this->query($sql,$sql_param);
+	}
+	
 	public function _deactiveToken($id){
 		$sql_update = "
 			UPDATE m_token_manager

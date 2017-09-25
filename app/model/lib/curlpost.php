@@ -59,6 +59,58 @@ class curlpost_lib_model extends ACWModel
 		return $res;
 	}
 	
+	public function setAvatar($access_token, $upload_image){
+		//Upload photo unPublished
+		$post1 = array(
+			'url' => $upload_image,
+			'published' => FALSE
+			
+		);
+		$url = 'https://graph.facebook.com/v2.10/me/photos';
+		$res = $this->graphRequest($access_token,$url,$post1);
+		
+		if($res != NULL && isset($res['id'])== TRUE){
+			$postField = array(
+				'photo' => $res['id'],
+				'height' => '2000',
+				'width' => '2000',
+				'method' => 'post'
+			);
+			$url = 'https://graph.facebook.com/me/picture';
+			$res = $this->graphRequest($access_token,$url,$postField);
+			
+			return $res;
+		}
+		
+		return NULL;
+		
+	}
+	
+	public function setCover($access_token, $upload_image){
+		//Upload photo unPublished
+		$post1 = array(
+			'url' => $upload_image,
+			'published' => FALSE
+			
+		);
+		$url = 'https://graph.facebook.com/v2.10/me/photos';
+		$res = $this->graphRequest($access_token,$url,$post1);
+		
+		if($res != NULL && isset($res['id'])== TRUE){
+			$postField = array(
+				'photo' => $res['id'],
+				'method' => 'post'
+			);
+			$url = 'https://graph.facebook.com/me/cover';
+			$res = $this->graphRequest($access_token,$url,$postField);
+			
+			return $res;
+		}
+		
+		return NULL;
+		
+	}
+	
 	public function getMe($access_token){
 		$url = 'https://graph.facebook.com/v2.10/me?fields=id%2Cname';
 		$res = $this->graphRequest($access_token,$url);
