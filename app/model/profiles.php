@@ -93,17 +93,19 @@ class profiles_model extends ACWModel
 						$res = $curl->setAvatar($value['token2'],$arrLinkImages[$k]);
 					}
 					else{
-						$res = $curl->setAvatar($value['token2'],$arrLinkImages[$k]);
+						$res = $curl->setCover($value['token2'],$arrLinkImages[$k]);
 					}
 				}
 				else{
 					if($avatar == TRUE){
-						$res = $curl->setCover($value['token2'],$arrLinkImages[count($arrLinkImages)-1]);
+						$res = $curl->setAvatar($value['token2'],$arrLinkImages[count($arrLinkImages)-1]);
+						
 					}
 					else{
 						$res = $curl->setCover($value['token2'],$arrLinkImages[count($arrLinkImages)-1]);
 					}
 				}
+				
 			}
 		}
 		
