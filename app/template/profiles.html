@@ -66,6 +66,7 @@
 					                        <input type="file" id="image_select_cover" name="image_select_cover[]" multiple>
 					                    </div>
                                         <button type="button" class="btn btn-info" id="update_cover">CẬP NHẬT</button>
+                                        <button type="button" class="btn btn-info" id="abc">abc</button>
                                     </form>
                                 </div>
                             </div>
@@ -138,6 +139,9 @@
                     //Argo_ajax.message_box_error('', 'ファイルを選択してください');
                     alert('Loi');
                 }
+    	});
+    	$('#abc').click(function(){
+    		Base_ajax.ok_cancel_box();
     	});
     });
 </script>
