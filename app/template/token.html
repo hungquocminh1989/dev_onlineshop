@@ -81,26 +81,33 @@
 <script>
     $(function() {
     	$('#get_token').click(function(){
-    		var html_ajax = new Base_ajax("json");
-    		html_ajax.done_func = function(data) {
-    			if(data.error_msg != ''){
-    				alert(data.error_msg);
+    		Base_ajax.ok_cancel_box('Thực hiện xử lý này ?',function(){
+    				var html_ajax = new Base_ajax("json");
+		    		html_ajax.done_func = function(data) {
+		    			if(data.error_msg != ''){
+		    				Base_ajax.message_box_error(data.error_msg);
+		    			}
+		    			else{
+		    				$("#result_token").val(data.access_token);
+		    				Base_ajax.message_box('Lấy mã token thành công!');
+		    			}
+		    		};
+		    		var data = $("form#frm_token").serializeArray();
+		    		html_ajax.connect("POST", "token/gettoken", data);
     			}
-    			else{
-    				$("#result_token").val(data.access_token);
-    			}
-    		};
-    		var data = $("form#frm_token").serializeArray();
-    		html_ajax.connect("POST", "token/gettoken", data);
+    		);
     	});
     	
     	$('#get_token_multi').click(function(){
-    		var html_ajax = new Base_ajax("json");
-    		html_ajax.done_func = function(data) {
-    			alert('Done');
-    		};
-    		var data = $("form#frm_token_multi").serializeArray();
-    		html_ajax.connect("POST", "token/gettokenmulti", data);
+    		Base_ajax.ok_cancel_box('Thực hiện xử lý này ?',function(){
+	    			var html_ajax = new Base_ajax("json");
+		    		html_ajax.done_func = function(data) {
+		    			Base_ajax.message_box('Xử lý hoàn thành!');
+		    		};
+		    		var data = $("form#frm_token_multi").serializeArray();
+		    		html_ajax.connect("POST", "token/gettokenmulti", data);
+    			}
+    		);
     	});
     });
 </script>

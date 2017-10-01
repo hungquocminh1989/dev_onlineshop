@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Abc</title>
+        <%include 'include/admin_common_script.html'%>
+    </head>
+    <body>
+        <div>
+            <a id="link123">link</a>
+        </div>
+    </body>
+</html>
+<%include 'include/base_ajax.html'%>
+<script>
+    $(function() {
+    	$('#link123').click(function(){
+    		Base_ajax.ok_cancel_box('ban co chan chan c',function(){
+	    			Base_ajax.message_box('oyeeee');
+    			}
+    			,function(){
+	    			Base_ajax.message_box_error('error');
+	    		}
+    		);
+    	});
+    });
+</script>
