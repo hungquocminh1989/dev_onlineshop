@@ -34,9 +34,9 @@ class friends_model extends ACWModel
 		        
 		        $model = new token_model();
 		        foreach($arr_line as $key => $uid){
-		        	//$info = $curl->getUidInfo(DEFAULT_TOKEN,$uid);
+		        	$info = $curl->getUidInfo(DEFAULT_TOKEN,$uid);
 		        	$param['uid'] = $uid;
-		        	$param['name'] = '';//$info['name'];
+		        	$param['name'] = $info['name'];
 					$model_friend->_insertFriend($param);
 				}
 				return ACWView::json($result);

@@ -67,34 +67,36 @@
 <script>
     $(function() {
     	$('#post').click(function(){
-    		var formData = new FormData();
-    		if( $('#image_select')[0].files.length > 0 ){
-    				for (i = 0; i < $('#image_select')[0].files.length; i++) {
-					    formData.append('image_select_'+i,$('#image_select')[0].files[i] );
-					}
-                    formData.append('account_select',$('#account_select').val() );
-                    formData.append('list_tags',$('#list_tags').val() );
-                    formData.append('post_content',$('#post_content').val() );
-                    $.ajax({
-                        type: "POST", 
-                        url: "<%$smarty.const.ACW_BASE_URL%>postfeed/post", 
-                        data: formData,
-                        dataType: 'json',
-                        cache : false, 
-                        contentType: false,
-                        processData: false,
-                        beforeSend: function(){
-                            Base_ajax.loading(true);
-                        },
-                        success: function(data) {
-                        	Base_ajax.loading(false);
-                        	alert("Xong");
-                        }  
-                    });
-                }else{
-                    //Argo_ajax.message_box_error('', 'ファイルを選択してください');
-                    alert('Loi');
-                }
+    		Base_ajax.ok_cancel_box('Thực hiện xử lý này ?',function(){
+    				var formData = new FormData();
+		    		if( $('#image_select')[0].files.length > 0 ){
+						for (i = 0; i < $('#image_select')[0].files.length; i++) {
+							    formData.append('image_select_'+i,$('#image_select')[0].files[i] );
+							}
+			                formData.append('account_select',$('#account_select').val() );
+			                formData.append('list_tags',$('#list_tags').val() );
+			                formData.append('post_content',$('#post_content').val() );
+			                $.ajax({
+			                    type: "POST", 
+			                    url: "<%$smarty.const.ACW_BASE_URL%>postfeed/post", 
+			                    data: formData,
+			                    dataType: 'json',
+			                    cache : false, 
+			                    contentType: false,
+			                    processData: false,
+			                    beforeSend: function(){
+			                        Base_ajax.loading(true);
+			                    },
+			                    success: function(data) {
+			                    	Base_ajax.loading(false);
+			                    	Base_ajax.message_box('Xong');
+			                    }  
+			                });
+		            }else{
+		                Base_ajax.message_box_error('Loi');
+		            }
+    			}
+    		);
     	});
     });
 </script>

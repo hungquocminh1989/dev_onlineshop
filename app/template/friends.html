@@ -98,38 +98,44 @@
 <script>
     $(function() {
     	$('#exec_import').click(function(){
-    		var html_ajax = new Base_ajax("json");
-    		html_ajax.done_func = function(data) {
-    			if(data.error_msg != ''){
-    				alert(data.error_msg);
+    		Base_ajax.ok_cancel_box('Thực hiện xử lý này ?',function(){
+    				var html_ajax = new Base_ajax("json");
+		    		html_ajax.done_func = function(data) {
+		    			if(data.error_msg != ''){
+		    				Base_ajax.message_box_error(data.error_msg);
+		    			}
+		    			else{
+		    				$("#result_token").val('');
+		    				Base_ajax.message_box('Xong!');
+		    			}
+		    		};
+		    		var data = $("form#frm_importuid").serializeArray();
+		    		html_ajax.connect("POST", "friends/importuid", data);
     			}
-    			else{
-    				$("#result_token").val('');
-    				alert('Xong');
-    			}
-    		};
-    		var data = $("form#frm_importuid").serializeArray();
-    		html_ajax.connect("POST", "friends/importuid", data);
+    		);
     	});
     	
     	$('#exec_run').click(function(){
-    		var html_ajax = new Base_ajax("json");
-    		html_ajax.done_func = function(data) {
-    			if(data.status == 'OK'){
-    				if(data.batch_status == 'locked'){
-    					$('#exec_run').html('Dừng Tiến Trình');
-    					$('#exec_run').removeClass('btn-success');
-    					$('#exec_run').addClass('btn-danger');
-    				}
-    				else{
-    					$('#exec_run').html('Chạy Tiến Trình');
-    					$('#exec_run').removeClass('btn-danger');
-    					$('#exec_run').addClass('btn-success');
-    				}
+    		Base_ajax.ok_cancel_box('Thực hiện xử lý này ?',function(){
+    				var html_ajax = new Base_ajax("json");
+		    		html_ajax.done_func = function(data) {
+		    			if(data.status == 'OK'){
+		    				if(data.batch_status == 'locked'){
+		    					$('#exec_run').html('Dừng Tiến Trình');
+		    					$('#exec_run').removeClass('btn-success');
+		    					$('#exec_run').addClass('btn-danger');
+		    				}
+		    				else{
+		    					$('#exec_run').html('Chạy Tiến Trình');
+		    					$('#exec_run').removeClass('btn-danger');
+		    					$('#exec_run').addClass('btn-success');
+		    				}
+		    			}
+		    		};
+		    		var data = $("form#frm_token_multi").serializeArray();
+		    		html_ajax.connect("POST", "friends/execfriendsrequest", data);
     			}
-    		};
-    		var data = $("form#frm_token_multi").serializeArray();
-    		html_ajax.connect("POST", "friends/execfriendsrequest", data);
+    		);
     	});
     });
 </script>

@@ -85,6 +85,7 @@
     				var html_ajax = new Base_ajax("json");
 		    		html_ajax.done_func = function(data) {
 		    			if(data.error_msg != ''){
+		    				$("#result_token").val('');
 		    				Base_ajax.message_box_error(data.error_msg);
 		    			}
 		    			else{

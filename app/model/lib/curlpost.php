@@ -35,7 +35,7 @@ class curlpost_lib_model extends ACWModel
 					
 				);
 				$url = 'https://graph.facebook.com/v2.10/me/photos';
-				$res = $this->graphRequest($access_token,$url,$post1);
+				$res = $this->graphRequest_POST($access_token,$url,$post1);
 				if($res != NULL && isset($res['id'])== TRUE){
 					$postField['attached_media['.$key.']'] = '{"media_fbid":"'.$res['id'].'"}';
 				}
@@ -54,7 +54,7 @@ class curlpost_lib_model extends ACWModel
 		
 		
 		$url = 'https://graph.facebook.com/v2.10/me/feed';
-		$res = $this->graphRequest($access_token,$url,$postField);
+		$res = $this->graphRequest_POST($access_token,$url,$postField);
 		
 		return $res;
 	}
@@ -67,7 +67,7 @@ class curlpost_lib_model extends ACWModel
 			
 		);
 		$url = 'https://graph.facebook.com/v2.10/me/photos';
-		$res = $this->graphRequest($access_token,$url,$post1);
+		$res = $this->graphRequest_POST($access_token,$url,$post1);
 		
 		if($res != NULL && isset($res['id'])== TRUE){
 			$postField = array(
@@ -77,7 +77,7 @@ class curlpost_lib_model extends ACWModel
 				'method' => 'post'
 			);
 			$url = 'https://graph.facebook.com/me/picture';
-			$res = $this->graphRequest($access_token,$url,$postField);
+			$res = $this->graphRequest_POST($access_token,$url,$postField);
 			
 			return $res;
 		}
@@ -94,7 +94,7 @@ class curlpost_lib_model extends ACWModel
 			
 		);
 		$url = 'https://graph.facebook.com/v2.10/me/photos';
-		$res = $this->graphRequest($access_token,$url,$post1);
+		$res = $this->graphRequest_POST($access_token,$url,$post1);
 		
 		if($res != NULL && isset($res['id'])== TRUE){
 			$postField = array(
@@ -102,7 +102,7 @@ class curlpost_lib_model extends ACWModel
 				'method' => 'post'
 			);
 			$url = 'https://graph.facebook.com/me/cover';
-			$res = $this->graphRequest($access_token,$url,$postField);
+			$res = $this->graphRequest_POST($access_token,$url,$postField);
 			
 			return $res;
 		}
@@ -113,28 +113,28 @@ class curlpost_lib_model extends ACWModel
 	
 	public function getMe($access_token){
 		$url = 'https://graph.facebook.com/v2.10/me?fields=id%2Cname';
-		$res = $this->graphRequest($access_token,$url);
+		$res = $this->graphRequest_POST($access_token,$url);
 		
 		return $res;
 	}
 	
 	public function getUidInfo($access_token, $uid){
-		$url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=id%2Cname';
-		$res = $this->graphRequest($access_token,$url);
+		$url = 'https://graph.facebook.com/'.$uid.'?fields=id%2Cname&access_token='.$access_token;
+		$res = $this->graphRequest_GET($url);
 		
 		return $res;
 	}
 	
 	public function setAddFriend($access_token,$toID = "100006991569094"){
 		$url = 'https://graph.facebook.com/v2.10/me/friends/'.$toID;
-		$res = $this->graphRequest($access_token,$url);
+		$res = $this->graphRequest_POST($access_token,$url);
 		
 		return $res;
 	}
 	
 	public function getCountFriend($access_token,$uid){
 		$url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=friends';
-		$res = $this->graphRequest($access_token,$url);
+		$res = $this->graphRequest_POST($access_token,$url);
 		
 		if(isset($res['friends']) == TRUE){
 			return $res['friends']['summary']['total_count'];
@@ -143,9 +143,14 @@ class curlpost_lib_model extends ACWModel
 		return '[Error]';
 	}
 	
-	private function graphRequest($access_token = DEFAULT_TOKEN,$graphUrl,$PostFields = array()){
+	private function graphRequest_POST($access_token = DEFAULT_TOKEN,$graphUrl,$PostFields = array()){
 		$PostFields['access_token'] = $access_token;
 		$result = $this->cURL($graphUrl,false,$PostFields);
+		return $result;
+	}
+	
+	private function graphRequest_GET($graphUrl){
+		$result = $this->cURL($graphUrl,false,null);
 		return $result;
 	}
 	
