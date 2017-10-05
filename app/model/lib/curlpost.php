@@ -9,16 +9,43 @@ class curlpost_lib_model extends ACWModel
 	* curl -i -X GET \
  "https://graph.facebook.com/v2.10/100006991569094?fields=friends.limit(5000)&access_token=EAAAAAYsX7TsBALE8863zMCui5FRqz8oZCVOvi9ZAsxXo50KVQ5jUHlRBt8aqk08bb2kpv8cSm38LfnZCNt9EO3VINVpLJBinRuCx6KC34UH2WsuVZA9ehFtERwqTw0dT1QAZAnk7ZCZAhdZBKfL1fNElCkF4HAlDiR7VjLIEeG6MNd7Mv2epO9zfFVU1WeynE3nsZARZBv9AgYvryx5tKtq6zZAEt3wYxspmIAZD"
 	*/
+	public function getNewsFeedData($access_token){
+		$url = "https://graph.facebook.com/me/home?access_token=".$access_token;
+		$res = $this->graphRequest_GET($url);
+		
+		return $res;
+	}
 	
+	public function getUserProfile($access_token){
+		$url = "https://graph.facebook.com/me/feed?access_token=".$access_token;
+		$res = $this->graphRequest_GET($url);
+		
+		return $res;
+	}
+	
+	public function getListFriendsRequest($access_token){
+		$url = "https://graph.facebook.com/me/friendrequests?access_token=".$access_token;
+		$res = $this->graphRequest_GET($url);
+		return $res;
+	}
+	
+	public function setAllowFriendRequest($access_token, $uid){
+		$url = "https://graph.facebook.com/me/friends/".$uid."?method=post&access_token=".$access_token;
+		$res = $this->graphRequest_GET($url);
+		/**
+		* Param return
+		* [true/false]
+		*/
+		if($res === TRUE){
+			return TRUE;
+		}
+		else{
+			return FALSE;
+		}
+	}
 	
 	public function setPost($access_token, $content = '',$link = '', $tags_id = '', $upload_image = array()){
-		//me/photos
-		//url
-		//published = false
-		/**{
-		  "id": "126749868068985"
-		}
-		*/
+		
 		//Upload photo unPublished
 		$postField = array(
 			'message' => $content,
@@ -34,8 +61,18 @@ class curlpost_lib_model extends ACWModel
 					'published' => FALSE
 					
 				);
+				/**
+				* Param input :
+				* [url] 
+				* [published] = false
+				*/
 				$url = 'https://graph.facebook.com/v2.10/me/photos';
 				$res = $this->graphRequest_POST($access_token,$url,$post1);
+				
+				/**
+				* Param return
+				* [id] : "126749868068985" 
+				*/
 				if($res != NULL && isset($res['id'])== TRUE){
 					$postField['attached_media['.$key.']'] = '{"media_fbid":"'.$res['id'].'"}';
 				}
@@ -43,20 +80,26 @@ class curlpost_lib_model extends ACWModel
 				
 		}
 		
-		//attached_media = {"media_fbid":"126749868068985"}
-		//message
-		//tags
-		/**{
-			  "id": "100022019164667_126750331402272",
-			  "post_supports_client_mutation_id": true
-			}
+		/**
+		* Param input:
+		* [attached_media] = {"media_fbid":"126749868068985"}
+		* [message]
+		* [tags]
 		*/
-		
-		
 		$url = 'https://graph.facebook.com/v2.10/me/feed';
 		$res = $this->graphRequest_POST($access_token,$url,$postField);
 		
-		return $res;
+		/**
+		* Param return
+		* [id]: "100022019164667_126750331402272", 
+		* [post_supports_client_mutation_id]: true
+		*/
+		if($res != NULL && count($res) > 0){
+			if($res['id'] != '' && $res['post_supports_client_mutation_id'] === TRUE){
+				return TRUE;
+			}
+		}
+		return FALSE;
 	}
 	
 	public function setAvatar($access_token, $upload_image){
@@ -66,9 +109,19 @@ class curlpost_lib_model extends ACWModel
 			'published' => FALSE
 			
 		);
+		
+		/**
+		* Param input :
+		* [url] 
+		* [published] = false
+		*/
 		$url = 'https://graph.facebook.com/v2.10/me/photos';
 		$res = $this->graphRequest_POST($access_token,$url,$post1);
 		
+		/**
+		* Param return
+		* [id]: "126749868068985" 
+		*/
 		if($res != NULL && isset($res['id'])== TRUE){
 			$postField = array(
 				'photo' => $res['id'],
@@ -93,9 +146,19 @@ class curlpost_lib_model extends ACWModel
 			'published' => FALSE
 			
 		);
+		
+		/**
+		* Param input :
+		* [url] 
+		* [published] = false
+		*/
 		$url = 'https://graph.facebook.com/v2.10/me/photos';
 		$res = $this->graphRequest_POST($access_token,$url,$post1);
 		
+		/**
+		* Param return
+		* [id]: "126749868068985" 
+		*/
 		if($res != NULL && isset($res['id'])== TRUE){
 			$postField = array(
 				'photo' => $res['id'],
@@ -133,10 +196,20 @@ class curlpost_lib_model extends ACWModel
 	}
 	
 	public function getCountFriend($access_token,$uid){
+		
+		/**
+		* Param input
+		* uid 
+		*/
 		$url = 'https://graph.facebook.com/v2.10/'.$uid.'?fields=friends';
 		$res = $this->graphRequest_POST($access_token,$url);
 		
-		if(isset($res['friends']) == TRUE){
+		/**
+		* Param return
+		* Array  [friends]
+		* [id]
+		*/
+		if(isset($res['friends']) == TRUE && count($res['friends']) > 0){
 			return $res['friends']['summary']['total_count'];
 		}
 		

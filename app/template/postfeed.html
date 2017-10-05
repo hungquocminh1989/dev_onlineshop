@@ -30,6 +30,7 @@
                                         <div class="form-group">
                                             <label>Chọn Tài Khoản:</label>
                                             <select class="form-control" id="account_select" name="account_select">
+                                            	<option value="-1"></option>
 	                                            <option value="">Tất cả</option>
 	                                            <%foreach $list as $item%>
 				                                <option value="<%$item.id%>"><%$item.user_id%> - <%$item.full_name%></option>
